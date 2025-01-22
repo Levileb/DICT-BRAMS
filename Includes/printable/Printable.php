@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="printable.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="printable.css"> <!-- External CSS -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="printable.js"></script> <!-- Link to external JS file -->
+    <script src="printable.js"></script> <!-- External JS -->
+    <title>Barangay Document</title>
 </head>
 <body>
 
@@ -24,18 +25,20 @@
         return 'th';
     }
 
+    // Current date for issuance
     $day = date('j');
     $suffix = getOrdinalSuffix($day);
     $month = date('F');
     $year = date('Y');
     $dateOfIssuance = "{$day}{$suffix} of {$month} {$year}";
 
-    // Retrieve the official receipt number, purpose, resident_id, and document type from the GET request
-    $or_number = isset($_GET['or_number']) ? htmlspecialchars($_GET['or_number']) : '________________________';
-    $purpose = isset($_GET['purpose']) ? htmlspecialchars($_GET['purpose']) : '________________________';
-    $resident_id = isset($_GET['resident_id']) ? htmlspecialchars($_GET['resident_id']) : '1';
-    $document_type = isset($_GET['type']) ? htmlspecialchars($_GET['type']) : 'clearance'; // Default to clearance if no type is provided
+    // Retrieve GET parameters
+    $or_number = $_GET['or_number'] ?? '________________________';
+    $purpose = $_GET['purpose'] ?? '________________________';
+    $resident_id = $_GET['resident_id'] ?? '1';
+    $document_type = $_GET['type'] ?? 'clearance'; // Default document type
 
+    // Placeholder fields (to be replaced by JS with Firebase data)
     $name = "________________________";
     $age = "____";
     $civilStatus = "________________";
@@ -44,26 +47,24 @@
     $birthPlace = "________________";
     ?>
 
-    <!-- Hidden inputs to pass data to JavaScript -->
+    <!-- Hidden inputs for JS -->
     <input type="hidden" id="residentId" value="<?php echo $resident_id; ?>">
     <input type="hidden" id="documentType" value="<?php echo $document_type; ?>">
+    <input type="hidden" id="purpose" value="<?php echo $purpose; ?>">
+    <input type="hidden" id="orNumber" value="<?php echo $or_number; ?>">
 
     <div class="logo">
-        <img class="left-logo" src="barangay8logo.png" alt="Left Logo">
+        <img class="left-logo" src="barangay8logo.png" alt="Barangay Logo">
         <div class="logo-text">
             <h5>Republic of the Philippines</h5>
             <h4><strong>OFFICE OF THE SANGGUNIANG BARANGAY</strong></h4>
-            <h5>South Capitol Road, Ayala Malls Capitol Central</h5>
             <h5>Barangay 8, Bacolod City</h5>
-            <h5>Cell No. 0919-560-5949/0995-073-6808</h5>
-            <br>
         </div>
     </div>
 
     <div class="clearfix centered-logo-wrapper">
         <!-- Officers Content -->
         <div class="officers content">
-            <br><br>
             <strong>HON. EVELYN F. DONESA</strong><br>
             Punong Barangay<br><br><br>
             
@@ -108,91 +109,104 @@
             Barangay Treasurer<br><br>
         </div>
 
-        <!-- Dynamic Summary Section -->
+        <!-- Document Section -->
         <div class="summary content">
-            <br><br><br>
-            <?php
-            if ($document_type == 'clearance') {
-                echo "
-                <h2 class='barangay-title'><strong>BARANGAY CLEARANCE</strong></h2><br><br><br>
-                <p>
-                    TO WHOM IT MAY CONCERN:<br><br><br>
-                    This is to CERTIFY that <strong id='residentName'>{$name}</strong>, 
-                    <strong id='age'>{$age}</strong> years old, 
-                    <strong id='civilStatus'>{$civilStatus}</strong>, 
-                    <strong id='gender'>{$gender}</strong>, born on 
-                    <strong id='birthDate'>{$birthDate}</strong> at <strong id='birthPlace'>{$birthPlace}</strong>, 
-                    is a bonafide resident of Barangay 8, Bacolod City.<br><br>
-                    This certification is issued upon the request of the above-named person for 
-                    <strong>{$purpose}</strong> and for whatever lawful purpose/s it may serve best.<br><br>
-                    Issued this <strong>{$dateOfIssuance}</strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br><br>
-                    <strong>HON. EVELYN F. DONESA</strong><br>
-                    Punong Barangay<br><br><br><br><br>
-                </p>";
-            } elseif ($document_type == 'residency') {
-                echo "
-                <h2 class='barangay-title'><strong>CERTIFICATE OF RESIDENCY</strong></h2><br><br><br>
-                <p>
-                    TO WHOM IT MAY CONCERN:<br><br><br>
-                    This is to CERTIFY that <strong id='residentName'>{$name}</strong>, 
-                    <strong id='age'>{$age}</strong> years old, 
-                    <strong id='civilStatus'>{$civilStatus}</strong>, 
-                    <strong id='gender'>{$gender}</strong>, born on 
-                    <strong id='birthDate'>{$birthDate}</strong>, 
-                    is a resident of Barangay 8, Bacolod City whose means of livelihood is barely<br><br>
-                    This certification is issued upon the request of the above-named person for 
-                    <strong>{$purpose}</strong> and for whatever lawful purpose/s it may serve best.<br><br>
-                    Issued this <strong>{$dateOfIssuance}</strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br><br>
-                    <strong>HON. EVELYN F. DONESA</strong><br>
-                    Punong Barangay<br><br><br><br><br>
-                </p>";
-            } elseif ($document_type == 'indigency') {
-                echo "
-                <h2 class='barangay-title'><strong>CERTIFICATE OF INDIGENCY</strong></h2><br><br><br>
-                <p>
-                    TO WHOM IT MAY CONCERN:<br><br><br>
-                    This is to CERTIFY that <strong id='residentName'>{$name}</strong>, is a 
-                    resident of Barangay 8, Bacolod City whose means of livelihood is barely 
-                    enough to support the daily needs of their family and is therefore considered indigent.<br><br>
-                    This certification is issued upon the request of the above-named person for 
-                    <strong>{$purpose}</strong> and for whatever lawful purpose/s it may serve best.<br><br>
-                    Issued this <strong>{$dateOfIssuance}</strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br><br>
-                    <strong>HON. EVELYN F. DONESA</strong><br>
-                    Punong Barangay<br><br><br><br><br>
-                </p>";
-            } elseif ($document_type == 'certification') {
-                echo "
-                <h2 class='barangay-title'><strong>CERTIFICATION</strong></h2><br><br><br>
-                <p>
-                    TO WHOM IT MAY CONCERN:<br><br><br>
-                    This is to CERTIFY that <strong id='residentName'>{$name}</strong>, 
-                    <strong id='age'>{$age}</strong> years old, 
-                    <strong id='civilStatus'>{$civilStatus}</strong>, 
-                    <strong id='gender'>{$gender}</strong>, born on 
-                    <strong id='birthDate'>{$birthDate}</strong>,  
-                    is a resident of Barangay 8, Bacolod City whose means of livelihood is barely 
-                    enough to support the daily needs of their family and is therefore considered indigent.<br><br>
-                    This certification is issued upon the request of the above-named person for 
-                    <strong>{$purpose}</strong> and for whatever lawful purpose/s it may serve best.<br><br>
-                    Issued this <strong>{$dateOfIssuance}</strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br><br>
-                    <strong>HON. EVELYN F. DONESA</strong><br>
-                    Punong Barangay<br><br><br><br><br>
-                </p>";
-            }
-            ?>
+            <h2 id="documentTitle" class="barangay-title"></h2>
+            <p>
+                TO WHOM IT MAY CONCERN:<br><br>
+                This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
+                <strong id="age"><?php echo $age; ?></strong> years old, 
+                <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
+                <strong id="gender"><?php echo $gender; ?></strong>, born on 
+                <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
+                is a bonafide resident of Barangay 8, Bacolod City.<br><br>
+                This certification is issued upon the request of the above-named person for 
+                <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
+                Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+                <strong>HON. EVELYN F. DONESA</strong><br>
+                Punong Barangay
+            </p>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div>
-            <span>Official Receipt No.: <strong><?php echo $or_number; ?></strong></span>
-        </div>
+        <span>Official Receipt No.: <strong id="orField"><?php echo $or_number; ?></strong></span>
     </footer>
 
-    <!-- Optional Bootstrap JS and jQuery for dynamic behavior -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
+            authDomain: "brams-3dfd3.firebaseapp.com",
+            databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
+            projectId: "brams-3dfd3",
+            storageBucket: "brams-3dfd3.firebasestorage.app",
+            messagingSenderId: "301528550722",
+            appId: "1:301528550722:web:9724e3029567a64c904cdb",
+        };
+
+
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        const residentId = document.getElementById("residentId").value;
+        const documentType = document.getElementById("documentType").value;
+        const purpose = document.getElementById("purpose").value;
+        const orNumber = document.getElementById("orNumber").value;
+
+        
+
+        database.ref(`Residents/${residentId}`).once("value").then((snapshot) => {
+            if (snapshot.exists()) {
+                const data = snapshot.val();
+                document.getElementById("residentName").textContent = `${data.appellation} ${data.first_name} ${data.last_name}`;
+                document.getElementById("age").textContent = calculateAge(data.date_of_birth);
+                document.getElementById("civilStatus").textContent = data.civil_status;
+                document.getElementById("gender").textContent = data.appellation === "Mr." ? "Male" : "Female";
+                document.getElementById("birthDate").textContent = DateR(data.date_of_birth);
+                document.getElementById("birthPlace").textContent = data.birth_place || "Barangay 8";
+                document.getElementById("purposeField").textContent = purpose;
+                document.getElementById("orField").textContent = orNumber;
+
+                const documentTitleMap = {
+                    clearance: "BARANGAY CLEARANCE",
+                    residency: "CERTIFICATE OF RESIDENCY",
+                    indigency: "CERTIFICATE OF INDIGENCY",
+                    certification: "CERTIFICATION"
+                };
+                document.getElementById("documentTitle").textContent = documentTitleMap[documentType] || "CERTIFICATION";
+            } else {
+                console.error("Resident data not found.");
+            }
+        });
+
+        // Calculate Age
+        export function calculateAge(birthDate) {
+        const birth = new Date(birthDate);
+        const today = new Date();
+        let age = today.getFullYear() - birth.getFullYear();
+        const monthDiff = today.getMonth() - birth.getMonth();
+        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+            age--;
+        }
+        return age;
+         }
+
+        // Convert to Date object
+        export function DateR(dateString) {
+        const dateObj = new Date(dateString);
+
+            if (isNaN(dateObj.getTime())) {
+                throw new Error("Invalid date format");
+            }
+
+            return dateObj.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            }
+    </script>
 </body>
 </html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BRAMS - Efficient Barangay Management</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="Includes/resident_list.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <?php include 'Includes/header.php'; ?>
+    <?php include 'Includes/navbar.php'; ?>
+    <script src="household-profile.js" defer ></script>
+
+    <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg">
+        <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+            <h2 class="large-text text-gray-700">List of Household</h2>
+            <div class="flex space-x-4 mt-4 sm:mt-0">
+                <input type="text" id="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
+                <button id="export-button" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to Excel</button>
+            </div>
+        </div>
+
+        <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg">
+            <thead class="bg-green-100">
+                <tr>
+                    <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Household Number</th>
+                    <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Last Name</th>
+                    <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">First Name</th>
+                </tr>
+            </thead>
+            <tbody id="residents-list">
+                <!-- Residents list will be dynamically populated here -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="resident-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-2/3">
+        <h2 class="text-lg font-bold text-gray-700 mb-4">Resident Details</h2>
+        <div>
+            <p><strong>Registration Date:</strong> <span id="modal-registration-date"></span></p>
+            <p><strong>Household Number:</strong> <span id="modal-household-number"></span></p>
+            <p><strong>Name:</strong> <span id="modal-first-name"></span> <span id="modal-middle-name"></span> <span id="modal-last-name"></span></p>
+            <p><strong>NHTS Status:</strong> <span id="modal-nhts-status"></span></p>
+        </div>
+
+        <!-- Table for Selected Members -->
+        <h3 class="text-md font-bold text-gray-700 mt-6 mb-2">Selected Members</h3>
+        <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg">
+            <thead class="bg-green-100">
+                <tr>
+                    <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Member ID</th>
+                    <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Name</th>
+                </tr>
+            </thead>
+            <tbody id="modal-members-list">
+                <!-- Members will be dynamically populated here -->
+            </tbody>
+        </table>
+
+        <div class="mt-4 flex justify-end">
+            <button id="close-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">Close</button>
+        </div>
+    </div>
+</div>
+    <?php include 'Includes/footer.php'; ?>
+</html>

@@ -145,5 +145,6 @@
             });
         });
     </script> -->
+    <?php include 'Includes/footer.php'; ?>
 </body>
 </html>

@@ -1,13 +1,12 @@
 // Firebase initialization (Make sure this is present in your script.js)
 const firebaseConfig = {
-    apiKey: "AIzaSyD_Rj31N263vhY2QypFp1A330A72DGbeNc",
-    authDomain: "dict-22013.firebaseapp.com",
-    databaseURL: "https://dict-22013-default-rtdb.firebaseio.com",
-    projectId: "dict-22013",
-    storageBucket: "dict-22013.appspot.com",
-    messagingSenderId: "738709120223",
-    appId: "1:738709120223:web:fa7b76ca749e8c2eb0356a",
-    measurementId: "G-EJHFFGH0PN"
+    apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
+    authDomain: "brams-3dfd3.firebaseapp.com",
+    databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
+    projectId: "brams-3dfd3",
+    storageBucket: "brams-3dfd3.firebasestorage.app",
+    messagingSenderId: "301528550722",
+    appId: "1:301528550722:web:9724e3029567a64c904cdb",
 };
 const app = firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
