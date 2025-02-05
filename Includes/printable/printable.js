@@ -26,14 +26,85 @@ function fetchResidentDetails(residentId) {
     });
 }
 
-function populateResidentDetails(residentData) {
-    const documentType = document.getElementById('documentType').value;
+function fetchOfficials() {
+    const officialsRef = firebase.database().ref('BrgyOfficials');
 
+    officialsRef.once('value', (snapshot) => {
+      const officials = snapshot.val();
+      const officialsContainer = document.getElementById('officers');
+
+      officialsContainer.innerHTML = ""; // Clear previous data
+
+      for (const key in officials) {
+        if (officials.hasOwnProperty(key)) {
+          const official = officials[key];
+
+          // Create official entry
+          const officialElement = document.createElement("div");
+          const fullName = `HON. ${official.first_name.toUpperCase()} ${official.middle_initial.toUpperCase()}. ${official.last_name.toUpperCase()}`;
+          const position = official.position;
+          
+          const positionWords = position.split(' ');
+          let firstLine = positionWords.slice(0, 4).join(' ');
+          let secondLine = positionWords.slice(4, 9).join(' ');
+          let thirdLine = positionWords.slice(9).join(' ');
+
+          if (positionWords.length > 9) {
+            officialElement.innerHTML = `
+              <strong>${fullName}</strong><br>
+              ${firstLine}<br>
+              ${secondLine}<br>
+              ${thirdLine}<br><br>
+            `;
+          } else {
+            officialElement.innerHTML = `
+              <strong>${fullName}</strong><br>
+              ${firstLine}<br>
+              ${secondLine}<br><br>
+            `;
+          }
+
+          // Append to container
+          officialsContainer.appendChild(officialElement);
+        }
+      }
+    });
+  }
+
+  // Call function to fetch data
+  fetchOfficials();
+function fetchPunongBarangayName() {
+    const officialsRef = firebase.database().ref('BrgyOfficials');
+
+    officialsRef.orderByChild('position').equalTo('Punong Barangay').once('value', (snapshot) => {
+        if (snapshot.exists()) {
+            const punongBarangay = snapshot.val();
+            const punongBarangayNameElement = document.getElementById('punongBarangayName');
+
+            for (const key in punongBarangay) {
+                if (punongBarangay.hasOwnProperty(key)) {
+                    const official = punongBarangay[key];
+                    const fullName = ` ${official.first_name.toUpperCase()} ${official.middle_initial.toUpperCase()}. ${official.last_name.toUpperCase()}`;
+
+                    punongBarangayNameElement.innerText = fullName;
+                }
+            }
+        } else {
+            console.error("Punong Barangay not found!");
+        }
+    });
+}
+
+// Call function to fetch Punong Barangay name
+fetchPunongBarangayName();
+
+function populateResidentDetails(residentData) {
+  
     // Helper function to check if a value is undefined, null, or empty and replace it with a placeholder
     const safeValue = (value, placeholder) => value && value.trim() ? value : placeholder;
 
     // Populate the residentName field with names displayed closely together
-    const fullName = `${safeValue(residentData.first_name, '')} ${safeValue(residentData.middle_name, '')} ${safeValue(residentData.last_name, '')} ${safeValue(residentData.suffix, '')}`.trim().replace(/\s+/g, ' ');
+    const fullName = `${safeValue(residentData.first_name, '')} ${safeValue(residentData.middle_name, '')} ${safeValue(residentData.last_name, '')} ${residentData.suffix === 'Select Suffix' ? '' : safeValue(residentData.suffix, '')}`.trim().replace(/\s+/g, ' ');
 
     document.getElementById('residentName').innerText = fullName;
 
@@ -48,6 +119,9 @@ function populateResidentDetails(residentData) {
 
     document.getElementById('birthDate').innerText = 
         safeValue(residentData.date_of_birth, '________________');
+
+        document.getElementById('birthDate').innerText = 
+            formatDate(residentData.date_of_birth) || '________________';
 
     document.getElementById('birthPlace').innerText = 
         safeValue(residentData.place_of_birth, '________________');
@@ -66,6 +140,16 @@ function populateResidentDetails(residentData) {
     }
 }
 
+
+function formatDate(dateString) {
+    if (!dateString) return '________________';
+    const date = new Date(dateString);
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'long' });
+    const day = date.getDate();
+    return `${month} ${day}, ${year}`;
+}
+
 // Function to calculate age from date of birth
 function calculateAge(birthDate) {
     if (!birthDate) return null;
@@ -82,8 +166,6 @@ function calculateAge(birthDate) {
 // Fetch resident details when the page loads
 window.onload = function() {
     const residentId = document.getElementById('residentId').value; // Resident ID from PHP
-    const documentType = document.getElementById('documentType').value; // Document type from PHP
-    
     if (residentId && documentType) {
         fetchResidentDetails(residentId);
     } else {

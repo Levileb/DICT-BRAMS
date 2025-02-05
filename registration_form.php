@@ -14,7 +14,7 @@
             "Select Appellation", "Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Hon."
         ];
         const suffixes = [
-            "Select Suffix", "Jr.", "Sr.", "II", "III", "IV", "V"
+            "Select Suffix", "Jr.", "Sr.", "II", "III", "IV", "V", "none"
         ];
         const placesOfBirth = [
             "Select Place of Birth", "Abra", "Agusan del Norte", "Agusan del Sur", "Aklan", "Albay", "Antique", "Apayao",

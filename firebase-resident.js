@@ -108,9 +108,35 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         console.error('Error adding resident information:', error);
         alert('There was an error adding the resident information. Please try again.');
     });
+
+    function logRegistrationActivity(email, registeredName, registrationDate) {
+        const logRef = database.ref('Logs').push();
+        logRef.set({
+            user: email,
+            action: `Register Resident`,
+            name: registeredName,
+            timestamp: registrationDate
+        }).then(() => {
+            console.log('Registration activity logged successfully.');
+        }).catch((error) => {
+            console.error('Error logging registration activity:', error);
+        });
+    }
+    
+
+    const email = getCookie('email');  
+    const registeredName = `${firstName} ${middleName} ${lastName}`;
+    
+    // Log the registration activity
+    logRegistrationActivity(email, registeredName, registrationDate);
 });
 
-// Function to show the pop-up and then redirect after 2 seconds
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
 function showPopup() {
     const popup = document.getElementById('successPopup');
     popup.classList.remove('hidden');

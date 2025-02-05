@@ -96,6 +96,23 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+function deleteResident(residentId) {
+    const residentRef = firebase.database().ref('Archived_Resident/' + residentId);
+
+    residentRef.remove().then(() => {
+        alert('Resident deleted successfully!');s
+    }).catch((error) => {
+        console.error('Error deleting resident:', error);
+        alert('Failed to delete resident.');
+    });
+}
+
+function confirmDeleteResident(residentId) {
+    if (confirm('Are you sure you want to delete this resident?')) {
+        deleteResident(residentId);
+    }
+}
+
 // Function to display a floating success message
 function showFloatingMessage(message) {
     const messageDiv = document.createElement('div');

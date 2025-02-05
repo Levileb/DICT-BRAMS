@@ -22,7 +22,6 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
     const middleName = document.getElementById('middle_name').value;
     const lastName = document.getElementById('last_name').value;
     const suffix = document.getElementById('suffix').value;
-    const relationshipToHead = document.getElementById('rhh').value;
     const householdNumber = document.getElementById('household_number').value;
     const renter = document.getElementById('renter').value;
     const renterMonths = document.getElementById('renter_months').value;
@@ -38,7 +37,7 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
     const blindDrainage = document.getElementById('blind_drainage').value;
 
     // Validate required fields
-    if (!firstName || !lastName || !householdNumber || !relationshipToHead) {
+    if (!firstName || !lastName || !householdNumber) {
         alert('Please fill in all required fields.');
         return;
     }
@@ -74,7 +73,6 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
         middle_name: middleName,
         last_name: lastName,
         suffix: suffix,
-        relationship_to_head: relationshipToHead,
         household_number: householdNumber,
         renter: renter,
         renter_months: renter === 'Renter_Yes' ? renterMonths : null,
@@ -85,7 +83,8 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
         waste_management: wasteManagement,
         blind_drainage: blindDrainage,
         selected_members: selectedMembers, // Add selected members' IDs
-        registration_date: registrationDate
+        registration_date: registrationDate,
+        timestamp: firebase.database.ServerValue.TIMESTAMP // Add timestamp
     }).then(() => {
         console.log('Resident information added successfully.');
         showPopup(); // Show the pop-up message
@@ -93,6 +92,26 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
         console.error('Error adding resident information:', error);
         alert('There was an error adding the resident information. Please try again.');
     });
+
+    function logRegistrationData(email, householdNumber, householdName, registrationDate) {
+        const logRef = database.ref('Logs').push();
+        logRef.set({
+            user: email,
+            household_number: householdNumber,
+            name: householdName,
+            action: `Household Registration`,
+            registration_date: registrationDate,
+            timestamp: firebase.database.ServerValue.TIMESTAMP // Add timestamp
+        }).then(() => {
+            console.log('Registration log added successfully.');
+        }).catch((error) => {
+            console.error('Error adding registration log:', error);
+        });
+    }
+    
+    const email = getCookie('email');  
+    const householdName = `${firstName} ${middleName} ${lastName}`;
+    logRegistrationData(email, householdNumber, householdName, registrationDate);
 });
 
 // Function to show the pop-up and then redirect after 2 seconds
@@ -110,4 +129,10 @@ function showPopup() {
 function closePopup() {
     const popup = document.getElementById('successPopup');
     popup.classList.add('hidden');
+}
+// Function to log registration data
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }

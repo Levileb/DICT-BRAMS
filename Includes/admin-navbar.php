@@ -101,6 +101,37 @@
                 padding: 0.5rem;
             }
         }
+
+        .dropdown {
+                    position: relative;
+                    display: inline-block;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #117A3C;
+                    min-width: 160px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    flex-direction: column;
+                }
+
+                .dropdown:hover .dropdown-content {
+                    display: flex;
+                }
+
+                .dropdown-content .nav-link {
+                    color: #D4EDDA;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    display: block;
+                }
+
+                .dropdown-content .nav-link:hover {
+                    background-color: #A7F3D0;
+                    color: #065F46;
+                }
     </style>
 
     <div class="custom-navbar">
@@ -119,6 +150,13 @@
                 <a href="officials-edit.php" class="nav-link">Officials Edit</a>
                 <a href="print-counter.php" class="nav-link">Print Counter</a>
                 <a href="archived-resident.php" class="nav-link">Archived Resident</a>
+            <div class="nav-link dropdown">
+                <span>User</span>
+                <div class="dropdown-content">
+                    <a href="user-list.php" class="nav-link">List</a>
+                    <a href="user-register.php" class="nav-link">Registration</a>
+                </div>
+            </div>
             </div>
         </div>
     </div>

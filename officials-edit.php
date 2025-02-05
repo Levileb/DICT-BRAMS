@@ -111,125 +111,147 @@
             </form>
         </div>
     </div>
-
     <script>
-        // Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
-            authDomain: "brams-3dfd3.firebaseapp.com",
-            databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
-            projectId: "brams-3dfd3",
-            storageBucket: "brams-3dfd3.firebasestorage.app",
-            messagingSenderId: "301528550722",
-            appId: "1:301528550722:web:9724e3029567a64c904cdb",
-        };
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
+        authDomain: "brams-3dfd3.firebaseapp.com",
+        databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
+        projectId: "brams-3dfd3",
+        storageBucket: "brams-3dfd3.firebasestorage.app",
+        messagingSenderId: "301528550722",
+        appId: "1:301528550722:web:9724e3029567a64c904cdb",
+    };
 
-        // Initialize Firebase
-        const app = firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
 
-        // List of positions (titles)
-        const positions = [
-            "Punong Barangay",
-            "Chairman Committee on Appropriation Disaster & Rescue",
-            "Chairman Committee on Social Services/Women and Family",
-            "Chairman Committee on Health & Sanitation / Environmental Protection & Natural Resources",
-            "Chairman Committee on Education Laws and Ordinances",
-            "Chairman Committee on Market & Livelihood/Tourism Development",
-            "Chairman Committee on Barangay Affair/ Ways & Means/ Infrastructure",
-            "Chairman Committee on Peace & Order / Human Rights",
-            "SK Chairman / Committee on Youth & Sports Development",
-            "Barangay Secretary",
-            "Barangay Treasurer"
-        ];
+    // List of positions (titles)
+    const positions = [
+        "Punong Barangay",
+        "Chairman Committee on Appropriation Disaster & Rescue",
+        "Chairman Committee on Social Services/Women and Family",
+        "Chairman Committee on Health & Sanitation / Environmental Protection & Natural Resources",
+        "Chairman Committee on Education Laws and Ordinances",
+        "Chairman Committee on Market & Livelihood/Tourism Development",
+        "Chairman Committee on Barangay Affair/ Ways & Means/ Infrastructure",
+        "Chairman Committee on Peace & Order / Human Rights",
+        "SK Chairman / Committee on Youth & Sports Development",
+        "Barangay Secretary",
+        "Barangay Treasurer"
+    ];
 
-        const formContainer = document.getElementById("form-sections");
+    const formContainer = document.getElementById("form-sections");
 
-        // Create a template for form sections
-        const createSectionTemplate = (title) => {
-            return `
-                <div class="form-section">
-                    <h3>${title}</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div>
-                            <label>First Name *</label>
-                            <input type="text" class="input-text mt-1" required>
-                        </div>
-                        <div>
-                            <label>Middle Initial *</label>
-                            <input type="text" class="input-text mt-1" required>
-                        </div>
-                        <div>
-                            <label>Last Name *</label>
-                            <input type="text" class="input-text mt-1" required>
-                        </div>
-                        <div>
-                            <label>Suffix (Optional)</label>
-                            <select class="input-select mt-1">
-                                <option value="">Select</option>
-                                <option value="Jr.">Jr.</option>
-                                <option value="Sr.">Sr.</option>
-                                <option value="III">III</option>
-                                <option value="IV">IV</option>
-                                <option value="V">V</option>
-                            </select>
-                        </div>
+    // Create a template for form sections
+    const createSectionTemplate = (title, data = {}) => {
+        return `
+            <div class="form-section">
+                <h3>${title}</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div>
+                        <label>First Name *</label>
+                        <input type="text" class="input-text mt-1" value="${data.first_name || ''}" required>
+                    </div>
+                    <div>
+                        <label>Middle Initial *</label>
+                        <input type="text" class="input-text mt-1" value="${data.middle_initial || ''}" required>
+                    </div>
+                    <div>
+                        <label>Last Name *</label>
+                        <input type="text" class="input-text mt-1" value="${data.last_name || ''}" required>
+                    </div>
+                    <div>
+                        <label>Suffix (Optional)</label>
+                        <select class="input-select mt-1">
+                            <option value="">Select</option>
+                            <option value="Jr." ${data.suffix === 'Jr.' ? 'selected' : ''}>Jr.</option>
+                            <option value="Sr." ${data.suffix === 'Sr.' ? 'selected' : ''}>Sr.</option>
+                            <option value="III" ${data.suffix === 'III' ? 'selected' : ''}>III</option>
+                            <option value="IV" ${data.suffix === 'IV' ? 'selected' : ''}>IV</option>
+                            <option value="V" ${data.suffix === 'V' ? 'selected' : ''}>V</option>
+                        </select>
                     </div>
                 </div>
-            `;
-        };
+            </div>
+        `;
+    };
 
-        // Render form sections dynamically based on the positions array
-        positions.forEach(position => {
-            formContainer.innerHTML += createSectionTemplate(position);
+    // Fetch existing data and render form sections dynamically
+    const fetchAndRenderData = async () => {
+        try {
+            const snapshot = await database.ref('BrgyOfficials').orderByChild('position').once('value');
+            if (snapshot.exists()) {
+                const existingData = snapshot.val();
+                positions.forEach(position => {
+                    const officialData = Object.values(existingData).find(data => data.position === position) || {};
+                    formContainer.innerHTML += createSectionTemplate(position, officialData);
+                });
+            } else {
+                positions.forEach(position => {
+                    formContainer.innerHTML += createSectionTemplate(position);
+                });
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    };
+
+    fetchAndRenderData();
+
+    // Handle form submission
+    document.getElementById("editForm").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Collect data from all the input fields
+        const formData = [];
+        const inputs = document.querySelectorAll(".input-text, .input-select");
+
+        // Loop through the inputs and check the required fields
+        let valid = true;
+        inputs.forEach(input => {
+            if (input.required && input.value === "") {
+                valid = false;
+            }
+            formData.push(input.value); // Add input value to the form data array
         });
 
-        // Handle form submission
-        document.getElementById("editForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+        // If there are invalid fields, show an alert
+        if (!valid) {
+            alert("Please fill in all required fields.");
+            return;
+        }
 
-            // Collect data from all the input fields
-            const formData = [];
-            const inputs = document.querySelectorAll(".input-text, .input-select");
+        try {
+            // Remove existing data in the BrgyOfficials node
+            await database.ref('BrgyOfficials').remove();
 
-            // Loop through the inputs and check the required fields
-            let valid = true;
-            inputs.forEach(input => {
-                if (input.required && input.value === "") {
-                    valid = false;
-                }
-                formData.push(input.value); // Add input value to the form data array
-            });
-
-            // If there are invalid fields, show an alert
-            if (!valid) {
-                alert("Please fill in all required fields.");
-                return;
-            }
-
-            // Insert data into Firebase for each position section
+            // Add new data to the BrgyOfficials node
             positions.forEach((position, index) => {
-                const officialRef = database.ref('BrgyOfficials').push();
-                const officialId = officialRef.key;
-
-                officialRef.set({
-                    position: position,
+                const newOfficialData = {
                     first_name: formData[index * 4], // First Name
                     middle_initial: formData[index * 4 + 1], // Middle Initial
                     last_name: formData[index * 4 + 2], // Last Name
-                    suffix: formData[index * 4 + 3] || null // Suffix is optional, will be null if not selected
-                }).then(() => {
-                    console.log(`Barangay Official data for ${position} saved successfully!`);
+                    suffix: formData[index * 4 + 3] || null, // Suffix is optional, will be null if not selected
+                    position: position // Add position field
+                };
+
+                database.ref('BrgyOfficials').push(newOfficialData).then(() => {
+                    console.log(`Barangay Official data for ${position} added successfully!`);
                 }).catch((error) => {
-                    console.error("Error inserting data:", error);
-                    alert("There was an error saving the data. Please try again.");
+                    console.error("Error adding data:", error);
                 });
             });
 
-            alert("All Barangay Official data saved successfully!");
+            alert("All Barangay Official data updated successfully!");
             document.getElementById("editForm").reset(); // Optionally reset the form after submission
-        });
-    </script>
+        } catch (error) {
+            console.error("Error during the update process:", error);
+            alert("There was an error updating the data. Please try again.");
+        }
+    });
+</script>
 
     <?php include 'Includes/footer.php'; ?>
 

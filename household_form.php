@@ -23,12 +23,7 @@
 
     // Populate the Relationship to Household Head dropdown
     populateDropdown('suffix', [
-        "Mr.", "Mrs.", "Ms.", "Dr.", "Prof.", "Hon."
-    ]);
-    populateDropdown('rhh', [
-        "Father", "Mother", "Son", "Daughter", "Brother", "Sister", 
-        "Grandfather", "Grandmother", "Uncle", "Aunt", "Cousin", 
-        "Nephew", "Niece", "Other"
+         "Jr.", "Sr.", "II", "III", "IV", "V", "none"
     ]);
 
     // Populate the Type of Water Source dropdown
@@ -97,12 +92,6 @@
                         <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
                         <select id="suffix" name="suffix" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option>Select Suffix</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="rhh" class="block text-sm font-medium text-gray-700">Relationship to Household Head</label>
-                        <select id="rhh" name="rhh" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
-                            <option>Select Relationship</option>
                         </select>
                     </div>
                 </div>

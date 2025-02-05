@@ -14,7 +14,7 @@
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
-    <script src="household-profile.js" defer ></script>
+    <script src="household-profile.js"  defer></script>
 
     <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg">
         <div class="flex flex-col sm:flex-row justify-between items-center mb-4">

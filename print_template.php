@@ -25,7 +25,7 @@
                 <div class="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition duration-200">
                     <img src="elements/residency.png" alt="Certificate of Residency Icon" class="mb-4 w-25 h-25">
                     <form action="Includes/printable/Printable.php" method="get">
-                        <input type="hidden" name="type" value="residency">
+                        <input type="hidden" name="type" value="CERTIFICATE OF RESIDENCY">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                         
@@ -40,7 +40,7 @@
                 <div class="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition duration-200">
                     <img src="elements/brgyclearance.png" alt="Barangay Clearance Icon" class="mb-4 w-25 h-25">
                     <form action="Includes/printable/Printable.php" method="get">
-                        <input type="hidden" name="type" value="clearance">
+                        <input type="hidden" name="type" value="BARAGAY CLEARANCE">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                         
@@ -55,7 +55,7 @@
                 <div class="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition duration-200">
                     <img src="elements/cert.png" alt="Certification Icon" class="mb-4 w-25 h-25">
                     <form action="Includes/printable/Printable.php" method="get">
-                        <input type="hidden" name="type" value="certification">
+                        <input type="hidden" name="type" value="CERTIFICATION">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                         
@@ -70,7 +70,7 @@
                 <div class="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition duration-200">
                     <img src="elements/indigency.png" alt="Certificate of Indigency Icon" class="mb-4 w-25 h-25">
                     <form action="Includes/printable/Printable.php" method="get">
-                        <input type="hidden" name="type" value="indigency">
+                        <input type="hidden" name="type" value="CERTIFICATE OF INDIGENCY">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                         
@@ -85,7 +85,7 @@
                 <div class="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition duration-200">
                     <img src="elements/business closure.png" alt="Certificate of Business Closure Icon" class="mb-4 w-25 h-25">
                     <form action="Includes/printable/Printable.php" method="get">
-                        <input type="hidden" name="type" value="business_closure">
+                        <input type="hidden" name="type" value="CERTIFICATE OF BUSINESS CLOSURE">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                         
