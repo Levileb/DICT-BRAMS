@@ -98,10 +98,10 @@ function fetchPunongBarangayName() {
 // Call function to fetch Punong Barangay name
 fetchPunongBarangayName();
 
+
+
+
 function populateResidentDetails(residentData) {
-  
-    // Helper function to check if a value is undefined, null, or empty and replace it with a placeholder
-    const safeValue = (value, placeholder) => value && value.trim() ? value : placeholder;
 
     // Populate the residentName field with names displayed closely together
     const fullName = `${safeValue(residentData.first_name, '')} ${safeValue(residentData.middle_name, '')} ${safeValue(residentData.last_name, '')} ${residentData.suffix === 'Select Suffix' ? '' : safeValue(residentData.suffix, '')}`.trim().replace(/\s+/g, ' ');

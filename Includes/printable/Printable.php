@@ -67,12 +67,68 @@
     <div class="no-print text-right m-3">
         <button class="btn btn-primary" onclick="printDocument()">Print Document</button>
     </div>
+<script>
+    var orNumber = <?php echo json_encode($or_number); ?>;
+    var docType = <?php echo json_encode($document_type); ?>;
+    var fullname = <?php echo json_encode($name); ?>;
 
-    <script>
-        function printDocument() {
-            window.print();
+
+    function printDocument() {
+    window.onafterprint = function() {
+        const isSuccessful = confirm("Was the printing completed successfully?");
+        const printStatus = isSuccessful ? "successful" : "failed";
+        logPrintDetails(fullname, docType, printStatus, orNumber);
+        if (isSuccessful) {
+            alert("Printing confirmed as successful.");
+        } else {
+            alert("Printing was not successful. Please try again.");
         }
-    </script>
+    };
+    window.print();
+}
+
+function logPrintDetails(fullname , docType, printStatus, orNumber) {
+    const printLogRef = database.ref('PrintLogs').push();
+    const printDate = new Date().toLocaleDateString('en-US', {
+        month: 'long',
+        day: 'numeric',
+        year: 'numeric'
+    });
+    const printTime = new Date().toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+    });
+
+    const email = getCookie('email');  
+
+    printLogRef.set({
+        orNumber: orNumber,
+        residentName: fullname,
+        userEmail: email,
+        documentType: docType,
+        date: printDate,
+        time: printTime,
+        printStatus: printStatus
+    }, function(error) {
+        if (error) {
+            console.error("Error logging print details:", error);
+        } else {
+            console.log("Print details logged successfully.");
+        }
+    });
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+// Helper function to check if a value is undefined, null, or empty and replace it with a placeholder
+const safeValue = (value, placeholder) => value && value.trim() ? value : placeholder;
+</script>
 
     <div class="logo">
         <img class="left-logo" src="barangay8logo.png" alt="Barangay Logo">

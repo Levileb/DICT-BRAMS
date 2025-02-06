@@ -15,17 +15,87 @@
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
-    
-    <div id="print-counter" class="tab-content container mx-auto flex items-center justify-center h-screen px-8 py-6 max-w-2xl my-8 bg-white rounded-lg shadow-md">
-        <div class="inner-container p-6 bg-gray-50 rounded-lg shadow-lg mb-4">
-            <h2 class="text-2xl font-bold">Print Counter</h2>
-            <p>Your print counter content goes here.</p>
-        </div>
         <div class="inner-container p-6">
-            <!-- Additional content can be added here -->
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">Date</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">Time</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">OR Number</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">Registered by</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">Document Type</th>
+                        <th class="py-2 px-4 border-b-2 border-gray-300">Print Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table rows will go here -->
+                </tbody>
+           
+            </table>
+        
         </div>
     </div>
     <?php include 'Includes/footer.php'; ?>
-    
+   <script>
+database.ref('PrintLogs').on('value', function(snapshot) {
+    var tbody = document.querySelector('tbody');
+    tbody.innerHTML = ''; // Clear existing rows
+
+    if (snapshot.exists()) {
+        snapshot.forEach(function(childSnapshot) {
+            var childData = childSnapshot.val();
+            console.log(childData); // Debugging: Check structure
+
+            if (!childData) return; // Skip if no data
+
+            var row = document.createElement('tr');
+
+            var dateCell = document.createElement('td');
+            dateCell.className = 'py-2 px-4 border-b border-gray-300';
+            dateCell.textContent = childData.date || "N/A";
+            row.appendChild(dateCell);
+
+            var timeCell = document.createElement('td');
+            timeCell.className = 'py-2 px-4 border-b border-gray-300';
+            timeCell.textContent = childData.time || "N/A";
+            row.appendChild(timeCell);
+
+            var orNumberCell = document.createElement('td');
+            orNumberCell.className = 'py-2 px-4 border-b border-gray-300';
+            orNumberCell.textContent = childData.orNumber || "N/A";
+            row.appendChild(orNumberCell);
+
+            var emailCell = document.createElement('td');
+            emailCell.className = 'py-2 px-4 border-b border-gray-300';
+            emailCell.textContent = childData.userEmail || "N/A";
+            row.appendChild(emailCell);
+
+            var documentTypeCell = document.createElement('td');
+            documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
+            documentTypeCell.textContent = childData.documentType || "N/A";
+            row.appendChild(documentTypeCell);
+
+
+            var documentTypeCell = document.createElement('td');
+            documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
+            documentTypeCell.textContent = childData.printStatus|| "N/A";
+            row.appendChild(documentTypeCell);
+
+            tbody.appendChild(row);
+        });
+    } else {
+        var row = document.createElement('tr');
+        var noRecordsCell = document.createElement('td');
+        noRecordsCell.className = 'py-2 px-4 border-b border-gray-300 text-center';
+        noRecordsCell.colSpan = 6;
+        noRecordsCell.textContent = 'No records found';
+        row.appendChild(noRecordsCell);
+        tbody.appendChild(row);
+    }
+});
+
+
+   </script>
+
 </body>
 </html>
