@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>    
@@ -14,18 +13,8 @@
         
     </head>
 <body>
-<head>    
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAMS - ADMIN</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <!-- <script src="user-create.js"></script>  -->
-    <link rel="stylesheet" href="user-register.css">
-        
-    </head>
+<?php include 'Includes/header.php'; ?>
+<?php include 'Includes/admin-navbar.php'; ?>
 
 <div class="flex justify-center items-center min-h-screen bg-gray-100">
     <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
@@ -107,6 +96,13 @@ firebase.auth().createUserWithEmailAndPassword(email, password)
         });
 
         alert("User registered successfully!");
+
+        // Clear form fields
+        document.getElementById('email').value = '';
+        document.getElementById('first_name').value = '';
+        document.getElementById('last_name').value = '';
+        document.getElementById('nickname').value = '';
+        document.getElementById('password').value = '';
     })
     .catch((error) => {
         var errorCode = error.code;

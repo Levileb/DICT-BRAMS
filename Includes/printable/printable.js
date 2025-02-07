@@ -109,7 +109,7 @@ function populateResidentDetails(residentData) {
     document.getElementById('residentName').innerText = fullName;
 
     document.getElementById('age').innerText = 
-        calculateAge(residentData.date_of_birth) || '____';
+        calculateAge(residentData.date_of_birth) || '0';
 
     document.getElementById('civilStatus').innerText = 
         safeValue(residentData.civil_status, '________________');
