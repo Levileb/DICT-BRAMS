@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <!-- <script src="user-create.js"></script>  -->
     <link rel="stylesheet" href="user-register.css">       
     </head>
@@ -83,7 +84,22 @@
                 deleteButton.onclick = function() {
                     console.log("Delete button clicked for user: " + user.email);
                     if (confirm("Are you sure you want to delete this user?")) {
+                        // Remove user from Firebase Realtime Database
                         database.child(id).remove();
+
+                        // Remove user from Firebase Authentication
+                        firebase.auth().getUserByEmail(user.email)
+                            .then(function(userRecord) {
+                                return firebase.auth().deleteUser(userRecord.uid);
+                            })
+                            .then(function() {
+                                console.log("Successfully deleted user from Firebase Authentication");
+                                // Reload data after deletion
+                                location.reload();
+                            })
+                            .catch(function(error) {
+                                console.error("Error deleting user from Firebase Authentication:", error);
+                            });
                     }
                 };
                 actionCell.appendChild(deleteButton);

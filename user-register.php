@@ -15,8 +15,6 @@
 </head>
 
 <body>
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
 
     <head>
         <meta charset="UTF-8">
