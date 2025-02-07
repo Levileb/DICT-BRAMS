@@ -9,36 +9,27 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
 </head>
-<style>
-#activity-logs .inner-container {
-    max-height: 100%;
-    overflow-y: auto;
-}
-
-#activity-logs table {
-    min-width: 100%;
-}
-</style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
-    <?php include_once 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div id="activity-logs"
+    <div id="household-log"
         class="tab-content container mx-auto flex items-center justify-center h-screen px-8 py-6 max-w-2xl my-8 bg-white rounded-lg shadow-md">
         <div class="inner-container p-6 w-full">
-            <h2 class="text-2xl font-bold">Activity Logs</h2>
+            <h5><strong>Registered Household Log</strong></h5>
             <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
                 <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
                     <thead class="bg-gray-100 text-gray-800">
                         <tr>
-                            <th class="px-4 py-2 border border-gray-300 text-left">User Email</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Role</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">Registered By</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">Household Number</th>
+                            <th class="px-4 py-2 border border-gray-300 text-left">Household Head</th>
                             <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
                             <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
                         </tr>
                     </thead>
-                    <tbody id="logs-table">
+                    <tbody id="household-table">
                         <!-- Logs will be dynamically inserted here -->
                     </tbody>
                 </table>

@@ -4,6 +4,7 @@
     padding: 1rem;
     width: 100%;
 }
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -12,6 +13,7 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
 .logout-button {
     background-color: #FF0000;
     color: white;
@@ -20,18 +22,22 @@
     cursor: pointer;
     border-radius: 5px;
 }
+
 .logout-button:hover {
     background-color: #CC0000;
 }
+
 .logo {
     width: 70px;
     height: 80px;
     margin-right: 1rem;
 }
+
 .date-time {
     font-size: 0.9rem;
     color: #666;
 }
+
 .floating-msg {
     position: fixed;
     top: 20px;
@@ -47,11 +53,23 @@
     z-index: 1000;
     animation: fadeInOut 5s ease-in-out forwards;
 }
+
 @keyframes fadeInOut {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 </style>
 
@@ -72,9 +90,19 @@
 <div id="floatingMsg" class="floating-msg"></div>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
-import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
-import { getDatabase, ref, push, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+import {
+    initializeApp
+} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+import {
+    getAuth,
+    signOut
+} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+import {
+    getDatabase,
+    ref,
+    push,
+    serverTimestamp
+} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
 
 // Firebase configuration
 const firebaseConfig = {
@@ -126,7 +154,9 @@ function showFloatingMessage(message) {
 
 // Get the current timestamp in the Philippines' timezone
 function getPhilippineTime() {
-    return new Date().toLocaleString('en-PH', { timeZone: 'Asia/Manila' });
+    return new Date().toLocaleString('en-PH', {
+        timeZone: 'Asia/Manila'
+    });
 }
 
 // Update current date and time every second
