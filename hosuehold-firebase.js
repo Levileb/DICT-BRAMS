@@ -83,8 +83,7 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
         waste_management: wasteManagement,
         blind_drainage: blindDrainage,
         selected_members: selectedMembers, // Add selected members' IDs
-        registration_date: registrationDate,
-        timestamp: firebase.database.ServerValue.TIMESTAMP // Add timestamp
+        timestamp: registrationDate,
     }).then(() => {
         console.log('Resident information added successfully.');
         showPopup(); // Show the pop-up message
@@ -101,7 +100,7 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
             name: householdName,
             action: `Household Registration`,
             registration_date: registrationDate,
-            timestamp: firebase.database.ServerValue.TIMESTAMP // Add timestamp
+            timestamp: registrationDate,
         }).then(() => {
             console.log('Registration log added successfully.');
         }).catch((error) => {

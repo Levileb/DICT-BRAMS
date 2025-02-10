@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Household Form</title>
+    <link rel="icon" type="image/png" href="Includes/background/bg.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 
@@ -256,24 +257,33 @@ document.addEventListener('DOMContentLoaded', () => {
         residentsRef.once('value')
             .then(snapshot => {
                 const residents = snapshot.val();
-                tableBody.innerHTML = ''; // Clear any existing data
+                selectedMembersRef.once('value')
+                    .then(selectedSnapshot => {
+                        const selectedMembers = selectedSnapshot.val() || {};
+                        tableBody.innerHTML = ''; // Clear any existing data
 
-                for (let key in residents) {
-                    const resident = residents[key];
-                    const row = document.createElement('tr');
-                    row.dataset.id = key; // Store the unique ID in a data attribute
+                        for (let key in residents) {
+                            if (!selectedMembers[key]) { // Only display residents not in selected members
+                                const resident = residents[key];
+                                const row = document.createElement('tr');
+                                row.dataset.id = key; // Store the unique ID in a data attribute
 
-                    row.innerHTML = `
-                        <td class="py-2 px-4 text-sm font-medium text-gray-900">
-                            <input type="checkbox" class="checkbox-input" data-id="${key}">
-                        </td>
-                        <td class="py-2 px-4 text-sm text-gray-500">${resident.first_name || ''}</td>
-                        <td class="py-2 px-4 text-sm text-gray-500">${resident.middle_name || ''}</td>
-                        <td class="py-2 px-4 text-sm text-gray-500">${resident.last_name || ''}</td>
-                    `;
+                                row.innerHTML = `
+                                    <td class="py-2 px-4 text-sm font-medium text-gray-900">
+                                        <input type="checkbox" class="checkbox-input" data-id="${key}">
+                                    </td>
+                                    <td class="py-2 px-4 text-sm text-gray-500">${resident.first_name || ''}</td>
+                                    <td class="py-2 px-4 text-sm text-gray-500">${resident.middle_name || ''}</td>
+                                    <td class="py-2 px-4 text-sm text-gray-500">${resident.last_name || ''}</td>
+                                `;
 
-                    tableBody.appendChild(row);
-                }
+                                tableBody.appendChild(row);
+                            }
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading selected members:', error);
+                    });
             })
             .catch(error => {
                 console.error('Error loading residents:', error);

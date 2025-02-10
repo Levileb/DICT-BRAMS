@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAMS - Efficient Barangay Management</title>
+    <link rel="icon" type="image/png" href="Includes/background/bg.png">
+    <title>Household Profile</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="Includes/resident_list.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -69,4 +70,77 @@
     </div>
 </div>
     <?php include 'Includes/footer.php'; ?>
+
+    <style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in WebKit browsers */
+}
+.container-width {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.container-padding {
+    padding: 20px;
+}
+
+.large-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Search Bar */
+.search-bar-width {
+    width: 100%;
+    max-width: 250px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #d1fae5;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+    background-color: #f0fdfa;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-padding {
+        padding: 10px;
+    }
+    
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search-bar-width {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+    </style>
 </html>
