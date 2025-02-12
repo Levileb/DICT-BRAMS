@@ -12,12 +12,22 @@
 </head>
 <style>
 #activity-logs .inner-container {
-    max-height: 100%;
-    overflow-y: auto;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+
 }
 
 #activity-logs table {
     min-width: 100%;
+}
+
+.tab-content {
+    display: flex;
+    background-color: white;
+    margin: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 body::-webkit-scrollbar {
@@ -32,10 +42,9 @@ body::-webkit-scrollbar {
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include_once 'Includes/admin-navbar.php'; ?>
-    <div id="activity-logs"
-        class="tab-content container mx-auto flex items-center justify-center h-screen px-8 py-6 max-w-2xl my-8 bg-white rounded-lg shadow-md">
+    <div id="activity-logs" class="tab-content">
         <div class="inner-container p-6 w-full">
-            <h2 class="text-2xl font-bold">Activity Logs</h2>
+            <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">Activity Logs</h2>
             <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
                 <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
                     <thead class="bg-gray-100 text-gray-800">

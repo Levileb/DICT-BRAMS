@@ -15,16 +15,25 @@
 body::-webkit-scrollbar {
     display: none;
 }
+
+.tab-content {
+    display: flex;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+
+}
 </style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div id="household-log"
-        class="tab-content container mx-auto flex items-center justify-center h-screen px-8 py-6 max-w-2xl my-8 bg-white rounded-lg shadow-md">
+    <div id="household-log" class="tab-content">
         <div class="inner-container p-6 w-full">
-            <h5><strong>Registered Household Log</strong></h5>
+            <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">Registered Household Log</h2>
             <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
                 <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
                     <thead class="bg-gray-100 text-gray-800">
