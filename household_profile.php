@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAMS - Efficient Barangay Management</title>
+    <link rel="icon" type="image/png" href="Includes/background/bg.png">
+    <title>Household Profile</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="Includes/resident_list.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -56,17 +57,121 @@
                 <tr>
                     <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Member ID</th>
                     <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Name</th>
+                    <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Action</th>
                 </tr>
             </thead>
             <tbody id="modal-members-list">
                 <!-- Members will be dynamically populated here -->
             </tbody>
         </table>
+        <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-2/3 h-2/3">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">Select a Member</h2>
+            <button id="closed-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+                X
+            </button>
+        </div>
 
+                <div class="overflow-y-auto h-3/4">
+                    <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg h-full">
+                    <thead class="bg-green-100">
+                    <tr>
+                        <th class="py-2 px-4 text-left text-sm font-medium text-gray-500"> </th>
+                        <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Resident ID</th>
+                        <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Fullname</th>
+                    </tr>
+                    </thead>
+                    <tbody id="modal-residents-list" class="h-full">
+                    <!-- Residents will be dynamically populated here -->
+                    </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button id="add-member" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg mx-auto">+</button>
+                  </div>
+        </div>
+    </div>
         <div class="mt-4 flex justify-end">
-            <button id="close-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">Close</button>
+           <button id="add-modal" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg mx-auto">+</button> 
+        </div>
+        <div class="mt-4 flex justify-end">
+           <button id="close-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg ml-2">Close</button> 
         </div>
     </div>
 </div>
     <?php include 'Includes/footer.php'; ?>
+
+    <style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Hides scrollbar in WebKit browsers */
+}
+.container-width {
+    width: 90%;
+    max-width: 1200px;
+}
+
+.container-padding {
+    padding: 20px;
+}
+
+.large-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Search Bar */
+.search-bar-width {
+    width: 100%;
+    max-width: 250px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #d1fae5;
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tbody tr:hover {
+    background-color: #f0fdfa;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-padding {
+        padding: 10px;
+    }
+    
+    .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .search-bar-width {
+        width: 100%;
+    }
+    
+    th, td {
+        padding: 10px;
+    }
+}
+
+    </style>
 </html>
