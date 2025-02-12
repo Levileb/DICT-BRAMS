@@ -57,15 +57,27 @@
                 <tr>
                     <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Member ID</th>
                     <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Name</th>
+                    <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Action</th>
                 </tr>
             </thead>
             <tbody id="modal-members-list">
                 <!-- Members will be dynamically populated here -->
             </tbody>
         </table>
-
+        <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
+            <h2 class="text-xl font-semibold mb-4">Modal Title</h2>
+            <p class="mb-4">This is the modal content.</p>
+            <button id="closed-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
+                Close
+            </button>
+        </div>
+    </div>
         <div class="mt-4 flex justify-end">
-            <button id="close-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">Close</button>
+           <button id="add-modal" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg mx-auto">+</button> 
+        </div>
+        <div class="mt-4 flex justify-end">
+           <button id="close-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg ml-2">Close</button> 
         </div>
     </div>
 </div>
