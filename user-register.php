@@ -14,9 +14,9 @@
 
 </head>
 
-<body>
+<body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/navbar.php'; ?>
+    <?php include_once 'Includes/admin-navbar.php'; ?>
 
     <head>
         <meta charset="UTF-8">
@@ -30,6 +30,7 @@
         <link rel="stylesheet" href="user-register.css">
 
     </head>
+
 
     <div class="flex justify-center items-center min-h-screen bg-gray-100">
         <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">

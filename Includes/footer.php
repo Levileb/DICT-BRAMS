@@ -1,27 +1,47 @@
 <style>
-  .footer-link {
-    transition: color 0.3s;
-  }
+.footer-custom {
+    margin-top: 5%;
+    background-color: #117A3C;
+    /* Green color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Align left and right */
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    color: white;
 
-  .footer-link:hover {
-    color: green; /* Hover effect */
-  }
+}
 
-  .footer-custom {
-    margin-top: 2%;
-    background-color: #117A3C; /* New green color */
-  }
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    color: white
+}
+
+.footer-link:hover {
+    color: lightgray;
+}
 </style>
 
-<footer class="footer-custom text-white py-6">
-  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-    <div class="footer-left">
-      <p class="text-sm m-0">&copy; 2024 Department of Information and Communications Technology. All Rights Reserved.</p>
+
+<footer class="footer-custom">
+    <div class="footer-container">
+        <p class="text-sm m-0">&copy; 2024 Department of Information and Communications Technology. All Rights Reserved.
+        </p>
+        <div class="footer-links">
+            <a href="#" class="footer-link">Privacy Policy</a>
+            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Contact Us</a>
+        </div>
     </div>
-    <div class="footer-right flex space-x-6">
-      <a href="#" class="footer-link">Privacy Policy</a>
-      <a href="#" class="footer-link">Terms of Service</a>
-      <a href="#" class="footer-link">Contact Us</a>
-    </div>
-  </div>
 </footer>

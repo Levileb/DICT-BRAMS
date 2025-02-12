@@ -1,8 +1,16 @@
 <style>
 .custom-header {
+    position: sticky;
+    /* Makes the header sticky */
+    top: 0;
+    /* Sticks it to the top of the page */
+    z-index: 1001;
+    /* Ensures the header stays above other content */
     background-color: #f5f5f5;
-    padding: 1rem;
+    padding-top: 1.5%;
     width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Optional shadow for better visibility */
 }
 
 .container {
@@ -12,30 +20,43 @@
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    padding-bottom: 1%;
 }
 
 .logout-button {
-    background-color: #FF0000;
-    color: white;
-    padding: 10px 20px;
+    background-color: none;
+    color: black;
+    padding: 20px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    text-decoration: underline;
+    margin-top: -20px;
+    font-size: 1.3rem;
 }
 
 .logout-button:hover {
-    background-color: #CC0000;
+    background-color: transparent;
+    text-decoration: none;
+    color: gray;
+
+}
+
+.logout-button:active {
+    color: gray;
+
 }
 
 .logo {
     width: 70px;
     height: 80px;
     margin-right: 1rem;
+    margin-top: -10px;
 }
 
 .date-time {
     font-size: 0.9rem;
     color: #666;
+    margin-top: -10px;
 }
 
 .floating-msg {
@@ -52,6 +73,7 @@
     display: none;
     z-index: 1000;
     animation: fadeInOut 5s ease-in-out forwards;
+
 }
 
 @keyframes fadeInOut {

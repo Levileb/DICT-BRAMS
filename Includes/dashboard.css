@@ -4,17 +4,16 @@ body {
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Keeps the background image fixed during scroll */
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    min-height: 100vh; /* Ensures the body covers the full viewport height */
+    background-attachment: scroll;
+    padding: 60px 0 0 0; /* Adjust padding to prevent content from being hidden behind the bar */
+    min-height: 200vh; /* Ensures the body covers the full viewport height */
 }
 
 /* Responsive Styles */
 
 /* Tablets and up */
 @media (min-width: 640px) {
-    .container {
+    .container {    
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -26,6 +25,7 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
+        
     }
 
     .main-content h1 {
@@ -43,6 +43,7 @@ body {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        
     }
 
     .main-content h1 {
@@ -51,5 +52,6 @@ body {
 
     .main-content p {
         font-size: 1.25rem; /* Adjust paragraph size */
+        
     }
 }

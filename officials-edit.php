@@ -9,78 +9,85 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <style>
-        /* Main Container Styling */
-        .main-container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #f9fafb;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
+    /* Main Container Styling */
+    .main-container {
+        max-width: 900px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f9fafb;
+        border-radius: 10px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Form Container Styling */
-        #editForm {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    /* Form Container Styling */
+    #editForm {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Section Container Styling */
-        .form-section {
-            background-color: #f8fafc;
-            padding: 16px;
-            margin-bottom: 12px;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+    /* Section Container Styling */
+    .form-section {
+        background-color: #f8fafc;
+        padding: 16px;
+        margin-bottom: 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        /* Label Styling */
-        label {
-            font-weight: 600;
-            color: #374151;
-        }
+    /* Label Styling */
+    label {
+        font-weight: 600;
+        color: #374151;
+    }
 
-        /* Input and Select Styling */
-        .input-text, .input-select {
-            padding: 10px;
-            border: 1px solid #d1d5db;
-            border-radius: 4px;
-            width: 100%;
-            transition: border-color 0.3s;
-        }
+    /* Input and Select Styling */
+    .input-text,
+    .input-select {
+        padding: 10px;
+        border: 1px solid #d1d5db;
+        border-radius: 4px;
+        width: 100%;
+        transition: border-color 0.3s;
+    }
 
-        .input-text:focus, .input-select:focus {
-            border-color: #10b981;
-            outline: none;
-            box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
-        }
+    .input-text:focus,
+    .input-select:focus {
+        border-color: #10b981;
+        outline: none;
+        box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
+    }
 
-        /* Button Styling */
-        .btn-submit {
-            background-color: #10b981;
-            color: #ffffff;
-            font-weight: bold;
-            padding: 12px 20px;
-            border-radius: 6px;
-            transition: background-color 0.3s;
-        }
+    /* Button Styling */
+    .btn-submit {
+        background-color: #10b981;
+        color: #ffffff;
+        font-weight: bold;
+        padding: 12px 20px;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+    }
 
-        .btn-submit:hover {
-            background-color: #059669;
-        }
+    .btn-submit:hover {
+        background-color: #059669;
+    }
 
-        /* Title Styling */
-        h2, h3 {
-            color: #1f2937;
-            text-align: center;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
+    /* Title Styling */
+    h2,
+    h3 {
+        color: #1f2937;
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
     </style>
 </head>
 
@@ -185,7 +192,8 @@
             if (snapshot.exists()) {
                 const existingData = snapshot.val();
                 positions.forEach(position => {
-                    const officialData = Object.values(existingData).find(data => data.position === position) || {};
+                    const officialData = Object.values(existingData).find(data => data.position ===
+                        position) || {};
                     formContainer.innerHTML += createSectionTemplate(position, officialData);
                 });
             } else {
@@ -201,7 +209,7 @@
     fetchAndRenderData();
 
     // Handle form submission
-    document.getElementById("editForm").addEventListener("submit", async function (event) {
+    document.getElementById("editForm").addEventListener("submit", async function(event) {
         event.preventDefault(); // Prevent default form submission
 
         // Collect data from all the input fields
@@ -233,12 +241,14 @@
                     first_name: formData[index * 4], // First Name
                     middle_initial: formData[index * 4 + 1], // Middle Initial
                     last_name: formData[index * 4 + 2], // Last Name
-                    suffix: formData[index * 4 + 3] || null, // Suffix is optional, will be null if not selected
+                    suffix: formData[index * 4 + 3] ||
+                    null, // Suffix is optional, will be null if not selected
                     position: position // Add position field
                 };
 
                 database.ref('BrgyOfficials').push(newOfficialData).then(() => {
-                    console.log(`Barangay Official data for ${position} added successfully!`);
+                    console.log(
+                        `Barangay Official data for ${position} added successfully!`);
                 }).catch((error) => {
                     console.error("Error adding data:", error);
                 });
@@ -251,7 +261,7 @@
             alert("There was an error updating the data. Please try again.");
         }
     });
-</script>
+    </script>
 
     <?php include 'Includes/footer.php'; ?>
 

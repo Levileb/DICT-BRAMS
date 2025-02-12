@@ -18,12 +18,19 @@
 #activity-logs table {
     min-width: 100%;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.inner-container::-webkit-scrollbar {
+    display: none;
+}
 </style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include_once 'Includes/admin-navbar.php'; ?>
-
     <div id="activity-logs"
         class="tab-content container mx-auto flex items-center justify-center h-screen px-8 py-6 max-w-2xl my-8 bg-white rounded-lg shadow-md">
         <div class="inner-container p-6 w-full">

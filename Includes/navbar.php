@@ -1,158 +1,175 @@
- <style>
-        /* navbar-styles.css */
+<style>
+.custom-bar {
+    background-color: #117A3C;
+    padding: 0.5rem 0;
+    width: 100%;
+    margin-bottom: 2%;
+    position: sticky;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
 
-        .custom-navbar {
-            background-color: #117A3C; /* Custom green */
-            padding: 0.5rem 0;
-            width: 100%;
-            margin-bottom: 2%; 
-        }
+.-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    gap: 1rem;
+}
 
-        .nav-container {
-            display: flex;
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center all items horizontally */
-            justify-content: center; /* Center items vertically */
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            gap: 1rem; /* Space between elements */
-        }
+.hamburger {
+    align-self: flex-start;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    cursor: pointer;
+}
 
-        /* Hamburger stays aligned to the left */
-        .hamburger {
-            align-self: flex-start; /* Align hamburger to the left */
-            display: none; 
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 24px;
-            cursor: pointer;
-        }
+.hamburger .line {
+    background-color: #D4EDDA;
+    height: 3px;
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+}
 
-        .hamburger .line {
-            background-color: #D4EDDA; 
-            height: 3px;
-            border-radius: 2px;
-            transition: transform 0.3s, opacity 0.3s;
-        }
+.hamburger.active .line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
 
-        .hamburger.active .line:nth-child(1) {
-            transform: translateY(10px) rotate(45deg);
-        }
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
 
-        .hamburger.active .line:nth-child(2) {
-            opacity: 0; 
-        }
+.hamburger.active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
 
-        .hamburger.active .line:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg);
-        }
+.-links {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
 
-        /* Navbar Links */
-        .nav-links {
-            display: flex;
-            flex-direction: row; /* Horizontal on large screens */
-            gap: 2rem; /* Space between links */
-            justify-content: center; /* Center links horizontally */
-            align-items: center; /* Center links vertically */
-            transition: all 0.3s ease-in-out;
-        }
+.-link {
+    font-size: 1.25rem;
+    color: rgb(236, 250, 252);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+    user-select: none;
+    cursor: pointer;
+}
 
-        .nav-link {
-            font-size: 1.25rem;
-            color: #D4EDDA; 
-            text-decoration: none;
-            padding: 0.5rem 1rem; 
-            border-radius: 0.25rem; 
-            transition: background-color 0.3s, color 0.3s;
-            white-space: nowrap;
-            user-select: none; 
-            cursor: pointer; 
-        }
+.-link:hover,
+.-link.active {
+    background-color: rgb(128, 242, 189);
+    color: #065F46;
+}
 
-        .nav-link:hover {
-            background-color: #A7F3D0; 
-            color: #065F46; 
-        }
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
 
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex; 
-            }
+    .-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 1rem;
+    }
 
-            .nav-links {
-                display: none;
-                flex-direction: column; /* Stack links vertically */
-                width: 100%; 
-                text-align: center;
-                gap: 1rem;
-            }
+    .-link {
+        font-size: 1rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
 
-            .nav-link {
-                font-size: 1rem;
-                padding: 0.5rem 0.75rem;
-            }
-        }
+.-link:hover,
+.-link.active {
+    background-color: rgb(101, 182, 144);
+    color: #065F46;
+}
 
-        @media (max-width: 480px) {
-            .nav-link {
-                font-size: 0.875rem; 
-                padding: 0.5rem;
-            }
-        }
-    </style>
+/* Change active button color when hovering over other buttons */
+.-links:hover .-link.active {
+    background-color: rgb(130, 222, 176);
+    /* Slightly lighter color */
+}
 
-    <div class="custom-navbar">
-        <div class="nav-container">
-            <!-- Hamburger Icon -->
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
 
-            <!-- Navbar Links -->
-            <div class="nav-links" id="navLinks">
-                <a href="dashboard.php" class="nav-link">HOME</a>
-                <a href="registration_form.php" class="nav-link">REGISTRATION FORM</a>
-                <a href="household_form.php" class="nav-link">HOUSEHOLD FORM</a>
-                <a href="resident_list.php" class="nav-link">LIST OF RESIDENTS</a>
-                <a href="household_profile.php" class="nav-link">HOUSEHOLD PROFILE</a>
-            </div>
+@media (max-width: 480px) {
+    .-link {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+}
+</style>
+
+<div class="custom-bar">
+    <div class="-container">
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="-links" id="Links">
+            <a href="dashboard.php" class="-link">HOME</a>
+            <a href="registration_form.php" class="-link">REGISTRATION FORM</a>
+            <a href="household_form.php" class="-link">HOUSEHOLD FORM</a>
+            <a href="resident_list.php" class="-link">LIST OF RESIDENTS</a>
+            <a href="household_profile.php" class="-link">HOUSEHOLD PROFILE</a>
         </div>
     </div>
+</div>
 
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            const hamburger = document.querySelector(".hamburger");
+<script>
+function toggleMenu() {
+    const Links = document.getElementById("Links");
+    const hamburger = document.querySelector(".hamburger");
 
-            // Toggle visibility of the nav-links
-            if (navLinks.style.display === "flex") {
-                navLinks.style.display = "none";
-            } else {
-                navLinks.style.display = "flex";
-            }
+    if (Links.style.display === "flex") {
+        Links.style.display = "none";
+    } else {
+        Links.style.display = "flex";
+    }
 
-            // Toggle hamburger icon animation
-            hamburger.classList.toggle("active");
+    hamburger.classList.toggle("active");
+}
+
+function handleResize() {
+    const Links = document.getElementById("Links");
+
+    if (window.innerWidth >= 768) {
+        Links.style.display = "flex";
+    } else if (!document.querySelector(".hamburger.active")) {
+        Links.style.display = "none";
+    }
+}
+
+function highlightActiveLink() {
+    const links = document.querySelectorAll(".-link");
+    const currentURL = window.location.href;
+
+    links.forEach(link => {
+        if (link.href === currentURL) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
         }
+    });
+}
 
-        // Ensure links are visible on large screens and hidden on small screens
-        function handleResize() {
-            const navLinks = document.getElementById("navLinks");
-
-            if (window.innerWidth >= 768) {
-                navLinks.style.display = "flex"; // Always visible on large screens
-            } else if (!document.querySelector(".hamburger.active")) {
-                navLinks.style.display = "none"; // Hidden by default on small screens
-            }
-        }
-
-        // Listen for window resize events
-        window.addEventListener("resize", handleResize);
-
-        // Run once on page load to set the correct display state
-        handleResize();
-    </script>
+window.addEventListener("resize", handleResize);
+window.addEventListener("load", highlightActiveLink);
+</script>

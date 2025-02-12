@@ -1,42 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<head>    
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BRAMS - ADMIN</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-    <!-- <script src="user-create.js"></script>  -->
-    <link rel="stylesheet" href="user-register.css">       
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BRAMS - ADMIN</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+        <!-- <script src="user-create.js"></script>  -->
+        <link rel="stylesheet" href="user-register.css">
     </head>
 </head>
-<body>
-<?php include 'Includes/header.php'; ?>
-<?php include 'Includes/admin-navbar.php'; ?>
+<style>
+.container-list {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 10rem;
+    overflow-x: auto;
+    margin-top: 1rem;
+    margin-bottom: 13.5rem;
+
+}
+</style>
+
+<body class="bg-gray-100">
 
 
- <table>
-    
-</table>
-<table class="min-w-full leading-normal">
-    <thead>
-        <tr>
-            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Email
-            </th>
-            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Name
-            </th>
-            <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                Action
-            </th>
-        </tr>
-    </thead>
-</table>
-<script>
+
+    <?php include 'Includes/header.php'; ?>
+    <?php include 'Includes/admin-navbar.php'; ?>
+
+
+    <div class="container-list">
+        <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+
+            <table class="min-w-full leading-normal">
+                <thead>
+                    <tr>
+                        <th
+                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            Email
+                        </th>
+                        <th
+                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            Name
+                        </th>
+                        <th
+                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                            Action
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
@@ -46,15 +71,15 @@
         storageBucket: "brams-3dfd3.firebasestorage.app",
         messagingSenderId: "301528550722",
         appId: "1:301528550722:web:9724e3029567a64c904cdb",
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
-        // Reference to your entire Firebase database
-        var database = firebase.database().ref('Users');
+    // Reference to your entire Firebase database
+    var database = firebase.database().ref('Users');
 
-        // Fetch data from Firebase
-        database.on('value', function(snapshot) {
+    // Fetch data from Firebase
+    database.on('value', function(snapshot) {
         var users = snapshot.val();
         var tableBody = document.createElement('tbody');
 
@@ -98,7 +123,8 @@
                                 location.reload();
                             })
                             .catch(function(error) {
-                                console.error("Error deleting user from Firebase Authentication:", error);
+                                console.error("Error deleting user from Firebase Authentication:",
+                                    error);
                             });
                     }
                 };
@@ -111,8 +137,9 @@
 
         document.querySelector('table.min-w-full').appendChild(tableBody);
     });
-</script>
+    </script>
 
-<?php include 'Includes/footer.php'; ?>
+    <?php include 'Includes/footer.php'; ?>
 </body>
+
 </html>

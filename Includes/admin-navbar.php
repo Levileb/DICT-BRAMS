@@ -7,9 +7,13 @@
     padding: 0.5rem 0;
     width: 100%;
     margin-bottom: 2%;
+    position: sticky;
+    top: 13%;
+    z-index: 1000;
+
 }
 
-.nav-container {
+.-nav-container {
     display: flex;
     flex-direction: column;
     /* Stack items vertically */
@@ -71,7 +75,7 @@
 
 .nav-link {
     font-size: 1.25rem;
-    color: #D4EDDA;
+    color: rgb(236, 250, 252);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
@@ -82,7 +86,14 @@
 }
 
 .nav-link:hover {
-    background-color: #A7F3D0;
+    background-color: rgb(128, 242, 189);
+    color: #065F46;
+}
+
+/* dre*/
+.-nav-link.hover,
+.nav-link.active {
+    background-color: rgb(128, 242, 189);
     color: #065F46;
 }
 
@@ -106,12 +117,23 @@
     }
 }
 
+
+.nav-link:hover .nav-link.active {
+    background-color: rgb(130, 222, 176);
+}
+
+.nav-links:hover .nav-link.active {
+    background-color: rgb(130, 222, 176);
+}
+
 @media (max-width: 480px) {
     .nav-link {
         font-size: 0.875rem;
         padding: 0.5rem;
     }
 }
+
+
 
 .dropdown {
     position: relative;
@@ -205,6 +227,19 @@ function handleResize() {
         navLinks.style.display = "none"; // Hidden by default on small screens
     }
 }
+
+function highlightActiveLink() {
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    navLinks.forEach(link => {
+        if (link.href === currentURL) {
+            link.classList.add("active");
+        } else {
+            link.classList.remove("active");
+        }
+    });
+}
+
 
 // Listen for window resize events
 window.addEventListener("resize", handleResize);

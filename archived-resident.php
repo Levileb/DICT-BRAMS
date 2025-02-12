@@ -13,39 +13,61 @@
     <!-- <script src="firebase-resident.js"></script> Your Firebase config file -->
     <script src="archive_resident.js"></script>
 </head>
+<style>
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.sub-container {
+    width: 100%;
+    margin-left: 0.5rem;
+
+}
+
+.inner-container {
+    max-height: 100%;
+    overflow-y: auto;
+    width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+</style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
     <div class="inner-container">
-        <div class="container-width container-padding bg-white shadow-md rounded-lg">
-            <div class="flex flex-col sm:flex-row justify-between items-center px-4 py-4">
-                <h2 class="large-text text-gray-700">Archived Residents</h2>
-                <div class="flex space-x-4 mt-4 sm:mt-0">
-                    <input type="text" id="search" placeholder="Search..."
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
-                    <button id="export-button"
-                        class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to Excel</button>
+        <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+            <div class="container-width container-padding bg-white shadow-md rounded-lg">
+                <div class="flex flex-col sm:flex-row justify-between items-center px-4 py-4">
+                    <h2 class="large-text text-gray-700">Archived Residents</h2>
+                    <div class="flex space-x-4 mt-4 sm:mt-0">
+                        <input type="text" id="search" placeholder="Search..."
+                            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
+                        <button id="export-button"
+                            class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to
+                            Excel</button>
+                    </div>
                 </div>
-            </div>
 
-            <table
-                class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg">
-                <thead class="bg-green-100">
-                    <tr>
-                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">First Name</th>
-                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Middle Name</th>
-                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Last Name</th>
-                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="residents-list" class="bg-white divide-y divide-gray-200">
-                    <tr>
-                        <td colspan="4" class="py-4 text-center text-gray-500">Loading...</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table
+                    class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg">
+                    <thead class="bg-green-100">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">First Name</th>
+                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Middle Name</th>
+                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Last Name</th>
+                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="residents-list" class="bg-white divide-y divide-gray-200">
+                        <tr>
+                            <td colspan="4" class="py-4 text-center text-gray-500">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     </div>
