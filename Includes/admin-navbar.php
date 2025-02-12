@@ -10,10 +10,9 @@
     position: sticky;
     top: 13%;
     z-index: 1000;
-
 }
 
-.-nav-container {
+.nav-container {
     display: flex;
     flex-direction: column;
     /* Stack items vertically */
@@ -85,15 +84,9 @@
     cursor: pointer;
 }
 
-.nav-link:hover {
-    background-color: rgb(128, 242, 189);
-    color: #065F46;
-}
-
-/* dre*/
-.-nav-link.hover,
-.nav-link.active {
-    background-color: rgb(128, 242, 189);
+/* Hover and Active States */
+.nav-link:hover, .nav-link.active {
+    background-color: rgb(111, 209, 161);
     color: #065F46;
 }
 
@@ -117,13 +110,13 @@
     }
 }
 
-
 .nav-link:hover .nav-link.active {
-    background-color: rgb(130, 222, 176);
+    background-color: rgba(130, 222, 176);
+    color: #065F46
 }
 
 .nav-links:hover .nav-link.active {
-    background-color: rgb(130, 222, 176);
+    background-color: rgb(132, 179, 155);
 }
 
 @media (max-width: 480px) {
@@ -132,8 +125,6 @@
         padding: 0.5rem;
     }
 }
-
-
 
 .dropdown {
     position: relative;
@@ -230,6 +221,7 @@ function handleResize() {
 
 function highlightActiveLink() {
     const navLinks = document.querySelectorAll(".nav-link");
+    const currentURL = window.location.href;
 
     navLinks.forEach(link => {
         if (link.href === currentURL) {
@@ -240,10 +232,10 @@ function highlightActiveLink() {
     });
 }
 
-
 // Listen for window resize events
 window.addEventListener("resize", handleResize);
-
-// Run once on page load to set the correct display state
-handleResize();
+window.addEventListener("load", () => {
+    handleResize();
+    highlightActiveLink();
+});
 </script>
