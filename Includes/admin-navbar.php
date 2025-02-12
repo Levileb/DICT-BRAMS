@@ -178,20 +178,20 @@
 
         <!-- Navbar Links -->
         <div class="nav-links" id="navLinks">
-            <a href="admin-dashboard.php" class="nav-link">Dashboard</a>
+            <a href="admin-dashboard.php" class="nav-link">DASHBOARD</a>
             <div class="nav-link dropdown">
-                <span>Activity Log</span>
+                <span>ACTIVITY LOG</span>
                 <div class="dropdown-content">
                     <a href="activity-logs.php" class="nav-link">User Activity</a>
                     <a href="registered-household.php" class="nav-link">Registered Household</a>
                     <a href="registered-residents.php" class="nav-link">Registered Residents</a>
                 </div>
             </div>
-            <a href="officials-edit.php" class="nav-link">Officials Edit</a>
-            <a href="print-counter.php" class="nav-link">Print Counter</a>
-            <a href="archived-resident.php" class="nav-link">Archived Resident</a>
+            <a href="officials-edit.php" class="nav-link">OFFICIALS EDIT</a>
+            <a href="print-counter.php" class="nav-link">PRINT COUNTER</a>
+            <a href="archived-resident.php" class="nav-link">ARCHIVED RESIDENT</a>
             <div class="nav-link dropdown">
-                <span>User</span>
+                <span>USER</span>
                 <div class="dropdown-content">
                     <a href="user-list.php" class="nav-link">List</a>
                     <a href="user-register.php" class="nav-link">Registration</a>
