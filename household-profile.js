@@ -11,7 +11,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-   // Reference to the 'Households' node in your Realtime Database
+    // Reference to the 'Households' node in your Realtime Database
     const householdsRef = firebase.database().ref('Households');
     householdsRef.on('value', (snapshot) => {
         const residentsList = document.getElementById('residents-list');
@@ -51,6 +51,16 @@
                 document.getElementById('modal-middle-name').textContent = household.middle_name || 'N/A';
                 document.getElementById('modal-last-name').textContent = household.last_name || 'N/A';
                 document.getElementById('modal-nhts-status').textContent = household.nhts_status || 'N/A';
+
+                // Ensure the hidden input exists before setting the household ID
+                let householdIdInput = document.getElementById('modal-household-id');
+                if (!householdIdInput) {
+                    householdIdInput = document.createElement('input');
+                    householdIdInput.type = 'hidden';
+                    householdIdInput.id = 'modal-household-id';
+                    document.body.appendChild(householdIdInput);
+                }
+                householdIdInput.value = childSnapshot.key;
 
                 // Populate the table with selected members
                 const membersList = document.getElementById('modal-members-list');
@@ -106,7 +116,8 @@
                         deleteButtonCell.appendChild(deleteButton);
                         memberRow.appendChild(deleteButtonCell);
 
-                        membersList.appendChild(memberRow);    });
+                        membersList.appendChild(memberRow);
+                    });
                 } else {
                     const noMembersRow = document.createElement('tr');
                     noMembersRow.innerHTML = `<td colspan="5" class="py-2 px-4 text-sm text-gray-600 text-center">No members found</td>`;
@@ -133,7 +144,7 @@
         const workbook = XLSX.utils.table_to_book(table, { sheet: "Households" });
         XLSX.writeFile(workbook, 'households.xlsx');
     });
-    
+
     document.getElementById("add-modal").addEventListener("click", function () {
         document.getElementById("modal").classList.remove("hidden");
     });
@@ -148,3 +159,79 @@
             modal.classList.add("hidden");
         }
     });
+
+    function fetchResidents() {
+        const residentsRef = firebase.database().ref('Residents');
+        const selectedMembersRef = firebase.database().ref('SelectedMembers');
+        const residentsList = document.getElementById("modal-residents-list");
+        const householdId = document.getElementById("modal-household-id").value;
+    
+        // Fetch selected members globally
+        selectedMembersRef.once('value', (selectedSnapshot) => {
+            const globalSelectedMembers = selectedSnapshot.exists() ? Object.keys(selectedSnapshot.val()) : [];
+    
+            // Fetch selected members of the current household
+            firebase.database().ref(`Households/${householdId}`).once('value', (householdSnapshot) => {
+                const household = householdSnapshot.val();
+                const householdSelectedMembers = household?.selected_members || [];
+    
+                residentsRef.once('value', (residentsSnapshot) => {
+                    residentsList.innerHTML = ""; // Clear existing data
+    
+                    if (residentsSnapshot.exists()) {
+                        residentsSnapshot.forEach((childSnapshot) => {
+                            const residentID = childSnapshot.key;
+                            const resident = childSnapshot.val();
+    
+                            // Check if the resident ID is in either SelectedMembers or Household's selected_members
+                            if (!globalSelectedMembers.includes(residentID) && !householdSelectedMembers.includes(residentID)) {
+                                const row = document.createElement("tr");
+                                row.innerHTML = `
+                                    <td class="py-2 px-4 text-sm text-gray-700">
+                                        <input type="checkbox" class="resident-checkbox checkbox-input" data-resident-id="${residentID}">
+                                    </td>
+                                    <td class="py-2 px-4 text-sm text-gray-700">${residentID}</td>
+                                    <td class="py-2 px-4 text-sm text-gray-700">${resident.first_name || ''} ${resident.last_name || ''}</td>
+                                `;
+                                residentsList.appendChild(row);
+                            }
+                        });
+                    } else {
+                        residentsList.innerHTML = "<tr><td colspan='3' class='py-2 px-4 text-gray-500'>No residents found.</td></tr>";
+                    }
+                });
+            });
+        });
+    }
+    
+    document.getElementById("add-modal").addEventListener("click", fetchResidents);
+
+    document.getElementById("add-member").addEventListener("click", () => {
+        const selectedMembers = Array.from(document.querySelectorAll('.checkbox-input'))
+            .filter(checkbox => checkbox.checked) // Only include checked checkboxes
+            .map(checkbox => checkbox.dataset.residentId); // Get the `data-resident-id` attribute of the selected checkboxes
+        const householdId = document.getElementById("modal-household-id").value; // Assuming you have a hidden input to store the household ID
+
+        if (householdId && selectedMembers.length > 0) {
+            const householdRef = firebase.database().ref(`Households/${householdId}`);
+            householdRef.once('value', (snapshot) => {
+                const household = snapshot.val();
+                const updatedMembers = household.selected_members ? household.selected_members.concat(selectedMembers) : selectedMembers;
+                householdRef.update({ selected_members: updatedMembers }).then(() => {
+                    // Add member data to SelectedMembers node
+                    selectedMembers.forEach(memberId => {
+                        firebase.database().ref(`SelectedMembers/${memberId}`).set(true);
+                    });
+                    alert("Members added successfully!");
+                    document.getElementById("modal").classList.add("hidden");
+                });
+            });
+        } else {
+            alert("No members selected or household ID missing.");
+        }
+    });
+    // Listen for changes in the Residents node
+    const residentsRef = firebase.database().ref('Residents');
+    residentsRef.on('child_changed', fetchResidents);
+    residentsRef.on('child_removed', fetchResidents);
+    residentsRef.on('child_added', fetchResidents);

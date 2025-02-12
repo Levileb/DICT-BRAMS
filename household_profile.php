@@ -65,12 +65,31 @@
             </tbody>
         </table>
         <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg shadow-lg w-96">
-            <h2 class="text-xl font-semibold mb-4">Modal Title</h2>
-            <p class="mb-4">This is the modal content.</p>
+        <div class="bg-white p-6 rounded-lg shadow-lg w-2/3 h-2/3">
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-semibold">Select a Member</h2>
             <button id="closed-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
-                Close
+                X
             </button>
+        </div>
+
+                <div class="overflow-y-auto h-3/4">
+                    <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg h-full">
+                    <thead class="bg-green-100">
+                    <tr>
+                        <th class="py-2 px-4 text-left text-sm font-medium text-gray-500"> </th>
+                        <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Resident ID</th>
+                        <th class="py-2 px-4 text-left text-sm font-medium text-gray-500">Fullname</th>
+                    </tr>
+                    </thead>
+                    <tbody id="modal-residents-list" class="h-full">
+                    <!-- Residents will be dynamically populated here -->
+                    </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 flex justify-end">
+                    <button id="add-member" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg mx-auto">+</button>
+                  </div>
         </div>
     </div>
         <div class="mt-4 flex justify-end">
