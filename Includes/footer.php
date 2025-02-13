@@ -19,6 +19,20 @@
     justify-content: space-between;
     width: 100%;
     align-items: center;
+    position: fixed;
+    bottom: 0;
+    margin-top: auto;
+    background-color: #117A3C;
+    /* Green color */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Align left and right */
+    padding: 1rem;
+    text-align: center;
+    width: 100%;
+    color: white;
+    z-index: 1000;
 }
 
 
@@ -34,14 +48,13 @@
 </style>
 
 
-<footer class="footer-custom">
-    <div class="footer-container">
-        <p class="text-sm m-0">&copy; 2024 Department of Information and Communications Technology. All Rights Reserved.
-        </p>
-        <div class="footer-links">
-            <a href="#" class="footer-link">Privacy Policy</a>
-            <a href="#" class="footer-link">Terms of Service</a>
-            <a href="#" class="footer-link">Contact Us</a>
-        </div>
+
+<footer class="footer-container">
+    <p class="text-sm m-0">&copy; 2024 Department of Information and Communications Technology. All Rights Reserved.
+    </p>
+    <div class="footer-links">
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Terms of Service</a>
+        <a href="#" class="footer-link">Contact Us</a>
     </div>
 </footer>

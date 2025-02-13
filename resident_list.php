@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,42 +15,59 @@
     <script src="archive_resident.js"></script> <!-- Include the archive function -->
 
     <style>
-        .container-width { max-width: 90%; }
-        .container-padding { padding: 3rem; }
-        .large-text { font-size: 2.25rem; font-weight: 700; }
-        .search-bar-width { width: 20rem; }
+    .container-width {
+        max-width: 90%;
+    }
+
+    .container-padding {
+        padding: 3rem;
+    }
+
+    .large-text {
+        font-size: 2.25rem;
+        font-weight: 700;
+    }
+
+    .search-bar-width {
+        width: 20rem;
+    }
+
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
     </style>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const searchInput = document.getElementById('search');
-            const tableBody = document.getElementById('residents-list');
-            const exportButton = document.getElementById('export-button');
-            let openDropdown = null; // Track the currently open dropdown
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('search');
+        const tableBody = document.getElementById('residents-list');
+        const exportButton = document.getElementById('export-button');
+        let openDropdown = null; // Track the currently open dropdown
 
-            loadResidents();
+        loadResidents();
 
-            function loadResidents() {
-                const database = firebase.database().ref('Residents');
-                const residentsData = [];
+        function loadResidents() {
+            const database = firebase.database().ref('Residents');
+            const residentsData = [];
 
-                database.once('value').then(snapshot => {
-                    const residents = snapshot.val();
-                    tableBody.innerHTML = '';
+            database.once('value').then(snapshot => {
+                const residents = snapshot.val();
+                tableBody.innerHTML = '';
 
-                    // Check if no residents exist
-                    if (!residents || Object.keys(residents).length === 0) {
-                        tableBody.innerHTML = `
+                // Check if no residents exist
+                if (!residents || Object.keys(residents).length === 0) {
+                    tableBody.innerHTML = `
                             <tr>
                                 <td colspan="4" class="py-4 text-center text-gray-500">There is no Resident Been Register</td>
                             </tr>
                         `;
-                    } else {
-                        // Populate table with residents data
-                        for (let key in residents) {
-                            const resident = residents[key];
-                            const row = document.createElement('tr');
-                            row.innerHTML = `
+                } else {
+                    // Populate table with residents data
+                    for (let key in residents) {
+                        const resident = residents[key];
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
                                 <td class="py-2 px-4 text-sm text-gray-500">${resident.first_name || ''}</td>
                                 <td class="py-2 px-4 text-sm text-gray-500">${resident.middle_name || ''}</td>
                                 <td class="py-2 px-4 text-sm text-gray-500">${resident.last_name || ''}</td>
@@ -73,116 +91,118 @@
                                 </td>
                             `;
 
-                            tableBody.appendChild(row);
+                        tableBody.appendChild(row);
 
-                            residentsData.push({
-                                first_name: resident.first_name || '',
-                                middle_name: resident.middle_name || '',
-                                last_name: resident.last_name || '',
-                                suffix: resident.suffix || '', // Added suffix here
-                                appellation: resident.appellation || '',
-                                place_of_birth: resident.place_of_birth || '',
-                                date_of_birth: resident.date_of_birth || '',
-                                gender: resident.gender || '',
-                                nationality: resident.nationality || '',
-                                civil_status: resident.civil_status || '',
-                                philhealth_id: resident.philhealth_id || '',
-                                philhealth_membership: resident.philhealth_membership || '',
-                                wra: resident.wra || '',
-                                educational_attainment: resident.educational_attainment || '',
-                                employment_status: resident.employment_status || '',
-                                remark_NS: resident.remark_NS || '',
-                                resident_since: resident.resident_since || '',
-                                contact_number: resident.contact_number || '',
-                                emergency_name: resident.emergency_name || '',
-                                emergency_phone: resident.emergency_phone || '',
-                                relationship: resident.relationship || ''
-                            });
-                        }
-
-                        initializeDropdowns();
-
-                        exportButton.addEventListener('click', () => {
-                            exportToExcel(residentsData);
+                        residentsData.push({
+                            first_name: resident.first_name || '',
+                            middle_name: resident.middle_name || '',
+                            last_name: resident.last_name || '',
+                            suffix: resident.suffix || '', // Added suffix here
+                            appellation: resident.appellation || '',
+                            place_of_birth: resident.place_of_birth || '',
+                            date_of_birth: resident.date_of_birth || '',
+                            gender: resident.gender || '',
+                            nationality: resident.nationality || '',
+                            civil_status: resident.civil_status || '',
+                            philhealth_id: resident.philhealth_id || '',
+                            philhealth_membership: resident.philhealth_membership || '',
+                            wra: resident.wra || '',
+                            educational_attainment: resident.educational_attainment || '',
+                            employment_status: resident.employment_status || '',
+                            remark_NS: resident.remark_NS || '',
+                            resident_since: resident.resident_since || '',
+                            contact_number: resident.contact_number || '',
+                            emergency_name: resident.emergency_name || '',
+                            emergency_phone: resident.emergency_phone || '',
+                            relationship: resident.relationship || ''
                         });
                     }
-                }).catch(error => {
-                    console.error('Error loading residents:', error);
-                });
-            }
 
-            function initializeDropdowns() {
-                document.querySelectorAll('.dropdown-button').forEach(button => {
-                    button.addEventListener('click', event => {
-                        event.stopPropagation(); // Prevent event from bubbling up
+                    initializeDropdowns();
 
-                        const dropdown = button.nextElementSibling;
-
-                        // Close any open dropdown
-                        if (openDropdown && openDropdown !== dropdown) {
-                            openDropdown.classList.add('hidden');
-                        }
-
-                        // Toggle current dropdown
-                        dropdown.classList.toggle('hidden');
-                        openDropdown = dropdown.classList.contains('hidden') ? null : dropdown;
+                    exportButton.addEventListener('click', () => {
+                        exportToExcel(residentsData);
                     });
-                });
+                }
+            }).catch(error => {
+                console.error('Error loading residents:', error);
+            });
+        }
 
-                window.addEventListener('click', () => {
-                    if (openDropdown) {
+        function initializeDropdowns() {
+            document.querySelectorAll('.dropdown-button').forEach(button => {
+                button.addEventListener('click', event => {
+                    event.stopPropagation(); // Prevent event from bubbling up
+
+                    const dropdown = button.nextElementSibling;
+
+                    // Close any open dropdown
+                    if (openDropdown && openDropdown !== dropdown) {
                         openDropdown.classList.add('hidden');
-                        openDropdown = null;
                     }
-                });
-            }
 
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-                const tableRows = tableBody.querySelectorAll('tr');
-
-                tableRows.forEach(row => {
-                    const cells = row.querySelectorAll('td');
-                    const firstName = cells[0].textContent.toLowerCase();
-                    const middleName = cells[1].textContent.toLowerCase();
-                    const lastName = cells[2].textContent.toLowerCase();
-                    if (firstName.includes(searchTerm) || middleName.includes(searchTerm) || lastName.includes(searchTerm)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('hidden');
+                    openDropdown = dropdown.classList.contains('hidden') ? null : dropdown;
                 });
             });
 
-            function exportToExcel(residentsData) {
-                const date = new Date();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                const year = date.getFullYear();
+            window.addEventListener('click', () => {
+                if (openDropdown) {
+                    openDropdown.classList.add('hidden');
+                    openDropdown = null;
+                }
+            });
+        }
 
-                const fileName = `residents_data_${month}-${day}-${year}.xlsx`;
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            const tableRows = tableBody.querySelectorAll('tr');
 
-                const worksheet = XLSX.utils.json_to_sheet(residentsData);
-                const workbook = XLSX.utils.book_new();
-                XLSX.utils.book_append_sheet(workbook, worksheet, "Residents");
-
-                XLSX.writeFile(workbook, fileName);
-            }
+            tableRows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const firstName = cells[0].textContent.toLowerCase();
+                const middleName = cells[1].textContent.toLowerCase();
+                const lastName = cells[2].textContent.toLowerCase();
+                if (firstName.includes(searchTerm) || middleName.includes(searchTerm) ||
+                    lastName.includes(searchTerm)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         });
 
-        function showInfoPopup(residentId) {
-    const database = firebase.database().ref('Residents/' + residentId);
-    database.once('value').then(snapshot => {
-        const resident = snapshot.val();
+        function exportToExcel(residentsData) {
+            const date = new Date();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const year = date.getFullYear();
 
-        // Create the popup container
-        const popup = document.createElement('div');
-        popup.classList.add('fixed', 'inset-0', 'bg-gray-800', 'bg-opacity-50', 'flex', 'items-center', 'justify-center', 'z-50');
+            const fileName = `residents_data_${month}-${day}-${year}.xlsx`;
 
-        // Popup content
-        const content = document.createElement('div');
-        content.classList.add('bg-white', 'p-6', 'rounded-lg', 'w-1/3');
-        content.innerHTML = `
+            const worksheet = XLSX.utils.json_to_sheet(residentsData);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Residents");
+
+            XLSX.writeFile(workbook, fileName);
+        }
+    });
+
+    function showInfoPopup(residentId) {
+        const database = firebase.database().ref('Residents/' + residentId);
+        database.once('value').then(snapshot => {
+            const resident = snapshot.val();
+
+            // Create the popup container
+            const popup = document.createElement('div');
+            popup.classList.add('fixed', 'inset-0', 'bg-gray-800', 'bg-opacity-50', 'flex', 'items-center',
+                'justify-center', 'z-50');
+
+            // Popup content
+            const content = document.createElement('div');
+            content.classList.add('bg-white', 'p-6', 'rounded-lg', 'w-1/3');
+            content.innerHTML = `
             <div class="flex justify-between items-center mb-4">
                 <h3 class="text-xl font-semibold">Information of the Resident</h3>
                 <button 
@@ -223,25 +243,25 @@
             <p><strong>Relationship:</strong> ${resident.relationship || ''}</p>
         `;
 
-        // Append popup content to popup
-        popup.appendChild(content);
-        document.body.appendChild(popup);
-    }).catch(error => {
-        console.error('Error fetching resident info:', error);
-    });
-}
-
-// Close popup function
-function closePopup() {
-    const popup = document.querySelector('.fixed');
-    if (popup) {
-        popup.remove();
+            // Append popup content to popup
+            popup.appendChild(content);
+            document.body.appendChild(popup);
+        }).catch(error => {
+            console.error('Error fetching resident info:', error);
+        });
     }
-}
 
+    // Close popup function
+    function closePopup() {
+        const popup = document.querySelector('.fixed');
+        if (popup) {
+            popup.remove();
+        }
+    }
     </script>
 
 </head>
+
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
@@ -250,8 +270,10 @@ function closePopup() {
         <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
             <h2 class="large-text text-gray-700">List Of Residents</h2>
             <div class="flex space-x-4 mt-4 sm:mt-0">
-                <input type="text" id="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
-                <button id="export-button" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to Excel</button>
+                <input type="text" id="search" placeholder="Search..."
+                    class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
+                <button id="export-button"
+                    class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to Excel</button>
             </div>
         </div>
 
@@ -272,4 +294,5 @@ function closePopup() {
 
     <?php include 'Includes/footer.php'; ?>
 </body>
+
 </html>
