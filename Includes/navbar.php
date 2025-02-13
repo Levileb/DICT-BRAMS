@@ -5,7 +5,9 @@
     width: 100%;
     margin-bottom: 2%;
     position: sticky;
+    top: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .-container {
@@ -94,24 +96,17 @@
     }
 }
 
-.-link:hover,
-.-link.active {
-    background-color: rgb(101, 182, 144);
-    color: #065F46;
+@media (max-width: 480px) {
+    .-link {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
 }
 
 /* Change active button color when hovering over other buttons */
 .-links:hover .-link.active {
     background-color: rgb(130, 222, 176);
     /* Slightly lighter color */
-}
-
-
-@media (max-width: 480px) {
-    .-link {
-        font-size: 0.875rem;
-        padding: 0.5rem;
-    }
 }
 </style>
 
