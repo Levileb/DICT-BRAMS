@@ -4,9 +4,10 @@ body {
     background-size: cover; /* Ensures the image covers the entire background */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: scroll;
+    background-attachment: fixed;
     padding: 60px 0 0 0; /* Adjust padding to prevent content from being hidden behind the bar */
     min-height: 200vh; /* Ensures the body covers the full viewport height */
+
 }
 
 /* Responsive Styles */
