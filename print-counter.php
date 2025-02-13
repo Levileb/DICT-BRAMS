@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
     max-width: 1200px;
     margin: 2rem auto;
     overflow-x: auto;
-
+    margin-top: 3rem;
 }
 
 th {

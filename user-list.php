@@ -22,13 +22,12 @@
     padding: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
     overflow-x: auto;
-    min-height: 440px;
+    min-height: calc(77vh - 7rem); /* Adjusted to occupy the space in height */
     height: auto;
-
-
+    margin-top: 3rem;
 }
 </style>
 
@@ -42,7 +41,7 @@
 
     <div class="container-list">
         <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
-
+            <h2 class="text-2xl font-bold pb-4">LIST OF USERS</h2>
             <table class="min-w-full leading-normal">
                 <thead>
                     <tr>

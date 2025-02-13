@@ -18,6 +18,7 @@
         background-color: #f9fafb;
         border-radius: 10px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 3rem;
     }
 
     /* Form Container Styling */
@@ -102,7 +103,7 @@
     <div class="main-container">
         <!-- Page Title and Description -->
         <div class="bg-gray-50 p-6 rounded-lg shadow-lg mb-6">
-            <h2 class="text-2xl font-bold text-center">Barangay Official Edit</h2>
+            <h2 class="text-2xl font-bold text-center">BARANGAY OFFICALS EDIT</h2>
             <p class="text-center text-gray-600">Fill in the details of the Barangay officials below.</p>
         </div>
 
