@@ -17,10 +17,11 @@
     width: 100%;
     height: 100%;
 
+
 }
 
 #activity-logs table {
-    min-width: 100%;
+    min-width: 50%;
 }
 
 .tab-content {
@@ -29,6 +30,7 @@
     margin: 2rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 100px;
 }
 
 body::-webkit-scrollbar {
