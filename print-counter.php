@@ -43,13 +43,14 @@ tbody {
 
 }
 
-.success {
+.print-success {
     color: green;
 }
 
-.failed {
+.print-failed {
     color: red;
 }
+
 </style>
 
 <body class="bg-gray-100">
@@ -118,9 +119,20 @@ tbody {
                 row.appendChild(documentTypeCell);
 
 
-                var printStatusCell = document.createElement('td');
-                printStatusCell.className = 'py-2 px-4 border-b border-gray-300';
-                printStatusCell.textContent = childData.printStatus || "N/A";
+                // var documentTypeCell = document.createElement('td');
+                // documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
+                // documentTypeCell.textContent = childData.printStatus || "N/A";
+                // row.appendChild(documentTypeCell);
+
+                var documentTypeCell = document.createElement('td');
+                documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
+                if (childData.printStatus === "successful") {
+                    documentTypeCell.style.color = "green";
+                } else if (childData.printStatus === "failed") {
+                    documentTypeCell.style.color = "red";
+                }
+                documentTypeCell.textContent = childData.printStatus || "N/A";
+                row.appendChild(documentTypeCell);                
 
                 if (printStatusCell === "Successful") {
                     printStatusCell.childData = 'text-green-500';

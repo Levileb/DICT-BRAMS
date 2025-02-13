@@ -152,7 +152,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
+                TO WHOM IT MAY CONCERN:<br><br>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
@@ -173,7 +173,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
+                TO WHOM IT MAY CONCERN:<br><br>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
@@ -193,8 +193,8 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
-                This is to certify that <strong id="residentName"><?php echo $name; ?></strong>, 
+                TO WHOM IT MAY CONCERN:<br><br>
+                This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
@@ -212,7 +212,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
+                TO WHOM IT MAY CONCERN:<br><br>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
@@ -234,7 +234,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
+                TO WHOM IT MAY CONCERN:<br><br>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
