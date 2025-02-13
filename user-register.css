@@ -1,3 +1,10 @@
+.container-list {
+    margin-left: 75vh;
+    height: 59.5vh;
+    background-color: #f3f4f6;
+    margin-top: 10vh;
+}
+
 .input-field {
     width: 100%;
     padding: 10rem;
@@ -25,4 +32,24 @@
 
 .submit-button:hover {
     background-color: #009b17;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container-list {
+        margin-left: 5vh;
+        height: auto;
+        margin-top: 5vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-list {
+        margin-left: 2vh;
+        margin-top: 2vh;
+    }
+
+    .input-field, .submit-button {
+        padding: 0.5rem;
+    }
 }

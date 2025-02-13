@@ -73,7 +73,10 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('loginButton').addEventListener('click', function() {
+        const loginButton = document.getElementById('loginButton');
+        const loginForm = document.getElementById('loginForm');
+
+        function handleLogin() {
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const selectedRole = document.querySelector('input[name="role"]:checked').value;
@@ -122,6 +125,19 @@
                 .catch(error => {
                     showFloatingMessage(error.message);
                 });
+        }
+
+        loginButton.addEventListener('click', handleLogin);
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            handleLogin();
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                handleLogin();
+            }
         });
     });
     </script>
