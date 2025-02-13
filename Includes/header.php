@@ -24,25 +24,38 @@
 }
 
 .logout-button {
-    background-color: none;
+    background-color: hsla(138, 28.80%, 53.70%, 0.60);
     color: black;
-    padding: 20px 20px;
+    padding: 10px;
     border: none;
     cursor: pointer;
-    text-decoration: underline;
-    margin-top: -20px;
-    font-size: 1.3rem;
+    border-radius: 5%;
+    width: 130px;
+    height: 30px
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease-in-out;
+    position: relative;
+    font-size: 1.1rem;
+    font-weight: 500;
+    
+    
 }
+
+
 
 .logout-button:hover {
-    background-color: transparent;
-    text-decoration: none;
-    color: gray;
-
+    background-color: gray;
 }
-
+.logout-button:hover {
+    background-color: darkgray;
+}
+.logout-button:hover::after {
+    opacity: 1; 
+}
 .logout-button:active {
-    color: gray;
+    background-color: #555;
 
 }
 
@@ -59,6 +72,9 @@
     margin-top: -10px;
 }
 
+#logoutButton + span{
+    display: none;
+}
 .floating-msg {
     position: fixed;
     top: 20px;
@@ -104,7 +120,7 @@
                 <div id="currentDateTime" class="date-time"></div>
             </div>
         </div>
-        <button id="logoutButton" class="logout-button">Logout</button>
+        <button id="logoutButton" class="logout-button">LOG OUT</button>
     </div>
 </div>
 

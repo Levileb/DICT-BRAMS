@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
 
-    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md mt-10">
+    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
         <div class="text-center mb-6">
             <h2 class="text-2xl font-bold">HARMONIZED FAMILY/HOUSEHOLD PROFILE</h2>
             <p class="text-green-600">Please provide the information needed</p>
