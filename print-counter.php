@@ -80,6 +80,8 @@ tbody {
     </div>
     <?php include 'Includes/footer.php'; ?>
     <script>
+
+
     database.ref('PrintLogs').on('value', function(snapshot) {
         var tbody = document.querySelector('tbody');
         tbody.innerHTML = ''; // Clear existing rows
@@ -133,11 +135,6 @@ tbody {
                 }
                 documentTypeCell.textContent = childData.printStatus || "N/A";
                 row.appendChild(documentTypeCell);                
-
-                if (printStatusCell === "Successful") {
-                    printStatusCell.childData = 'text-green-500';
-                }
-                row.appendChild(printStatusCell);
                 tbody.appendChild(row);
             });
         } else {
