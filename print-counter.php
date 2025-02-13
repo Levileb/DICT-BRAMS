@@ -55,7 +55,7 @@ tbody {
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
-    <div class="print-container">
+    <div class="print-container" style="margin-top: 100px;">
         <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
             <table class="min-w-full bg-white">
                 <thead>
