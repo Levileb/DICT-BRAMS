@@ -118,6 +118,8 @@ function logPrintDetails(fullname , docType, printStatus, orNumber) {
             console.log("Print details logged successfully.");
         }
     });
+
+
 }
 
 function getCookie(name) {
@@ -150,13 +152,14 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                TO WHOM ITa MAY CONCERN:<br><br>
+                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
-                is a bonafide resident of Barangay 8, Bacolod City whose means of livelihood is barely<br><br>
+                is a <strong>PERMAENT RESIDENT</strong> of this Barangay 8, Bacolod City.<br><br>
+                Based on records of this office, this person has been residing at Barangay 8, Bacolod City.
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
@@ -170,7 +173,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                TO WHOM ITb MAY CONCERN:<br><br>
+                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
@@ -190,15 +193,14 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                TO WHOM ITb MAY CONCERN:<br><br>
-                This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
+                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
+                This is to certify that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
-                is a bonafide resident of Barangay 8, Bacolod City.<br><br>
-                This certification is issued upon the request of the above-named person for 
-                <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
+                is a resident of Barangay 8, Bacolod City is known as to be of a good moral and law-abiding citizen of this barangay.<br><br>
+                To certify further, he/she has no derogatory and/or criminal records field in this barangay.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
@@ -210,13 +212,15 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                TO WHOM ITb MAY CONCERN:<br><br>
+                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
-                is a bonafide resident of Barangay 8, Bacolod City.<br><br>
+                is a bonafide resident of Barangay 8, Bacolod City, belong to the <strong>Indigent</strong> families  of this barangay 
+                having an annual income not exceeding the Regional PovertyThreshold (RPT) 
+                of Php 169, 824.00 per anum as determined by the National EconomicDevelopment Authority (NEDA).<br><br>
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
@@ -230,7 +234,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                TO WHOM ITb MAY CONCERN:<br><br>
+                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
@@ -251,7 +255,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
-                TO WHOM ITs MAY CONCERN:<br><br>
+                <br><strong style="text-align: left; display: block;">TO WHOM IT MAY CONCERN:</strong>
                 This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
