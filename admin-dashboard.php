@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BRAMS - ADMIN</title>
-    <link rel="icon" type="image/png" href="Includes/background/bg.png">
+    <link rel="icon" type="image/png" href="Includes/background/background_logo.jpg">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
@@ -60,6 +60,14 @@
 
     body::-webkit-scrollbar {
         display: none;
+    }
+
+    body {
+        background-image: url('Includes/background/background_logo.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
     </style>
 
