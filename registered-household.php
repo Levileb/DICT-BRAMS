@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
     <?php include 'Includes/admin-navbar.php'; ?>
 
     <div id="household-log" class="tab-content">
-        <div class="inner-container p-6 w-full">
+        <div class="inner-container p-6 w-full" style="margin-top: 100px;">
             <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">REGISTERED HOUSEHOLD LOG</h2>
             <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
                 <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
