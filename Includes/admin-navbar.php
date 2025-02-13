@@ -7,8 +7,8 @@
     padding: 0.5rem 0;
     width: 100%;
     margin-bottom: 2%;
-    position: sticky;
-    top: 13%;
+    position: fixed;
+    top: 15%;
     z-index: 1000;
 }
 

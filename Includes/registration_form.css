@@ -4,7 +4,7 @@ body {
 }
 
 .container {
-    margin-top: 20px;
+    margin-top: 100px;
     padding: 0 15px; /* Add horizontal padding to prevent overflow */
 }
 

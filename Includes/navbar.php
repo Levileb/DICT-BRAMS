@@ -4,7 +4,7 @@
     padding: 0.5rem 0;
     width: 100%;
     margin-bottom: 2%;
-    position: sticky;
+    position: fixed;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -69,8 +69,7 @@
     cursor: pointer;
 }
 
-.-link:hover,
-.-link.active {
+.-link:hover, .-link.active {
     background-color: rgb(128, 242, 189);
     color: #065F46;
 }
@@ -94,8 +93,7 @@
     }
 }
 
-.-link:hover,
-.-link.active {
+.-link:hover, .-link.active {
     background-color: rgb(101, 182, 144);
     color: #065F46;
 }

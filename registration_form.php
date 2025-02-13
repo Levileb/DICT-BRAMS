@@ -13,6 +13,7 @@
 body::-webkit-scrollbar {
     display: none;
 }
+
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -141,8 +142,8 @@ document.addEventListener('DOMContentLoaded', () => {
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
-
-    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md mt-10">
+    <div class="table-container">
+    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
         <div class="text-center mb-6">
             <h2 class="text-2xl font-bold">Barangay Resident Registration Form</h2>
             <p class="text-green-600">Please provide the information needed</p>
@@ -326,7 +327,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="mt-2 text-gray-600">Thank you for registering.</p>
         </div>
     </div>
-
+    </div>
     <?php include 'Includes/footer.php'; ?>
 
     <!-- Firebase SDKs in compat mode -->
