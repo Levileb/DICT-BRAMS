@@ -4,12 +4,12 @@
     padding: 0.5rem 0;
     width: 100%;
     margin-bottom: 2%;
-    position: sticky;
-    top: 0;
     position: fixed;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
+
+
 
 .-container {
     display: flex;
@@ -101,6 +101,8 @@
         font-size: 0.875rem;
         padding: 0.5rem;
     }
+
+}
 .-link:hover, .-link.active {
     background-color: rgb(101, 182, 144);
     color: #065F46;
