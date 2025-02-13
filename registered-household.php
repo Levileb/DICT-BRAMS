@@ -20,12 +20,11 @@ body::-webkit-scrollbar {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 440px;
     height: auto;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 3rem ;
+    margin-top: 3rem;
 }
 </style>
 
