@@ -43,6 +43,11 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     const emergencyPhone = document.getElementById('emergency_phone').value;
     const relationship = document.getElementById('relationship').value;
 
+
+    //Retieve Business information
+    const businessName = document.getElementById('business_name').value;
+    const businessAddress = document.getElementById('business_address').value ;
+
     // Form validation
     if (!firstName || !lastName || !placeOfBirth || !dateOfBirth || !gender || !civilStatus) {
         alert('Please fill in all required fields.');
@@ -100,7 +105,9 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         emergency_phone: emergencyPhone,
         relationship: relationship,
         // Registration Date and Time in Philippine Time
-        registration_date: registrationDate // Stores date and time in Philippine format
+        registration_date: registrationDate, // Stores date and time in Philippine format
+        business_name: businessName,
+        business_address: businessAddress
     }).then(() => {
         console.log('Resident information added successfully.');
         showPopup(); // Show the pop-up message

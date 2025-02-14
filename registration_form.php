@@ -314,6 +314,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                 </div>
             </div>
+            <div class="mb-6">
+                <h3 class="text-lg font-bold mb-2">Business Information</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <label for="business_owner" class="block text-sm font-medium text-gray-700">Are you a Business Owner?</label>
+                        <div class="mt-1 flex">
+                            <input type="radio" name="business_owner" id="business_owner_yes" value="Yes" class="mr-2">
+                            <label for="business_owner_yes" class="mr-4">Yes</label>
+                            <input type="radio" name="business_owner" id="business_owner_no" value="No" class="mr-2">
+                            <label for="business_owner_no">No</label>
+                        </div>
+                    </div>
+                </div>
+                <div id="business_info_container" class="hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="business_name" class="block text-sm font-medium text-gray-700">Business Name</label>
+                            <input type="text" id="business_name" name="business_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="business_address" class="block text-sm font-medium text-gray-700">Business Address</label>
+                            <input type="text" id="business_address" name="business_address"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="text-center">
                 <button type="submit" class="bg-green-500 text-white font-bold py-2 px-4 rounded-md">Submit</button>
@@ -339,6 +367,20 @@ document.addEventListener('DOMContentLoaded', () => {
     <script src="firebase-resident.js" defer></script>
 
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const businessOwnerInputs = document.querySelectorAll('input[name="business_owner"]');
+        const businessInfoContainer = document.getElementById('business_info_container');
+            businessOwnerInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                  if (input.value === 'Yes') {
+                        businessInfoContainer.classList.remove('hidden');
+                    } else {
+                         businessInfoContainer.classList.add('hidden');
+                        }
+                    });
+            });
+    });
+
     // Show or hide WRA field based on selected gender
     const genderInputs = document.querySelectorAll('input[name="gender"]');
     const wraContainer = document.getElementById('wra_container');
