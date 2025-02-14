@@ -18,34 +18,46 @@
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
+
+    <style>
+        .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+    </style>
+    
+    <div class="wrapper">
     <div class="container-list">
-        <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h2 class="text-2xl font-bold mb-6 text-center">REGISTER A USER</h2>
-            <form action="user-register.php" method="POST" class="space-y-4">
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
-                    <input type="email" name="email" id="email" class="input-field">
-                </div>
-                <div>
-                    <label for="first_name" class="block text-sm font-medium text-gray-700">First Name:</label>
-                    <input type="text" name="first_name" id="first_name" class="input-field">
-                </div>
-                <div>
-                    <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name:</label>
-                    <input type="text" name="last_name" id="last_name" class="input-field">
-                </div>
-                <div>
-                    <label for="nickname" class="block text-sm font-medium text-gray-700">Nickname:</label>
-                    <input type="text" name="nickname" id="nickname" class="input-field">
-                </div>
-                <div>
-                    <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
-                    <input type="password" name="password" id="password" class="input-field">
-                </div>
-                <div>
-                    <input type="submit" value="submit" class="submit-button">
-                </div>
-            </form>
+        
+            <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+                <h2 class="text-2xl font-bold mb-6 text-center">REGISTER A USER</h2>
+                <form action="user-register.php" method="POST" class="space-y-4">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+                        <input type="email" name="email" id="email" class="input-field">
+                    </div>
+                    <div>
+                        <label for="first_name" class="block text-sm font-medium text-gray-700">First Name:</label>
+                        <input type="text" name="first_name" id="first_name" class="input-field">
+                    </div>
+                    <div>
+                        <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name:</label>
+                        <input type="text" name="last_name" id="last_name" class="input-field">
+                    </div>
+                    <div>
+                        <label for="nickname" class="block text-sm font-medium text-gray-700">Nickname:</label>
+                        <input type="text" name="nickname" id="nickname" class="input-field">
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
+                        <input type="password" name="password" id="password" class="input-field">
+                    </div>
+                    <div>
+                        <input type="submit" value="submit" class="submit-button">
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     </div>
