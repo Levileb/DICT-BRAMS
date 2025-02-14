@@ -17,27 +17,29 @@
     <?php include 'Includes/navbar.php'; ?>
     <script src="household-profile.js"  defer></script>
 
-    <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg" style="margin-top: 100px;">
-        <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
-            <h2 class="large-text text-gray-700">List of Household</h2>
-            <div class="flex space-x-4 mt-4 sm:mt-0">
-                <input type="text" id="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
-                <button id="export-button" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to Excel</button>
+    <div class="wrapper">
+        <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg" style="margin-top: 100px;">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+                <h2 class="large-text text-gray-700">List of Household</h2>
+                <div class="flex space-x-4 mt-4 sm:mt-0">
+                    <input type="text" id="search" placeholder="Search..." class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
+                    <button id="export-button" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to Excel</button>
+                </div>
             </div>
-        </div>
 
-        <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg">
-            <thead class="bg-green-100">
-                <tr>
-                    <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Household Number</th>
-                    <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Last Name</th>
-                    <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">First Name</th>
-                </tr>
-            </thead>
-            <tbody id="residents-list">
-                <!-- Residents list will be dynamically populated here -->
-            </tbody>
-        </table>
+            <table class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg">
+                <thead class="bg-green-100">
+                    <tr>
+                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Household Number</th>
+                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Last Name</th>
+                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">First Name</th>
+                    </tr>
+                </thead>
+                <tbody id="residents-list">
+                    <!-- Residents list will be dynamically populated here -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <div id="resident-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden flex items-center justify-center z-50">
@@ -172,6 +174,13 @@ tbody tr:hover {
         padding: 10px;
     }
 }
+
+    .wrapper {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
 
     </style>
 </html>
