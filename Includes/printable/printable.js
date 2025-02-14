@@ -125,10 +125,12 @@ function populateResidentDetails(residentData) {
     document.getElementById('birthDate').innerText = 
         safeValue(residentData.date_of_birth, '________________');
  
-        document.getElementById('businessName').innerText = 
-        safeValue(residentData.bname, '________________');
+    document.getElementById('businessName').innerText = 
+        safeValue(residentData.business_name, '________________');
+
+
     document.getElementById('businessAddress').innerText =
-        safeValue(residentData.badd, '________________');
+        safeValue(residentData.business_address, '________________');
 
     document.getElementById('birthPlace').innerText = 
         safeValue(residentData.place_of_birth, '________________');
