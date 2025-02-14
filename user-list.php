@@ -27,14 +27,14 @@
     overflow-x: auto;
     min-height: calc(77vh - 7rem); /* Adjusted to occupy the space in height */
     height: auto;
-    margin-top: 3rem;
-    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 .wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin-bottom: 0px;
 }
 
 </style>

@@ -20,10 +20,13 @@
     <?php include 'Includes/admin-navbar.php'; ?>
 
     <style>
-        .wrapper {
+    
+    .wrapper {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
+    margin-top: 50px;
 }
     </style>
     
