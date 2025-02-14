@@ -19,28 +19,34 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.inner-container {
+.container {
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto;
-    min-height: 440px;
+    margin-bottom: 5rem;
+    max-height: 1000px;
+    height: 90%;
     height: auto;
-    margin-top: 3rem;
+    
 }
 
 .container-width {
     width: 100%;
 }
+
+.sub-container {
+    padding-bottom: 10rem;
+}
+
 </style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div class="inner-container" style="margin-top: 100px;">
+    <div class="container p-6 w-full" style="margin-top: 70px;">
         <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
             <div class="container-width container-padding bg-white shadow-md rounded-lg">
-                <div class="flex flex-col sm:flex-row justify-between items-center px-4 py-4">
+                <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
                     <h2 class="text-2xl text-gray-700 font-bold">ARCHIVED RESIDENT</h2>
                     <div class="flex space-x-4 mt-4 sm:mt-0">
                         <input type="text" id="search" placeholder="Search..."
@@ -52,7 +58,8 @@ body::-webkit-scrollbar {
                 </div>
 
                 <table
-                    class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg">
+                    class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg"
+                    style="padding: 5rem;">
                     <thead class="bg-green-100">
                         <tr>
                             <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">First Name</th>

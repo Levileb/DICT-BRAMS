@@ -120,8 +120,6 @@ function populateResidentDetails(residentData) {
     document.getElementById('birthDate').innerText = 
         safeValue(residentData.date_of_birth, '________________');
 
-        document.getElementById('birthDate').innerText = 
-            formatDate(residentData.date_of_birth) || '________________';
 
     document.getElementById('birthPlace').innerText = 
         safeValue(residentData.place_of_birth, '________________');
