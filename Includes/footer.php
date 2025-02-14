@@ -34,13 +34,13 @@ html {
 
 
 
+
     margin-top: auto;
     /* Green color */
     background-color: #117A3C;
     display: flex;
     align-items: center;
  
-    width: 100%;
 }
 
 
