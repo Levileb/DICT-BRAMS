@@ -90,6 +90,13 @@
     body::-webkit-scrollbar {
         display: none;
     }
+
+    .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    }
+       
     </style>
 </head>
 
@@ -99,25 +106,27 @@
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <!-- Main Container -->
-    <div class="main-container" style="margin-top: 100px;">
-        <!-- Page Title and Description -->
-        <div class="bg-gray-50 p-6 rounded-lg shadow-lg mb-6" >
-            <h2 class="text-2xl font-bold text-center">BARANGAY OFFICALS EDIT</h2>
-            <p class="text-center text-gray-600">Fill in the details of the Barangay officials below.</p>
-        </div>
+    <div class="wrapper">
+        <!-- Main Container -->
+        <div class="main-container" style="margin-top: 100px;">
+            <!-- Page Title and Description -->
+            <div class="bg-gray-50 p-6 rounded-lg shadow-lg mb-6" >
+                <h2 class="text-2xl font-bold text-center">BARANGAY OFFICALS EDIT</h2>
+                <p class="text-center text-gray-600">Fill in the details of the Barangay officials below.</p>
+            </div>
 
-        <!-- Form Wrapper -->
-        <div class="form-wrapper">
-            <!-- Form -->
-            <form id="editForm" class="space-y-6">
-                <!-- Dynamic Form Sections -->
-                <div id="form-sections" class="space-y-6"></div>
+            <!-- Form Wrapper -->
+            <div class="form-wrapper">
+                <!-- Form -->
+                <form id="editForm" class="space-y-6">
+                    <!-- Dynamic Form Sections -->
+                    <div id="form-sections" class="space-y-6"></div>
 
-                <div class="text-center">
-                    <button type="submit" class="btn-submit">Submit</button>
-                </div>
-            </form>
+                    <div class="text-center">
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
     <script>
