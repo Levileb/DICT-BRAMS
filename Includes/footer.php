@@ -1,4 +1,9 @@
 <style>
+
+html {
+    height: 100%;
+}
+
 .footer-custom {
     margin-top: 5%;
     background-color: #117A3C;
@@ -16,23 +21,26 @@
 
 .footer-container {
     display: flex;
+    /* Align left and right */
     justify-content: space-between;
     width: 100%;
     align-items: center;
-    position: fixed;
-    bottom: 0;
-    margin-top: auto;
-    background-color: #117A3C;
-    /* Green color */
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /* Align left and right */
     padding: 1rem;
     text-align: center;
-    width: 100%;
     color: white;
     z-index: 1000;
+    position: relative;
+    bottom: 0;
+
+
+
+    margin-top: auto;
+    /* Green color */
+    background-color: #117A3C;
+    display: flex;
+    align-items: center;
+ 
+    width: 100%;
 }
 
 
