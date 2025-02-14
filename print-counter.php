@@ -120,11 +120,6 @@ tbody {
 
                 var documentTypeCell = document.createElement('td');
                 documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
-                documentTypeCell.textContent = childData.printStatus || "N/A";
-                row.appendChild(documentTypeCell);
-
-                var documentTypeCell = document.createElement('td');
-                documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
                 if (childData.printStatus === "successful") {
                     documentTypeCell.style.color = "green";
                 } else if (childData.printStatus === "failed") {
