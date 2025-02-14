@@ -28,6 +28,7 @@ body::-webkit-scrollbar {
     margin: 2rem auto;
     overflow-x: auto;
     margin-top: 3rem;
+    margin-bottom: 100px;
 }
 
 th {
@@ -49,33 +50,45 @@ tbody {
 
 .print-failed {
     color: red;
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 }
 </style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
-    <div class="print-container" style="margin-top: 100px;">
-        <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
-            <table class="min-w-full bg-white">
-                <thead>
-                    <tr>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">Date</th>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">Time</th>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">OR Number</th>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">Registered by</th>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">Document Type</th>
-                        <th class="py-2 px-4 border-b-2 border-gray-300">Print Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Table rows will go here -->
-                </tbody>
 
-            </table>
+    <div class="wrapper">
+        <div class="print-container" style="margin-top: 100px;">
+            <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+                <table class="min-w-full bg-white">
+                    <thead>
+                        <tr>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">Date</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">Time</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">OR Number</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">Registered by</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">Document Type</th>
+                            <th class="py-2 px-4 border-b-2 border-gray-300">Print Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Table rows will go here -->
+                    </tbody>
 
+                </table>
+
+            </div>
         </div>
     </div>
+
+
     </div>
     <?php include 'Includes/footer.php'; ?>
     <script>
