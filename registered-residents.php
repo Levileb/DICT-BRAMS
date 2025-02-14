@@ -20,13 +20,23 @@ body::-webkit-scrollbar {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    min-height: 440px;
-    height: auto;
+    flex-grow: 1;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 3rem;
+    margin-bottom: 100px;
+
+    /* height: auto;
+    min-height: 100px; */
+
 }
+    .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    }   
+
 
 </style>
 
@@ -35,23 +45,25 @@ body::-webkit-scrollbar {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div id="archive-log" class="tab-content">
-        <div class="inner-container p-6 w-full" style="margin-top: 100px;">
-            <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">REGISTERED RESIDENT LOG</h2>
-            <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
-                <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
-                    <thead class="bg-gray-100 text-gray-800">
-                        <tr>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Registered By</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Resident Name</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
-                        </tr>
-                    </thead>
-                    <tbody id="res-reg-table">
-                        <!-- Logs will be dynamically inserted here -->
-                    </tbody>
-                </table>
+    <div class = "wrapper">
+        <div id="archive-log" class="tab-content">
+            <div class="inner-container p-6 w-full" style="margin-top: 100px;">
+                <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">REGISTERED RESIDENT LOG</h2>
+                <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
+                        <thead class="bg-gray-100 text-gray-800">
+                            <tr>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Registered By</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Resident Name</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="res-reg-table">
+                            <!-- Logs will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
