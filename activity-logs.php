@@ -27,7 +27,7 @@
 .tab-content {
     display: flex;
     background-color: white;
-    margin: 2rem;
+    margin: 8rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 100px;
