@@ -179,13 +179,9 @@
             const day = String(date.getDate()).padStart(2, '0');
             const year = date.getFullYear();
 
-<<<<<<< HEAD
-            const fileName = `residents_data_${month}-${day}-${year}.xlsx`;
-=======
         // Create the popup container
         const popup = document.createElement('div');
         popup.classList.add('absolute', 'inset-0', 'bg-gray-800', 'bg-opacity-50', 'flex', 'items-center', 'justify-center', 'z-50');
->>>>>>> 8189af9 (change text color green/red)
 
             const worksheet = XLSX.utils.json_to_sheet(residentsData);
             const workbook = XLSX.utils.book_new();
