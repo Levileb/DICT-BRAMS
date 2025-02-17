@@ -241,7 +241,7 @@ function getCookie(name) {
                 <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
-                <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="businessName"><?php echo $business_name?></strong>
+                <strong id="birthDate"><?php echo $birthDate; ?> </strong>, at <strong id="businessName"><?php echo $business_name?></strong>
                 <strong id="businessAddress"><?php echo $business_address?></strong>, 
                 is a bonafide resident of Barangay 8, Bacolod City.<br><br>
                 This certification is issued upon the request of the above-named person for 
