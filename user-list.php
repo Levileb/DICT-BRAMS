@@ -27,7 +27,7 @@
     overflow-x: auto;
     min-height: calc(77vh - 7rem); /* Adjusted to occupy the space in height */
     height: auto;
-    margin-top: 100px;
+    margin-top: -5rem;
 }
 
 /* .wrapper {
@@ -49,7 +49,7 @@ body::-webkit-scrollbar {
     <?php include 'Includes/admin-navbar.php'; ?>
 
     <div class="wrapper">
-        <div class="container-list" style="margin-top: 100px;">
+        <div class="container-list" style="margin-top: 20px;">
             <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
                 <h2 class="text-2xl font-bold pb-4">LIST OF USERS</h2>
                 <table class="min-w-full leading-normal">
