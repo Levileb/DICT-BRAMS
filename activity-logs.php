@@ -53,7 +53,7 @@ body::-webkit-scrollbar {
     <?php include_once 'Includes/admin-navbar.php'; ?>
 
     <div class="wrapper">
-        <div id="activity-logs" class="tab-content" style="margin-top: 100px;">
+        <div id="activity-logs" class="tab-content" style="margin-top: 10px;">
             <div class="inner-container p-6 w-full" style="margin-top: 1rem;">
                 <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">ACTIVITY LOG</h2>
                 <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
