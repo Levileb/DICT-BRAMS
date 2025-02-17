@@ -7,11 +7,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="Includes/print_template.css" rel="stylesheet">
 </head>
+<style> 
+    body::-webkit-scrollbar {
+    display: none;
+}
+.popup-style {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: green;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
+</style>
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
 
-    <div class="container mx-auto mt-8 min-h-screen flex flex-col items-center">
+    <div class="container mx-auto mt-8 min-h-screen flex flex-col items-center" style="margin-top: 90px;">
         <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-6xl">
             <div class="flex justify-between items-center mb-6">
                 <a href="resident_list.php" class="bg-green-600 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition duration-200">Back</a>
@@ -100,7 +116,7 @@
         </div>
     </div>
 
-    <!-- Popup Container
+
     <div id="popup" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
         <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
             <h3 class="text-xl font-bold text-gray-800 mb-4">Additional Information</h3>
@@ -122,12 +138,13 @@
     <script>
         // Function to show popup
         function showPopup() {
-            document.getElementById('popup').style.display = 'flex';
+            document.getElementById('popup').classList.add('popup-style');
+            
         }
 
         // Function to close popup
         function closePopup() {
-            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popup').classList.remove('popup-style');
         }
 
         // Function to handle submit inside popup
@@ -138,13 +155,13 @@
         }
 
         // Attach event listeners to all "Print" buttons
-        document.querySelectorAll("button[type='submit']").forEach(button => {
+        document.querySelectorAll("cbutton[type='submit']").forEach(button => {
             button.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent form submission
                 showPopup(); // Show the popup
             });
         });
-    </script> -->
+    </script> 
     <?php include 'Includes/footer.php'; ?>
 </body>
 </html>
