@@ -198,7 +198,12 @@
             XLSX.writeFile(workbook, fileName);
         }
     });
-
+    const responsiveSizes = {
+  sm: tw`h-20 w-30`,
+  md: tw`h-30 w-40`,
+  lg: tw`h-40 w-50`,
+  xl: tw`h-50 w-60`,
+};
     function showInfoPopup(residentId) {
         const database = firebase.database().ref('Residents/' + residentId);
         database.once('value').then(snapshot => {
@@ -207,9 +212,9 @@
             // Create the popup container
             const popup = document.createElement('div');
             popup.classList.add('fixed', 'inset-0', 'bg-gray-800', 'bg-opacity-50', 'flex', 'items-center',
-                'justify-center', 'z-50');
-
-            // Popup content
+                'justify-center', 'z-50', 'scroll');
+               
+                // Popup content
             const content = document.createElement('div');
             content.classList.add('bg-white', 'p-6', 'rounded-lg', 'w-1/3');
             content.innerHTML = `
@@ -229,6 +234,7 @@
                         align-items: center; 
                         justify-content: center; 
                         cursor: pointer;
+                    
                     " 
                     class="hover:bg-red-600 focus:outline-none">
                     &times;
