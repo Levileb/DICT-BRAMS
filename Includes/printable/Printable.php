@@ -54,6 +54,8 @@
     $gender = "______";
     $birthDate = "________________";
     $birthPlace = "________________";
+    $businessName = "________________";
+    $businessAddress = "________________";
     ?>
 
 
@@ -128,8 +130,6 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-// Helper function to check if a value is undefined, null, or empty and replace it with a placeholder
-const safeValue = (value, placeholder) => value && value.trim() ? value : placeholder;
 </script>
 
     <div class="logo">
@@ -241,6 +241,10 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
                 is a bonafide resident of Barangay 8, Bacolod City.<br><br>
+                
+                <strong id="businessName"><?php echo $businessName?></strong>
+                <strong id="businessAddress"><?php echo $businessAddress?></strong>, 
+
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
