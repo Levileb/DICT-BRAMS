@@ -19,16 +19,12 @@ function fetchResidentDetails(residentId) {
     residentRef.once('value', function(snapshot) {
         if (snapshot.exists()) {
             const residentData = snapshot.val();
-            console.log("Fetched Data:", residentData);
             populateResidentDetails(residentData);
         } else {
             console.error("Resident not found!");
         }
     });
 }
-
-
-
 
 function fetchOfficials() {
     const officialsRef = firebase.database().ref('BrgyOfficials');
@@ -105,7 +101,6 @@ fetchPunongBarangayName();
 
 
 
-
 function populateResidentDetails(residentData) {
 
     // Populate the residentName field with names displayed closely together
@@ -124,17 +119,10 @@ function populateResidentDetails(residentData) {
 
     document.getElementById('birthDate').innerText = 
         safeValue(residentData.date_of_birth, '________________');
- 
-    document.getElementById('businessName').innerText = 
-        safeValue(residentData.business_name, '________________');
 
-
-    document.getElementById('businessAddress').innerText =
-        safeValue(residentData.business_address, '________________');
 
     document.getElementById('birthPlace').innerText = 
         safeValue(residentData.place_of_birth, '________________');
-   
 
     // Additional document type-specific logic (if any)
     if (documentType === 'clearance') {

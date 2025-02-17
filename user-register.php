@@ -14,7 +14,12 @@
     <link rel="stylesheet" href="user-register.css">
 
 </head>
-
+<style>
+    
+body::-webkit-scrollbar {
+    display: none;
+}
+</style>
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
@@ -26,7 +31,7 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 50px;
-    margin-top: 50px;
+    margin-top: -3rem;
 }
     </style>
     
