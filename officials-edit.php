@@ -18,7 +18,7 @@
         background-color: #f9fafb;
         border-radius: 10px;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        margin-top: 3rem;
+        margin-top: ;
     }
 
     /* Form Container Styling */
@@ -100,7 +100,7 @@
     <?php include 'Includes/admin-navbar.php'; ?>
 
     <!-- Main Container -->
-    <div class="main-container" style="margin-top: 100px;">
+    <div class="main-container" style="margin-top: 2rem;">
         <!-- Page Title and Description -->
         <div class="bg-gray-50 p-6 rounded-lg shadow-lg mb-6" >
             <h2 class="text-2xl font-bold text-center">BARANGAY OFFICALS EDIT</h2>
