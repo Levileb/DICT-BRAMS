@@ -49,13 +49,14 @@
 
     // Placeholder fields (to be replaced by JS with Firebase data)
     $name = "________________________";
+    $businessName = "________________";
+    $businessAddress = "________________";
     $age = "____";
     $civilStatus = "________________";
     $gender = "______";
     $birthDate = "________________";
     $birthPlace = "________________";
-    $businessName = "________________";
-    $businessAddress = "________________";
+
     ?>
 
 
@@ -129,6 +130,7 @@ function getCookie(name) {
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
+
 
 </script>
 
@@ -235,15 +237,19 @@ function getCookie(name) {
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
                 TO WHOM IT MAY CONCERN:<br><br>
-                This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
-                <strong id="age"><?php echo $age; ?></strong> years old, 
+                This is to CERTIFY that <strong id="businessName"><?php echo $businessName?></strong> owned by
+                 <strong id="residentName"><?php echo $name; ?></strong>, located
+                <strong id="businessAddress"><?php echo $businessAddress?></strong>,  has not been operating and is permanently closed as of 
+                <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong>.<br><br>
+ 
+                <span style="display: none;">
+                This is to CERTIFY that, 
+                that is  <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
                 is a bonafide resident of Barangay 8, Bacolod City.<br><br>
-                
-                <strong id="businessName"><?php echo $businessName?></strong>
-                <strong id="businessAddress"><?php echo $businessAddress?></strong>, 
+                </span>
 
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
