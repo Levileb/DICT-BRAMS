@@ -100,6 +100,7 @@ fetchPunongBarangayName();
 
 
 
+const safeValue = (value, placeholder) => value && value.trim() ? value : placeholder;
 
 function populateResidentDetails(residentData) {
 
@@ -123,6 +124,12 @@ function populateResidentDetails(residentData) {
 
     document.getElementById('birthPlace').innerText = 
         safeValue(residentData.place_of_birth, '________________');
+
+    document.getElementById('businessName').innerText = 
+        safeValue(residentData.business_name, '________________');
+
+    document.getElementById('businessAddress').innerText = 
+        safeValue(residentData.business_address, '________________');
 
     // Additional document type-specific logic (if any)
     if (documentType === 'clearance') {
