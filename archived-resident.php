@@ -43,7 +43,7 @@ body::-webkit-scrollbar {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div class="container p-6 w-full" style="margin-top: 70px;">
+    <div class="container p-6 w-full" style="margin-top: 6.5rem;">
         <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
             <div class="container-width container-padding bg-white shadow-md rounded-lg">
                 <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
@@ -59,7 +59,7 @@ body::-webkit-scrollbar {
 
                 <table
                     class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg"
-                    style="padding: 5rem;">
+                    style="padding: 5rem; ">
                     <thead class="bg-green-100">
                         <tr>
                             <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">First Name</th>
