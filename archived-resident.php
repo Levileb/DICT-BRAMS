@@ -307,26 +307,26 @@
                 if (snapshot.exists()) {
                     const resident = snapshot.val();
                     modalContent.innerHTML = `
-                            <p><strong>First Name:</strong> ${resident.first_name || ''}</p>
-                            <p><strong>Middle Name:</strong> ${resident.middle_name || ''}</p>
-                            <p><strong>Last Name:</strong> ${resident.last_name || ''}</p>
-                            <p><strong>Appellation:</strong> ${resident.appellation || ''}</p>
-                            <p><strong>Place of Birth:</strong> ${resident.place_of_birth || ''}</p>
-                            <p><strong>Date of Birth:</strong> ${resident.date_of_birth || ''}</p>
-                            <p><strong>Gender:</strong> ${resident.gender || ''}</p>
-                            <p><strong>Nationality:</strong> ${resident.nationality || ''}</p>
-                            <p><strong>Civil Status:</strong> ${resident.civil_status || ''}</p>
-                            <p><strong>Philhealth ID:</strong> ${resident.philhealth_id || ''}</p>
-                            <p><strong>Philhealth Membership:</strong> ${resident.philhealth_membership || ''}</p>
-                            <p><strong>WRA:</strong> ${resident.wra || ''}</p>
-                            <p><strong>Educational Attainment:</strong> ${resident.educational_attainment || ''}</p>
-                            <p><strong>Employment Status:</strong> ${resident.employment_status || ''}</p>
-                            <p><strong>Remark NS:</strong> ${resident.remark_NS || ''}</p>
-                            <p><strong>Resident Since:</strong> ${resident.resident_since || ''}</p>
-                            <p><strong>Contact Number:</strong> ${resident.contact_number || ''}</p>
-                            <p><strong>Emergency Name:</strong> ${resident.emergency_name || ''}</p>
-                            <p><strong>Emergency Phone:</strong> ${resident.emergency_phone || ''}</p>
-                            <p><strong>Relationship:</strong> ${resident.relationship || ''}</p>
+                            ${resident.first_name ? `<p><strong>First Name:</strong> ${resident.first_name}</p>` : ''}
+                            ${resident.middle_name ? `<p><strong>Middle Name:</strong> ${resident.middle_name}</p>` : ''}
+                            ${resident.last_name ? `<p><strong>Last Name:</strong> ${resident.last_name}</p>` : ''}
+                            ${resident.appellation ? `<p><strong>Appellation:</strong> ${resident.appellation}</p>` : ''}
+                            ${resident.place_of_birth ? `<p><strong>Place of Birth:</strong> ${resident.place_of_birth}</p>` : ''}
+                            ${resident.date_of_birth ? `<p><strong>Date of Birth:</strong> ${resident.date_of_birth}</p>` : ''}
+                            ${resident.gender ? `<p><strong>Gender:</strong> ${resident.gender}</p>` : ''}
+                            ${resident.nationality ? `<p><strong>Nationality:</strong> ${resident.nationality}</p>` : ''}
+                            ${resident.civil_status ? `<p><strong>Civil Status:</strong> ${resident.civil_status}</p>` : ''}
+                            ${resident.philhealth_id ? `<p><strong>Philhealth ID:</strong> ${resident.philhealth_id}</p>` : ''}
+                            ${resident.philhealth_membership ? `<p><strong>Philhealth Membership:</strong> ${resident.philhealth_membership}</p>` : ''}
+                            ${resident.wra ? `<p><strong>WRA:</strong> ${resident.wra}</p>` : ''}
+                            ${resident.educational_attainment ? `<p><strong>Educational Attainment:</strong> ${resident.educational_attainment}</p>` : ''}
+                            ${resident.employment_status ? `<p><strong>Employment Status:</strong> ${resident.employment_status}</p>` : ''}
+                            ${resident.remark_NS ? `<p><strong>Remark NS:</strong> ${resident.remark_NS}</p>` : ''}
+                            ${resident.resident_since ? `<p><strong>Resident Since:</strong> ${resident.resident_since}</p>` : ''}
+                            ${resident.contact_number ? `<p><strong>Contact Number:</strong> ${resident.contact_number}</p>` : ''}
+                            ${resident.emergency_name ? `<p><strong>Emergency Name:</strong> ${resident.emergency_name}</p>` : ''}
+                            ${resident.emergency_phone ? `<p><strong>Emergency Phone:</strong> ${resident.emergency_phone}</p>` : ''}
+                            ${resident.relationship ? `<p><strong>Relationship:</strong> ${resident.relationship}</p>` : ''}
                         `;
                     modal.classList.remove('hidden');
                 } else {
