@@ -14,9 +14,8 @@
 #activity-logs .inner-container {
     margin-top: 2rem;
     flex: 1;
-    width: 100%;
+    width: 90%;
     height: 100%;
-
 
 }
 
@@ -27,10 +26,10 @@
 .tab-content {
     display: flex;
     background-color: white;
-    margin: 8rem;
+    margin: 10rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-top: 100px;
+    margin-top: 2rem;
 }
 
 body::-webkit-scrollbar {

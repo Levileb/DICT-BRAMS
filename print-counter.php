@@ -27,7 +27,7 @@ body::-webkit-scrollbar {
     max-width: 1200px;
     margin: 2rem auto;
     overflow-x: auto;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 th {
@@ -55,7 +55,7 @@ tbody {
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
-    <div class="print-container" style="margin-top: 100px;">
+    <div class="print-container" style="margin-top: 50px;">
         <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
             <table class="min-w-full bg-white">
                 <thead>
