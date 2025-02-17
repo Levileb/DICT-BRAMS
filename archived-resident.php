@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archive</title>
+    <title>Acrchive</title>
     <link rel="icon" type="image/png" href="Includes/background/bg.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
@@ -15,27 +15,29 @@
     <script src="archive_resident.js"></script>
 </head>
 <style>
+body::-webkit-scrollbar {
+    display: none;
+}
 
-    body::-webkit-scrollbar {
-        display: none;
-    }
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+    max-height: 1000px;
+    height: 90%;
+    height: auto;
+    margin-top: 2rem;
+    
+    
+}
 
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin-bottom: 5rem;
-        max-height: 1000px;
-        height: 90%;
-        height: auto;
-    }
+.container-width {
+    width: 100%;
+}
 
-    .container-width {
-        width: 100%;
-    }
-
-    .sub-container {
-        padding-bottom: 3rem;
-    }
+.sub-container {
+    padding-bottom: 10rem;
+}
 
 </style>
 
@@ -83,7 +85,7 @@
     <div id="resident-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
         <div class="flex items-center justify-center min-h-screen">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full" style="height: 80%; position: relative; transform: translate(0%, 30%);">
+            <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full">
                 <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                     <div class="sm:flex sm:items-start">
                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
