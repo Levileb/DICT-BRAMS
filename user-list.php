@@ -27,9 +27,15 @@
     overflow-x: auto;
     min-height: calc(77vh - 7rem); /* Adjusted to occupy the space in height */
     height: auto;
-    margin-top: 3rem;
+    margin-top: 100px;
 }
 
+/* .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0px;
+} */
 body::-webkit-scrollbar {
     display: none;
 }
@@ -42,28 +48,29 @@ body::-webkit-scrollbar {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-
-    <div class="container-list" style="margin-top: 50px;">
-        <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
-            <h2 class="text-2xl font-bold pb-4">LIST OF USERS</h2>
-            <table class="min-w-full leading-normal">
-                <thead>
-                    <tr>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Email
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Name
-                        </th>
-                        <th
-                            class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                            Action
-                        </th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="wrapper">
+        <div class="container-list" style="margin-top: 100px;">
+            <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+                <h2 class="text-2xl font-bold pb-4">LIST OF USERS</h2>
+                <table class="min-w-full leading-normal">
+                    <thead>
+                        <tr>
+                            <th
+                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Email
+                            </th>
+                            <th
+                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Name
+                            </th>
+                            <th
+                                class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
     <script>

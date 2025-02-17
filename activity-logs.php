@@ -39,28 +39,38 @@ body::-webkit-scrollbar {
 .inner-container::-webkit-scrollbar {
     display: none;
 }
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 </style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include_once 'Includes/admin-navbar.php'; ?>
-    <div id="activity-logs" class="tab-content">
-        <div class="inner-container p-6 w-full">
-            <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">ACTIVITY LOG</h2>
-            <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
-                <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
-                    <thead class="bg-gray-100 text-gray-800">
-                        <tr>
-                            <th class="px-4 py-2 border border-gray-300 text-left">User Email</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Role</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
-                        </tr>
-                    </thead>
-                    <tbody id="logs-table">
-                        <!-- Logs will be dynamically inserted here -->
-                    </tbody>
-                </table>
+
+    <div class="wrapper">
+        <div id="activity-logs" class="tab-content">
+            <div class="inner-container p-6 w-full">
+                <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">ACTIVITY LOG</h2>
+                <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
+                        <thead class="bg-gray-100 text-gray-800">
+                            <tr>
+                                <th class="px-4 py-2 border border-gray-300 text-left">User Email</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Role</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-table">
+                            <!-- Logs will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

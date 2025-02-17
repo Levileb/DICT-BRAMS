@@ -14,6 +14,12 @@ body::-webkit-scrollbar {
     display: none;
 }
 
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
 
 </style>
 <script>
@@ -143,182 +149,212 @@ document.addEventListener('DOMContentLoaded', () => {
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
-    <div class="table-container">
-    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
-        <div class="text-center mb-6">
-            <h2 class="text-2xl font-bold">Barangay Resident Registration Form</h2>
-            <p class="text-green-600">Please provide the information needed</p>
-        </div>
 
-        <form id="registrationForm">
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Personal Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label for="first_name" class="block text-sm font-medium text-gray-700">First Name *</label>
-                        <input type="text" id="first_name" name="first_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
-                        <input type="text" id="middle_name" name="middle_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div>
-                        <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name *</label>
-                        <input type="text" id="last_name" name="last_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
-                        <select id="suffix" name="suffix"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Suffix</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="appellation" class="block text-sm font-medium text-gray-700">Appellation</label>
-                        <select id="appellation" name="appellation"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Appellation</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="place_of_birth" class="block text-sm font-medium text-gray-700">Place of Birth
-                            *</label>
-                        <select id="place_of_birth" name="place_of_birth"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Place of Birth</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="date_of_birth" class="block text-sm font-medium text-gray-700">Date of Birth
-                            *</label>
-                        <input type="date" id="date_of_birth" name="date_of_birth"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <label for="gender" class="block text-sm font-medium text-gray-700">Gender *</label>
-                        <div class="mt-1 flex">
-                            <input type="radio" name="gender" id="male" value="Male" class="mr-2">
-                            <label for="male" class="mr-4">Male</label>
-                            <input type="radio" name="gender" id="female" value="Female" class="mr-2">
-                            <label for="female">Female</label>
+    <div class="wrapper">
+        <div class="table-container">
+        <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold">Barangay Resident Registration Form</h2>
+                <p class="text-green-600">Please provide the information needed</p>
+            </div>
+
+            <form id="registrationForm">
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Personal Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="first_name" class="block text-sm font-medium text-gray-700">First Name *</label>
+                            <input type="text" id="first_name" name="first_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
+                            <input type="text" id="middle_name" name="middle_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                            <select id="suffix" name="suffix"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Suffix</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="appellation" class="block text-sm font-medium text-gray-700">Appellation</label>
+                            <select id="appellation" name="appellation"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Appellation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="place_of_birth" class="block text-sm font-medium text-gray-700">Place of Birth
+                                *</label>
+                            <select id="place_of_birth" name="place_of_birth"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Place of Birth</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date_of_birth" class="block text-sm font-medium text-gray-700">Date of Birth
+                                *</label>
+                            <input type="date" id="date_of_birth" name="date_of_birth"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-700">Gender *</label>
+                            <div class="mt-1 flex">
+                                <input type="radio" name="gender" id="male" value="Male" class="mr-2">
+                                <label for="male" class="mr-4">Male</label>
+                                <input type="radio" name="gender" id="female" value="Female" class="mr-2">
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="nationality" class="block text-sm font-medium text-gray-700">Nationality *</label>
+                            <select id="nationality" name="nationality"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Nationality</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="civil_status" class="block text-sm font-medium text-gray-700">Civil Status *</label>
+                            <select id="civil_status" name="civil_status"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Civil Status</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="philhealth_membership" class="block text-sm font-medium text-gray-700">PhilHealth
+                                Membership *</label>
+                            <select id="philhealth_membership" name="philhealth_membership"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Membership</option>
+                            </select>
+                        </div>
+                        <div id="philhealth_id_container" class="hidden">
+                            <label for="philhealth_id" class="block text-sm font-medium text-gray-700">PhilHealth ID</label>
+                            <input type="text" id="philhealth_id" name="philhealth_id"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div id="wra_container" class="hidden">
+                            <label for="wra" class="block text-sm font-medium text-gray-700">WRA Last Menstruation
+                                Period</label>
+                            <input type="date" id="wra" name="wra"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="educational_attainment" class="block text-sm font-medium text-gray-700">Educational
+                                Attainment *</label>
+                            <select id="educational_attainment" name="educational_attainment"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Educational Attainment</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="employment_status" class="block text-sm font-medium text-gray-700">Employment Status
+                                *</label>
+                            <select id="employment_status" name="employment_status"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Employment Status</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="remark_NS" class="block text-sm font-medium text-gray-700">Remarks Nutrition Status
+                                *</label>
+                            <select id="remark_NS" name="remark_NS"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Nutrition Status</option>
+                            </select>
                         </div>
                     </div>
-                    <div>
-                        <label for="nationality" class="block text-sm font-medium text-gray-700">Nationality *</label>
-                        <select id="nationality" name="nationality"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Nationality</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="civil_status" class="block text-sm font-medium text-gray-700">Civil Status *</label>
-                        <select id="civil_status" name="civil_status"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Civil Status</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="philhealth_membership" class="block text-sm font-medium text-gray-700">PhilHealth
-                            Membership *</label>
-                        <select id="philhealth_membership" name="philhealth_membership"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Membership</option>
-                        </select>
-                    </div>
-                    <div id="philhealth_id_container" class="hidden">
-                        <label for="philhealth_id" class="block text-sm font-medium text-gray-700">PhilHealth ID</label>
-                        <input type="text" id="philhealth_id" name="philhealth_id"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div id="wra_container" class="hidden">
-                        <label for="wra" class="block text-sm font-medium text-gray-700">WRA Last Menstruation
-                            Period</label>
-                        <input type="date" id="wra" name="wra"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div>
-                        <label for="educational_attainment" class="block text-sm font-medium text-gray-700">Educational
-                            Attainment *</label>
-                        <select id="educational_attainment" name="educational_attainment"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Educational Attainment</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="employment_status" class="block text-sm font-medium text-gray-700">Employment Status
-                            *</label>
-                        <select id="employment_status" name="employment_status"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Employment Status</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="remark_NS" class="block text-sm font-medium text-gray-700">Remarks Nutrition Status
-                            *</label>
-                        <select id="remark_NS" name="remark_NS"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Nutrition Status</option>
-                        </select>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Contact Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="contact_number" class="block text-sm font-medium text-gray-700">Contact Number
+                                *</label>
+                            <input type="tel" id="contact_number" name="contact_number"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required pattern="\d{11}" placeholder="09xxxxxxxxx">
+                        </div>
+                        <div>
+                            <label for="resident_since" class="block text-sm font-medium text-gray-700">Resident Since
+                                *</label>
+                            <input type="date" id="resident_since" name="resident_since"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Contact Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label for="contact_number" class="block text-sm font-medium text-gray-700">Contact Number
-                            *</label>
-                        <input type="tel" id="contact_number" name="contact_number"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required pattern="\d{11}" placeholder="09xxxxxxxxx">
-                    </div>
-                    <div>
-                        <label for="resident_since" class="block text-sm font-medium text-gray-700">Resident Since
-                            *</label>
-                        <input type="date" id="resident_since" name="resident_since"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Person to Notify in Case of Emergency</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="emergency_name" class="block text-sm font-medium text-gray-700">Full Name *</label>
+                            <input type="text" id="emergency_name" name="emergency_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="emergency_phone" class="block text-sm font-medium text-gray-700">Contact Number
+                                *</label>
+                            <input type="tel" id="emergency_phone" name="emergency_phone"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required pattern="\d{11}" placeholder="09xxxxxxxxx">
+                        </div>
+                        <div>
+                            <label for="relationship" class="block text-sm font-medium text-gray-700">Relationship *</label>
+                            <select id="relationship" name="relationship"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Relationship</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Person to Notify in Case of Emergency</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label for="emergency_name" class="block text-sm font-medium text-gray-700">Full Name *</label>
-                        <input type="text" id="emergency_name" name="emergency_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Business Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Do you own a business? *</label>
+                            <div class="mt-1 flex">
+                                <input type="radio" name="business_owner" id="business_owner_yes" value="Yes" class="mr-2">
+                                <label for="business_owner_yes" class="mr-4">Yes</label>
+                                <input type="radio" name="business_owner" id="business_owner_no" value="No" class="mr-2">
+                                <label for="business_owner_no">No</label>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label for="emergency_phone" class="block text-sm font-medium text-gray-700">Contact Number
-                            *</label>
-                        <input type="tel" id="emergency_phone" name="emergency_phone"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required pattern="\d{11}" placeholder="09xxxxxxxxx">
-                    </div>
-                    <div>
-                        <label for="relationship" class="block text-sm font-medium text-gray-700">Relationship *</label>
-                        <select id="relationship" name="relationship"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Relationship</option>
-                        </select>
+                    <div id="business_info_container" class="grid grid-cols-1 md:grid-cols-3 gap-4 hidden">
+                        <div>
+                            <label for="business_name" class="block text-sm font-medium text-gray-700">Business Name *</label>
+                            <input type="text" id="business_name" name="business_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="business_address" class="block text-sm font-medium text-gray-700">Business Address *</label>
+                            <input type="text" id="business_address" name="business_address"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="bg-green-500 text-white font-bold py-2 px-4 rounded-md">Submit</button>
-            </div>
-        </form>
+                
+                <div class="text-center">
+                    <button type="submit" class="bg-green-500 text-white font-bold py-2 px-4 rounded-md">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
 
     <!-- Pop-up Message -->
@@ -339,6 +375,20 @@ document.addEventListener('DOMContentLoaded', () => {
     <script src="firebase-resident.js" defer></script>
 
     <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const businessOwnerInputs = document.querySelectorAll('input[name="business_owner"]');
+        const businessInfoContainer = document.getElementById('business_info_container');
+            businessOwnerInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                  if (input.value === 'Yes') {
+                        businessInfoContainer.classList.remove('hidden');
+                    } else {
+                         businessInfoContainer.classList.add('hidden');
+                        }
+                    });
+            });
+    });
+
     // Show or hide WRA field based on selected gender
     const genderInputs = document.querySelectorAll('input[name="gender"]');
     const wraContainer = document.getElementById('wra_container');
