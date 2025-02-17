@@ -37,70 +37,81 @@
         padding-bottom: 3rem;
     }
 
+    .wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    z-index: 1000;
+}
 </style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div class="container p-6 w-full" style="margin-top: 50px;">
-        <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
-            <div class="container-width container-padding bg-white shadow-md rounded-lg">
-                <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
-                    <h2 class="text-2xl text-gray-700 font-bold">ARCHIVED RESIDENT</h2>
-                    <div class="flex space-x-4 mt-4 sm:mt-0">
-                        <input type="text" id="search" placeholder="Search..."
-                            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
-                        <button id="export-button"
-                            class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to
-                            Excel</button>
-                    </div>
-                </div>
+    <div class="wrapper">
 
-                <table
-                    class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg"
-                    style="padding: 5rem; ">
-                    <thead class="bg-green-100">
-                        <tr>
-                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">First Name</th>
-                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Middle Name</th>
-                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Last Name</th>
-                            <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="residents-list" class="bg-white divide-y divide-gray-200">
-                        <tr>
-                            <td colspan="4" class="py-4 text-center text-gray-500">Loading...</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="container p-6 w-full" style="margin-top: 50px;">
+            <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+                <div class="container-width container-padding bg-white shadow-md rounded-lg">
+                    <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
+                        <h2 class="text-2xl text-gray-700 font-bold">ARCHIVED RESIDENT</h2>
+                        <div class="flex space-x-4 mt-4 sm:mt-0">
+                            <input type="text" id="search" placeholder="Search..."
+                                class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
+                            <button id="export-button"
+                                class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to
+                                Excel</button>
+                        </div>
+                    </div>
+
+                    <table
+                        class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg"
+                        style="padding: 5rem; ">
+                        <thead class="bg-green-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">First Name</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Middle Name</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Last Name</th>
+                                <th class="py-3 px-4 text-left text-sm font-medium text-gray-700">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="residents-list" class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td colspan="4" class="py-4 text-center text-gray-500">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-    </div>
+    
 
     <!-- Modal Structure -->
     <div id="resident-modal" class="fixed z-10 inset-0 overflow-y-auto hidden">
         <div class="flex items-center justify-center min-h-screen">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-            <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full" style="height: 80%; position: relative; transform: translate(0%, 30%);">
-                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div class="sm:flex sm:items-start">
-                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Resident Details
-                            </h3>
-                            <div class="mt-2">
-                                <p class="text-sm text-gray-500" id="modal-content">Loading...</p>
+
+                <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:max-w-lg sm:w-full" style="z-index: 1000; max-height: 200vh; position: relative; transform: translate(0%, 30%);">
+                    <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                        <div class="sm:flex sm:items-start">
+                            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Resident Details
+                                </h3>
+                                <div class="mt-2">
+                                    <p class="text-sm text-gray-500" id="modal-content">Loading...</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                        <button type="button"
+                            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                            onclick="closeModal()">Close</button>
+                    </div>
                 </div>
-                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                    <button type="button"
-                        class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                        onclick="closeModal()">Close</button>
-                </div>
-            </div>
         </div>
     </div>
 
