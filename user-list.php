@@ -29,6 +29,10 @@
     height: auto;
     margin-top: 3rem;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
 </style>
 
 <body class="bg-gray-100">

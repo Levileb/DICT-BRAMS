@@ -5,7 +5,7 @@
     padding: 0.7rem 0;
     width: 100%;
     margin-bottom: 2%;
-    position: fixed;
+    position: relative;
     z-index: 1000;
 }
 

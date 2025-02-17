@@ -30,7 +30,9 @@ html {
     color: white;
     z-index: 1000;
     position: relative;
-    bottom: 0;
+    bottom: -9rem;
+    margin-top: 5rem;
+    
 
 
 
