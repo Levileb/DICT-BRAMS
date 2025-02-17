@@ -13,6 +13,13 @@
 body::-webkit-scrollbar {
     display: none;
 }
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -70,198 +77,201 @@ document.addEventListener('DOMContentLoaded', function() {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/navbar.php'; ?>
 
-    <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
-        <div class="text-center mb-6">
-            <h2 class="text-2xl font-bold">HARMONIZED FAMILY/HOUSEHOLD PROFILE</h2>
-            <p class="text-green-600">Please provide the information needed</p>
+    <div class="wrapper">
+
+        <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-bold">HARMONIZED FAMILY/HOUSEHOLD PROFILE</h2>
+                <p class="text-green-600">Please provide the information needed</p>
+            </div>
+
+            <!-- Household Form -->
+            <form id="householdForm">
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Name of Respondent *</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="first_name" class="block text-sm font-medium text-gray-700">First Name *</label>
+                            <input type="text" id="first_name" name="first_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
+                            <input type="text" id="middle_name" name="middle_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name *</label>
+                            <input type="text" id="last_name" name="last_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
+                            <select id="suffix" name="suffix"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Suffix</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Household Information *</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="household_number" class="block text-sm font-medium text-gray-700">Household Number
+                                *</label>
+                            <input type="number" id="household_number" name="household_number"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="renter" class="block text-sm font-medium text-gray-700">Renter (Y/N) *</label>
+                            <select id="renter" name="renter"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                                <option value="">Select</option>
+                                <option value="Renter_Yes">Yes</option>
+                                <option value="Renter_No">No</option>
+                            </select>
+                        </div>
+                        <div id="renter_months_container" class="hidden">
+                            <label for="renter_months" class="block text-sm font-medium text-gray-700">If Yes, No. of
+                                Months</label>
+                            <input type="number" id="renter_months" name="renter_months"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Social Economic Status *</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <input type="radio" id="nhts_4ps" name="nhts_status" value="nhts_4ps">
+                            <label for="nhts_4ps" class="text-sm font-medium text-gray-700">NHTS 4ps</label><br>
+                            <input type="radio" id="nhts_non4ps" name="nhts_status" value="nhts_non4ps">
+                            <label for="nhts_non4ps" class="text-sm font-medium text-gray-700">NHTS Non-4ps</label><br>
+                            <input type="radio" id="non_nhts" name="nhts_status" value="non_nhts">
+                            <label for="non_nhts" class="text-sm font-medium text-gray-700">Non-NHTS</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" id="ip_household" name="nhts_status" value="ip_household">
+                            <label for="ip_household" class="text-sm font-medium text-gray-700">IP Household</label><br>
+                            <input type="radio" id="non_ip_household" name="nhts_status" value="non_ip_household">
+                            <label for="non_ip_household" class="text-sm font-medium text-gray-700">Non-IP
+                                Household</label><br>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="tribe" class="block text-sm font-medium text-gray-700">If IP Household, indicate
+                                TRIBE:</label>
+                            <input type="text" id="tribe" name="tribe"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="water_source" class="block text-sm font-medium text-gray-700">Type of Water Source
+                                *</label>
+                            <select id="water_source" name="water_source"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                                <option value="">Select Water Source</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="toilet_facility" class="block text-sm font-medium text-gray-700">Type of Toilet
+                                Facility *</label>
+                            <select id="toilet_facility" name="toilet_facility"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                                <option value="">Select Toilet Facility</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="waste_management" class="block text-sm font-medium text-gray-700">Type of Waste
+                                Management *</label>
+                            <select id="waste_management" name="waste_management"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                                <option value="">Select Waste Management</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="blind_drainage" class="block text-sm font-medium text-gray-700">With Blind Drainage
+                                *</label>
+                            <select id="blind_drainage" name="blind_drainage"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                                <option value="">Select Option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Business Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="business_name" class="block text-sm font-medium text-gray-700">Business Name</label>
+                            <input type="text" id="business_name" name="business_name"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label for="business_address" class="block text-sm font-medium text-gray-700">Business
+                                Address</label>
+                            <input type="text" id="business_address" name="business_address"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Household Members Section (Updated) -->
+                <div class="max-w-6xl mx-auto bg-white p-8 shadow-lg rounded-lg mt-8">
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
+                        <h2 class="text-3xl font-semibold text-gray-700">Household Members</h2>
+                        <div class="flex space-x-4 mt-4 sm:mt-0">
+                            <input type="text" id="search" placeholder="Search..."
+                                class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 w-80">
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table
+                            class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg">
+                            <thead class="bg-green-100">
+                                <tr>
+                                    <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-500"></th>
+                                    <!-- Checkbox Header -->
+                                    <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-700">First Name
+                                    </th>
+                                    <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-700">Middle
+                                        Name</th>
+                                    <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-700">Last Name
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="residents-list" class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td colspan="4" class="py-4 text-center text-gray-500">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="text-center mt-6">
+                    <button type="submit"
+                        class="bg-green-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-green-700">Submit</button>
+                </div>
+            </form>
         </div>
-
-        <!-- Household Form -->
-        <form id="householdForm">
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Name of Respondent *</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label for="first_name" class="block text-sm font-medium text-gray-700">First Name *</label>
-                        <input type="text" id="first_name" name="first_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <label for="middle_name" class="block text-sm font-medium text-gray-700">Middle Name</label>
-                        <input type="text" id="middle_name" name="middle_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div>
-                        <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name *</label>
-                        <input type="text" id="last_name" name="last_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <label for="suffix" class="block text-sm font-medium text-gray-700">Suffix</label>
-                        <select id="suffix" name="suffix"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option>Select Suffix</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Household Information *</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label for="household_number" class="block text-sm font-medium text-gray-700">Household Number
-                            *</label>
-                        <input type="number" id="household_number" name="household_number"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                    </div>
-                    <div>
-                        <label for="renter" class="block text-sm font-medium text-gray-700">Renter (Y/N) *</label>
-                        <select id="renter" name="renter"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                            <option value="">Select</option>
-                            <option value="Renter_Yes">Yes</option>
-                            <option value="Renter_No">No</option>
-                        </select>
-                    </div>
-                    <div id="renter_months_container" class="hidden">
-                        <label for="renter_months" class="block text-sm font-medium text-gray-700">If Yes, No. of
-                            Months</label>
-                        <input type="number" id="renter_months" name="renter_months"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Social Economic Status *</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <input type="radio" id="nhts_4ps" name="nhts_status" value="nhts_4ps">
-                        <label for="nhts_4ps" class="text-sm font-medium text-gray-700">NHTS 4ps</label><br>
-                        <input type="radio" id="nhts_non4ps" name="nhts_status" value="nhts_non4ps">
-                        <label for="nhts_non4ps" class="text-sm font-medium text-gray-700">NHTS Non-4ps</label><br>
-                        <input type="radio" id="non_nhts" name="nhts_status" value="non_nhts">
-                        <label for="non_nhts" class="text-sm font-medium text-gray-700">Non-NHTS</label><br>
-                    </div>
-                    <div>
-                        <input type="radio" id="ip_household" name="nhts_status" value="ip_household">
-                        <label for="ip_household" class="text-sm font-medium text-gray-700">IP Household</label><br>
-                        <input type="radio" id="non_ip_household" name="nhts_status" value="non_ip_household">
-                        <label for="non_ip_household" class="text-sm font-medium text-gray-700">Non-IP
-                            Household</label><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="tribe" class="block text-sm font-medium text-gray-700">If IP Household, indicate
-                            TRIBE:</label>
-                        <input type="text" id="tribe" name="tribe"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div>
-                        <label for="water_source" class="block text-sm font-medium text-gray-700">Type of Water Source
-                            *</label>
-                        <select id="water_source" name="water_source"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                            <option value="">Select Water Source</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="toilet_facility" class="block text-sm font-medium text-gray-700">Type of Toilet
-                            Facility *</label>
-                        <select id="toilet_facility" name="toilet_facility"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                            <option value="">Select Toilet Facility</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="waste_management" class="block text-sm font-medium text-gray-700">Type of Waste
-                            Management *</label>
-                        <select id="waste_management" name="waste_management"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                            <option value="">Select Waste Management</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="blind_drainage" class="block text-sm font-medium text-gray-700">With Blind Drainage
-                            *</label>
-                        <select id="blind_drainage" name="blind_drainage"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required>
-                            <option value="">Select Option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-6">
-                <h3 class="text-lg font-bold mb-2">Business Information</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label for="business_name" class="block text-sm font-medium text-gray-700">Business Name</label>
-                        <input type="text" id="business_name" name="business_name"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                    <div>
-                        <label for="business_address" class="block text-sm font-medium text-gray-700">Business
-                            Address</label>
-                        <input type="text" id="business_address" name="business_address"
-                            class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Household Members Section (Updated) -->
-            <div class="max-w-6xl mx-auto bg-white p-8 shadow-lg rounded-lg mt-8">
-                <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
-                    <h2 class="text-3xl font-semibold text-gray-700">Household Members</h2>
-                    <div class="flex space-x-4 mt-4 sm:mt-0">
-                        <input type="text" id="search" placeholder="Search..."
-                            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 w-80">
-                    </div>
-                </div>
-                <div class="overflow-x-auto">
-                    <table
-                        class="min-w-full bg-white border border-gray-200 divide-y divide-gray-200 shadow-sm rounded-lg">
-                        <thead class="bg-green-100">
-                            <tr>
-                                <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-500"></th>
-                                <!-- Checkbox Header -->
-                                <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-700">First Name
-                                </th>
-                                <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-700">Middle
-                                    Name</th>
-                                <th class="py-3 px-4 bg-gray-200 text-left text-sm font-medium text-gray-700">Last Name
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody id="residents-list" class="bg-white divide-y divide-gray-200">
-                            <tr>
-                                <td colspan="4" class="py-4 text-center text-gray-500">Loading...</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="text-center mt-6">
-                <button type="submit"
-                    class="bg-green-600 text-white py-2 px-4 rounded-md shadow-sm hover:bg-green-700">Submit</button>
-            </div>
-        </form>
     </div>
 
     <!-- Pop-up Message -->

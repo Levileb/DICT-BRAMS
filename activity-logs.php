@@ -34,76 +34,41 @@
             display: none;
         }
 
-        .inner-container::-webkit-scrollbar {
-            display: none;
-        }
+.inner-container::-webkit-scrollbar {
+    display: none;
+}
 
-        .scrollable-content {
-            max-height: 400px;
-            overflow-y: auto;
-        }
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
 
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-            padding-top: 60px;
-        }
-
-        .modal-content {
-            background-color: #fefefe;
-            margin: -1rem auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-height: 80%;
-            overflow-y: auto;
-            margin-top: 15%;
-        }
-
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
-</head>
+</style>
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
     <?php include_once 'Includes/admin-navbar.php'; ?>
-    <div id="activity-logs" class="tab-content">
-        <div class="inner-container p-6 w-full" style="margin-top: 10px;">
-            <h2 class="text-2xl font-bold text-gray-700" style="padding-top: -1rem;">ACTIVITY LOG</h2>
-            <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto" style="margin-top: 2vh;">
-                <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
-                    <thead class="bg-gray-100 text-gray-800">
-                        <tr>
-                            <th class="px-4 py-2 border border-gray-300 text-left">User Email</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Role</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
-                            <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
-                        </tr>
-                    </thead>
-                    <tbody id="logs-table">
-                        <!-- Logs will be dynamically inserted here -->
-                    </tbody>
-                </table>
+
+    <div class="wrapper">
+        <div id="activity-logs" class="tab-content">
+            <div class="inner-container p-6 w-full">
+                <h2 class="text-2xl font-bold text-gray-700" style="padding: 1rem;">ACTIVITY LOG</h2>
+                <div class="bg-white rounded-lg shadow-md p-6 overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300 text-sm text-gray-700">
+                        <thead class="bg-gray-100 text-gray-800">
+                            <tr>
+                                <th class="px-4 py-2 border border-gray-300 text-left">User Email</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Role</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Action</th>
+                                <th class="px-4 py-2 border border-gray-300 text-left">Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="logs-table">
+                            <!-- Logs will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
