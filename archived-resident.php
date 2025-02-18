@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-        <div class="container p-6 w-full" style="margin-top: 10px;">
+        <div class="container p-6 w-full" style="margin-top: 70px;">
             <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
                 <div class="container-width container-padding bg-white shadow-md rounded-lg">
                     <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
