@@ -45,19 +45,19 @@ body::-webkit-scrollbar {
     <?php include 'Includes/header.php'; ?>
     <?php include 'Includes/admin-navbar.php'; ?>
 
-    <div class="container p-6 w-full" style="margin-top: 50px;">
-        <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
-            <div class="container-width container-padding bg-white shadow-md rounded-lg">
-                <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
-                    <h2 class="text-2xl text-gray-700 font-bold">ARCHIVED RESIDENT</h2>
-                    <div class="flex space-x-4 mt-4 sm:mt-0">
-                        <input type="text" id="search" placeholder="Search..."
-                            class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
-                        <button id="export-button"
-                            class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to
-                            Excel</button>
+        <div class="container p-6 w-full" style="margin-top: 10px;">
+            <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+                <div class="container-width container-padding bg-white shadow-md rounded-lg">
+                    <div class="t-container flex flex-col sm:flex-row justify-between items-center px-4 py-4">
+                        <h2 class="text-2xl text-gray-700 font-bold">ARCHIVED RESIDENT</h2>
+                        <div class="flex space-x-4 mt-4 sm:mt-0">
+                            <input type="text" id="search" placeholder="Search..."
+                                class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 search-bar-width">
+                            <button id="export-button"
+                                class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Export to
+                                Excel</button>
+                        </div>
                     </div>
-                </div>
 
                 <table
                     class="min-w-full bg-white border border-gray-200 divide-y px-4 py-4 divide-gray-200 shadow-sm rounded-lg"
@@ -104,7 +104,7 @@ body::-webkit-scrollbar {
                 </div>
             </div>
         </div>
-    </div>
+    </div>                                    
 
     <script src="recover_resident.js"></script> <!-- Include the archive function -->
 

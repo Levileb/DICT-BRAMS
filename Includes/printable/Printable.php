@@ -49,13 +49,14 @@
 
     // Placeholder fields (to be replaced by JS with Firebase data)
     $name = "________________________";
+    $businessName = "________________";
+    $businessAddress = "________________";
     $age = "____";
     $civilStatus = "________________";
     $gender = "______";
     $birthDate = "________________";
     $birthPlace = "________________";
-    $businessName = "________________";
-    $businessAddress = "________________";
+
     ?>
 
 
@@ -76,16 +77,38 @@
 
 
     function printDocument() {
-    window.onafterprint = function() {
-        const isSuccessful = confirm("Was the printing completed successfully?");
-        const printStatus = isSuccessful ? "successful" : "failed";
-        logPrintDetails(fullname, docType, printStatus, orNumber);
-        if (isSuccessful) {
-            alert("Printing confirmed as successful.");
-        } else {
-            alert("Printing was not successful. Please try again.");
-        }
+    const printModal = document.getElementById("printModal");
+    const confirmButton = document.getElementById("confirmPrint");
+    const cancelButton = document.getElementById("cancelPrint");
+    const alertModal = document.getElementById("alertModal");
+    const alertMessage = document.getElementById("alertMessage");
+    const closeAlert = document.getElementById("closeAlert");
+    
+    function showAlert(message) {
+        alertMessage.textContent = message;
+        alertModal.style.display = "block";
+    }
+    
+    closeAlert.onclick = function() {
+        alertModal.style.display = "none";
     };
+    
+    window.onafterprint = function() {
+        printModal.style.display = "block"; // Show modal after print
+    };
+    
+    confirmButton.onclick = function() {
+        logPrintDetails(fullname, docType, "successful", orNumber);
+        showAlert("Printing confirmed as successful.");
+        printModal.style.display = "none";
+    };
+    
+    cancelButton.onclick = function() {
+        logPrintDetails(fullname, docType, "failed", orNumber);
+        showAlert("Printing was not successful. Please try again.");
+        printModal.style.display = "none";
+    };
+    
     window.print();
 }
 
@@ -130,8 +153,22 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+
 </script>
 
+<div id="alertModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; z-index:1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; text-align: center;">
+    <p id="alertMessage" style="font-size: 16px; margin-bottom: 20px;"></p>
+    <button id="closeAlert" class="btn btn-primary">OK</button>
+</div>
+
+
+
+<div id="printModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; z-index:1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; text-align: center;">
+    <p style="font-size: 16px; margin-bottom: 20px;"> <strong> Was the printing completed successfully?</strong><br>
+    <em>note: Please confirm after the printing</em></p>
+    <button id="confirmPrint" class="btn btn-success" style="margin-right: 10px;">Yes</button>
+    <button id="cancelPrint" class="btn btn-danger">No</button>
+</div>
     <div class="logo">
         <img class="left-logo" src="barangay8logo.png" alt="Barangay Logo">
         <div class="logo-text">
@@ -235,15 +272,19 @@ function getCookie(name) {
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>
                 <p>
                 TO WHOM IT MAY CONCERN:<br><br>
-                This is to CERTIFY that <strong id="residentName"><?php echo $name; ?></strong>, 
-                <strong id="age"><?php echo $age; ?></strong> years old, 
+                This is to CERTIFY that <strong id="businessName"><?php echo $businessName?></strong> owned by
+                 <strong id="residentName"><?php echo $name; ?></strong>, located
+                <strong id="businessAddress"><?php echo $businessAddress?></strong>,  has not been operating and is permanently closed as of 
+                <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong>.<br><br>
+ 
+                <span style="display: none;">
+                This is to CERTIFY that, 
+                that is  <strong id="age"><?php echo $age; ?></strong> years old, 
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
                 is a bonafide resident of Barangay 8, Bacolod City.<br><br>
-                
-                <strong id="businessName"><?php echo $businessName?></strong>
-                <strong id="businessAddress"><?php echo $businessAddress?></strong>, 
+                </span>
 
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>

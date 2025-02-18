@@ -96,12 +96,22 @@ tbody {
         tbody.innerHTML = ''; // Clear existing rows
 
         if (snapshot.exists()) {
+            var logs = [];
             snapshot.forEach(function(childSnapshot) {
                 var childData = childSnapshot.val();
-                console.log(childData); // Debugging: Check structure
+                if (childData) {
+                    logs.push(childData);
+                }
+            });
 
-                if (!childData) return; // Skip if no data
+            // Sort logs by date and time in descending order
+            logs.sort(function(a, b) {
+                var dateA = new Date(a.date + ' ' + a.time);
+                var dateB = new Date(b.date + ' ' + b.time);
+                return dateB - dateA;
+            });
 
+            logs.forEach(function(childData) {
                 var row = document.createElement('tr');
 
                 var dateCell = document.createElement('td');
@@ -129,16 +139,16 @@ tbody {
                 documentTypeCell.textContent = childData.documentType || "N/A";
                 row.appendChild(documentTypeCell);
 
-
-                var documentTypeCell = document.createElement('td');
-                documentTypeCell.className = 'py-2 px-4 border-b border-gray-300';
+                var printStatusCell = document.createElement('td');
+                printStatusCell.className = 'py-2 px-4 border-b border-gray-300';
                 if (childData.printStatus === "successful") {
-                    documentTypeCell.style.color = "green";
+                    printStatusCell.style.color = "green";
                 } else if (childData.printStatus === "failed") {
-                    documentTypeCell.style.color = "red";
+                    printStatusCell.style.color = "red";
                 }
-                documentTypeCell.textContent = childData.printStatus || "N/A";
-                row.appendChild(documentTypeCell);
+                printStatusCell.textContent = childData.printStatus || "N/A";
+                row.appendChild(printStatusCell);
+
                 tbody.appendChild(row);
             });
         } else {
@@ -151,8 +161,7 @@ tbody {
             tbody.appendChild(row);
         }
     });
-    </script>
-
+</script>
 </body>
 
 </html>

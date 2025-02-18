@@ -216,22 +216,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
 
-                <div class="mb-6">
-                    <h3 class="text-lg font-bold mb-2">Business Information</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="business_name" class="block text-sm font-medium text-gray-700">Business Name</label>
-                            <input type="text" id="business_name" name="business_name"
-                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </div>
-                        <div>
-                            <label for="business_address" class="block text-sm font-medium text-gray-700">Business
-                                Address</label>
-                            <input type="text" id="business_address" name="business_address"
-                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- Household Members Section (Updated) -->
                 <div class="max-w-6xl mx-auto bg-white p-8 shadow-lg rounded-lg mt-8">
