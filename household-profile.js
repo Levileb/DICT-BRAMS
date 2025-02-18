@@ -16,7 +16,6 @@
     householdsRef.on('value', (snapshot) => {
         const residentsList = document.getElementById('residents-list');
         residentsList.innerHTML = ''; // Clear existing data
-
         snapshot.forEach((childSnapshot) => {
             const household = childSnapshot.val();
 
@@ -86,37 +85,34 @@
                             const memberData = memberSnapshot.val();
                             if (memberData) {
                                 memberNameCell.textContent = `${memberData.first_name || ''} ${memberData.last_name || ''}`;
-                            } else {
-                                memberNameCell.textContent = 'No details found';
-                            }
-                        });
+                                memberRow.appendChild(memberNameCell);
 
-                        memberRow.appendChild(memberNameCell);
-
-                        // Add delete button
-                        const deleteButtonCell = document.createElement('td');
-                        deleteButtonCell.classList.add('py-2', 'px-4', 'text-sm', 'text-gray-600');
-                        const deleteButton = document.createElement('button');
-                        deleteButton.textContent = 'Delete';
-                        deleteButton.classList.add('bg-red-500', 'text-white', 'py-1', 'px-2', 'rounded');
-                        deleteButton.addEventListener('click', (e) => {
-                            e.stopPropagation(); // Prevent triggering the row click event
-                            if (confirm('Are you sure you want to delete this member?')) {
-                                // Remove member from the household's selected_members array
-                                const updatedMembers = household.selected_members.filter(id => id !== memberId);
-                                firebase.database().ref(`Households/${childSnapshot.key}`).update({ selected_members: updatedMembers }).then(() => {
-                                    // Delete the member data from the Residents node
-                                    firebase.database().ref(`SelectedMembers/${memberId}`).remove().then(() => {
-                                        // Refresh the modal content
-                                        row.click();
-                                    });
+                                // Add delete button
+                                const deleteButtonCell = document.createElement('td');
+                                deleteButtonCell.classList.add('py-2', 'px-4', 'text-sm', 'text-gray-600');
+                                const deleteButton = document.createElement('button');
+                                deleteButton.textContent = 'Delete';
+                                deleteButton.classList.add('bg-red-500', 'text-white', 'py-1', 'px-2', 'rounded');
+                                deleteButton.addEventListener('click', (e) => {
+                                    e.stopPropagation(); // Prevent triggering the row click event
+                                    if (confirm('Are you sure you want to delete this member?')) {
+                                        // Remove member from the household's selected_members array
+                                        const updatedMembers = household.selected_members.filter(id => id !== memberId);
+                                        firebase.database().ref(`Households/${childSnapshot.key}`).update({ selected_members: updatedMembers }).then(() => {
+                                            // Delete the member data from the Residents node
+                                            firebase.database().ref(`SelectedMembers/${memberId}`).remove().then(() => {
+                                                // Refresh the modal content
+                                                row.click();
+                                            });
+                                        });
+                                    }
                                 });
+                                deleteButtonCell.appendChild(deleteButton);
+                                memberRow.appendChild(deleteButtonCell);
+
+                                membersList.appendChild(memberRow);
                             }
                         });
-                        deleteButtonCell.appendChild(deleteButton);
-                        memberRow.appendChild(deleteButtonCell);
-
-                        membersList.appendChild(memberRow);
                     });
                 } else {
                     const noMembersRow = document.createElement('tr');

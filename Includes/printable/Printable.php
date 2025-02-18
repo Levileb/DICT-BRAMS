@@ -77,16 +77,38 @@
 
 
     function printDocument() {
-    window.onafterprint = function() {
-        const isSuccessful = confirm("Was the printing completed successfully?");
-        const printStatus = isSuccessful ? "successful" : "failed";
-        logPrintDetails(fullname, docType, printStatus, orNumber);
-        if (isSuccessful) {
-            alert("Printing confirmed as successful.");
-        } else {
-            alert("Printing was not successful. Please try again.");
-        }
+    const printModal = document.getElementById("printModal");
+    const confirmButton = document.getElementById("confirmPrint");
+    const cancelButton = document.getElementById("cancelPrint");
+    const alertModal = document.getElementById("alertModal");
+    const alertMessage = document.getElementById("alertMessage");
+    const closeAlert = document.getElementById("closeAlert");
+    
+    function showAlert(message) {
+        alertMessage.textContent = message;
+        alertModal.style.display = "block";
+    }
+    
+    closeAlert.onclick = function() {
+        alertModal.style.display = "none";
     };
+    
+    window.onafterprint = function() {
+        printModal.style.display = "block"; // Show modal after print
+    };
+    
+    confirmButton.onclick = function() {
+        logPrintDetails(fullname, docType, "successful", orNumber);
+        showAlert("Printing confirmed as successful.");
+        printModal.style.display = "none";
+    };
+    
+    cancelButton.onclick = function() {
+        logPrintDetails(fullname, docType, "failed", orNumber);
+        showAlert("Printing was not successful. Please try again.");
+        printModal.style.display = "none";
+    };
+    
     window.print();
 }
 
@@ -134,6 +156,19 @@ function getCookie(name) {
 
 </script>
 
+<div id="alertModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; z-index:1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; text-align: center;">
+    <p id="alertMessage" style="font-size: 16px; margin-bottom: 20px;"></p>
+    <button id="closeAlert" class="btn btn-primary">OK</button>
+</div>
+
+
+
+<div id="printModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; z-index:1000; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); border-radius: 8px; text-align: center;">
+    <p style="font-size: 16px; margin-bottom: 20px;"> <strong> Was the printing completed successfully?</strong><br>
+    <em>note: Please confirm after the printing</em></p>
+    <button id="confirmPrint" class="btn btn-success" style="margin-right: 10px;">Yes</button>
+    <button id="cancelPrint" class="btn btn-danger">No</button>
+</div>
     <div class="logo">
         <img class="left-logo" src="barangay8logo.png" alt="Barangay Logo">
         <div class="logo-text">

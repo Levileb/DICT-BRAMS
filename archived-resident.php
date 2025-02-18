@@ -113,7 +113,7 @@
                     </div>
                 </div>
         </div>
-    </div>
+    </div>                                    
 
     <script src="recover_resident.js"></script> <!-- Include the archive function -->
 

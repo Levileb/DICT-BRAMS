@@ -105,7 +105,7 @@ const safeValue = (value, placeholder) => value && value.trim() ? value : placeh
 function populateResidentDetails(residentData) {
 
     // Populate the residentName field with names displayed closely together
-    const fullName = `${safeValue(residentData.first_name, '')} ${safeValue(residentData.middle_name, '')} ${safeValue(residentData.last_name, '')} ${residentData.suffix === 'Select Suffix' ? '' : safeValue(residentData.suffix, '')}`.trim().replace(/\s+/g, ' ');
+    const fullName = `${safeValue(residentData.first_name, '')} ${safeValue(residentData.middle_name, '')} ${safeValue(residentData.last_name, '')} ${residentData.suffix && residentData.suffix !== 'Select Suffix' && residentData.suffix !== 'none' ? safeValue(residentData.suffix, '') : ''}`.trim().replace(/\s+/g, ' ');
 
     document.getElementById('residentName').innerText = fullName;
 
