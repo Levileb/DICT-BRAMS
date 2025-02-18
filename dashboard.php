@@ -18,7 +18,7 @@
         <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
             <!-- Left Section: Text Content -->
             <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-snug">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-snug" style="margin-top: 12rem;">
                     Your Partner in Efficient Barangay Management
                 </h1>
                 <p class="mt-4 text-gray-700 text-lg">
@@ -31,11 +31,14 @@
 
     <style>
     .custom-container {
-        max-height: 700px;
+        max-height: 400px;
         max-width: 900px;
         /* Adjust width as needed */
-        padding: 1rem;
+        padding: 3rem;
+        padding-top: 5rem;
         /* Adjust padding */
+        margin-top: -3rem;
+        margin-bottom: 1rem;
     }
 
     @media (min-width: 768px) {

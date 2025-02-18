@@ -37,10 +37,11 @@
 
     <style>
     .custom-container {
-        max-height: 700px;
+        max-height: 300px;
         max-width: 900px;
         /* Adjust width as needed */
-        padding: 1rem;
+        padding-top: 2rem;
+        padding-left: 3rem; 
         /* Adjust padding */
     }
 
@@ -64,11 +65,21 @@
 
     body {
         background-image: url('Includes/background/background_logo.jpg');
-        background-size: cover;
+        background-size:cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-attachment: scroll;
+        
+        
     }
+    .background-image {
+    position: fixed;
+    left: 20;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30%; /* Adjust as needed */
+    max-width: 500px;
+}
     </style>
 
 
