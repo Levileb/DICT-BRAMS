@@ -109,8 +109,10 @@ function populateResidentDetails(residentData) {
 
     document.getElementById('residentName').innerText = fullName;
 
-    document.getElementById('age').innerText = 
-        calculateAge(residentData.date_of_birth) || '0';
+    const birthDate = safeValue(residentData.date_of_birth, null);
+    const age = birthDate ? calculateAge(birthDate) : '0';
+
+    document.getElementById('age').innerText = age;
 
     document.getElementById('civilStatus').innerText = 
         safeValue(residentData.civil_status, '________________');
@@ -119,7 +121,7 @@ function populateResidentDetails(residentData) {
         safeValue(residentData.gender, '______');
 
     document.getElementById('birthDate').innerText = 
-        safeValue(residentData.date_of_birth, '________________');
+        birthDate || '________________';
 
 
     document.getElementById('birthPlace').innerText = 
@@ -131,18 +133,7 @@ function populateResidentDetails(residentData) {
     document.getElementById('businessAddress').innerText = 
         safeValue(residentData.business_address, '________________');
 
-    // Additional document type-specific logic (if any)
-    if (documentType === 'clearance') {
-        console.log("Processing Barangay Clearance");
-    } else if (documentType === 'residency') {
-        console.log("Processing Certificate of Residency");
-    } else if (documentType === 'indigency') {
-        console.log("Processing Certificate of Indigency");
-    } else if (documentType === 'certification') {
-        console.log("Processing Certification");
-    } else {
-        console.error("Unknown document type!");
-    }
+
 }
 
 
