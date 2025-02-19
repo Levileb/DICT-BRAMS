@@ -7,7 +7,7 @@
     <title>BRAMS - Efficient Barangay Management</title>
     <link rel="icon" type="image/png" href="Includes/background/bg.png">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-    <link href="Includes/index.css" rel="stylesheet"> <!-- Link to the external CSS file -->
+    <link href="Includes/index.css" rel="stylesheet"> 
 </head>
 
 <body class="bg-gray-100">
@@ -30,8 +30,9 @@
     </main>
 
     <style>
+ 
     .custom-container {
-        max-height: 400px;
+        max-height: 51.4vh;
         max-width: 900px;
         /* Adjust width as needed */
         padding: 3rem;

@@ -21,9 +21,9 @@
 
 
     <main class="custom-container mx-auto flex items-center justify-center h-screen px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12">
+        <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-12" >
             <!-- Left Section: Text Content -->
-            <div class="w-full md:w-1/2 text-center md:text-left space-y-4">
+            <div class="w-full md:w-1/2 text-center md:text-left space-y-4" >
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-snug">
                     Your Partner in Efficient Barangay Management
                 </h1>
@@ -36,28 +36,12 @@
     </main>
 
     <style>
-    .custom-container {
-        max-height: 300px;
-        max-width: 900px;
-        /* Adjust width as needed */
-        padding-top: 2rem;
-        padding-left: 3rem; 
-        /* Adjust padding */
-    }
-
-    @media (min-width: 768px) {
-        .custom-container {
-            max-width: 1200px;
-            /* Wider on medium screens */
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .custom-container {
-            max-width: 1400px;
-            /* Maximum width on large screens */
-        }
-    }
+.custom-container {
+    max-height: 46.4vh; /* Keeps height proportional to viewport */
+    width: 90vw; /* Ensures width adapts to screen size */
+    max-width: 90%; /* Prevents overflow on larger screens */
+    padding-left: 1rem;
+}
 
     body::-webkit-scrollbar {
         display: none;
@@ -80,12 +64,22 @@
     width: 30%; /* Adjust as needed */
     max-width: 500px;
 }
+
+.footer{
+
+    position: relative;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
     </style>
 
 
-
-    <?php include 'Includes/footer.php'; ?>
-    <!-- Include the footer file -->
+<div class="footer">
+<?php include 'Includes/footer.php'; ?>
+<!-- Include the footer file -->
+</div>
+   
 
 </body>
 
