@@ -32,7 +32,7 @@
     <style>
  
     .custom-container {
-        max-height: 63.6vh;
+        max-height: 51.4vh;
         max-width: 900px;
         /* Adjust width as needed */
         padding: 3rem;

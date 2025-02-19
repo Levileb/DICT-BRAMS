@@ -37,7 +37,6 @@
 
     <style>
 .custom-container {
-    position: relative;
     max-height: 46.4vh; /* Keeps height proportional to viewport */
     width: 90vw; /* Ensures width adapts to screen size */
     max-width: 90%; /* Prevents overflow on larger screens */
