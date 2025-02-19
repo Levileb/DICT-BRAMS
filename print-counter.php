@@ -66,6 +66,10 @@ tbody {
     <div class="wrapper">
         <div class="print-container" style="margin-top: 50px;">
             <div class="inner-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">
+                <div class="flex justify-end mb-4">
+                    <input type="text" id="searchInput" placeholder="Search..." class="px-4 py-2 border rounded mr-2">
+                    <button id="exportButton" class="px-4 py-2 bg-green-500 text-white rounded">Export to Excel</button>
+                </div>
                 <table class="min-w-full bg-white">
                     <thead>
                         <tr>
@@ -161,7 +165,55 @@ tbody {
             tbody.appendChild(row);
         }
     });
-</script>
+
+    document.getElementById('exportButton').addEventListener('click', function() {
+        var wb = XLSX.utils.book_new();
+        var ws_data = [
+            ["Date", "Time", "OR Number", "Registered by", "Document Type", "Print Status"]
+        ];
+
+        database.ref('PrintLogs').once('value', function(snapshot) {
+            if (snapshot.exists()) {
+                snapshot.forEach(function(childSnapshot) {
+                    var childData = childSnapshot.val();
+                    if (childData) {
+                        ws_data.push([
+                            childData.date || "N/A",
+                            childData.time || "N/A",
+                            childData.orNumber || "N/A",
+                            childData.userEmail || "N/A",
+                            childData.documentType || "N/A",
+                            childData.printStatus || "N/A"
+                        ]);
+                    }
+                });
+
+                var ws = XLSX.utils.aoa_to_sheet(ws_data);
+                XLSX.utils.book_append_sheet(wb, ws, "PrintLogs");
+                XLSX.writeFile(wb, "PrintLogs.xlsx");
+            }
+        });
+    });
+
+    document.getElementById('searchInput').addEventListener('input', function() {
+        var searchValue = this.value.toLowerCase();
+        var rows = document.querySelectorAll('tbody tr');
+        rows.forEach(function(row) {
+            var cells = row.querySelectorAll('td');
+            var match = false;
+            cells.forEach(function(cell) {
+                if (cell.textContent.toLowerCase().includes(searchValue)) {
+                    match = true;
+                }
+            });
+            if (match) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>

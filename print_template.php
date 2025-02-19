@@ -6,6 +6,8 @@
     <title>BRAMS - Efficient Barangay Management</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="Includes/print_template.css" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 </head>
 <style> 
     body::-webkit-scrollbar {
@@ -22,6 +24,44 @@
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
+
+
+.modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        .modal button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            background:rgb(17, 170, 42);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal button:hover {
+            background:rgb(79, 182, 79);
+        }
 </style>
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
@@ -117,6 +157,7 @@
     </div>
 
 
+
     <div id="popup" class="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
         <div class="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
             <h3 class="text-xl font-bold text-gray-800 mb-4">Additional Information</h3>
@@ -135,7 +176,81 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal" id="popupModal">
+        <p id="modalMessage">Default message</p> 
+        <button onclick="closeModal()">OK</button>
+    </div>
+
+
     <script>
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
+        authDomain: "brams-3dfd3.firebaseapp.com",
+        databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
+        projectId: "brams-3dfd3",
+        storageBucket: "brams-3dfd3.firebasestorage.app",
+        messagingSenderId: "301528550722",
+        appId: "1:301528550722:web:9724e3029567a64c904cdb",
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    document.querySelectorAll("button[type='submit']").forEach(button => {
+    button.addEventListener('click', async function(event) {
+        event.preventDefault(); // Stop form from submitting
+
+        const form = this.closest("form"); // Get the form of the clicked button
+        const orNumber = form.querySelector("input[name='or_number']").value.trim();
+
+        if (orNumber === "") {
+            showModal("Please enter an OR number.");
+            return;
+        }
+
+        const printLogsRef = firebase.database().ref('PrintLogs');
+
+        try {
+            // Wait for Firebase response
+            const snapshot = await printLogsRef.orderByChild("orNumber").equalTo(orNumber).once("value");
+
+            if (snapshot.exists()) {
+                let shouldBlockSubmission = false;
+
+                snapshot.forEach(childSnapshot => {
+                    const data = childSnapshot.val();
+                    if (data.printStatus === "successful") {
+                        shouldBlockSubmission = true;
+                    }
+                });
+
+                if (shouldBlockSubmission) {
+                    showModal("This OR number has already been used. Please enter a different one.");                  
+                    return;
+                }
+            }
+
+            form.submit(); // Submit the form if conditions are met
+        } catch (error) {
+            console.error("Error checking OR number:", error);
+        }
+    });
+});
+
+        function showModal(message) {
+            document.getElementById("modalMessage").innerText = message;
+            document.getElementById("popupModal").style.display = "block";
+            document.getElementById("modalOverlay").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("popupModal").style.display = "none";
+            document.getElementById("modalOverlay").style.display = "none";
+        }
+
         // Function to show popup
         function showPopup() {
             document.getElementById('popup').classList.add('popup-style');
@@ -155,12 +270,7 @@
         }
 
         // Attach event listeners to all "Print" buttons
-        document.querySelectorAll("cbutton[type='submit']").forEach(button => {
-            button.addEventListener('click', function(event) {
-                event.preventDefault(); // Prevent form submission
-                showPopup(); // Show the popup
-            });
-        });
+      
     </script> 
     <?php include 'Includes/footer.php'; ?>
 </body>
