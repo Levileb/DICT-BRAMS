@@ -195,7 +195,7 @@ function getCookie(name) {
                 <strong id="civilStatus"><?php echo $civilStatus; ?></strong>, 
                 <strong id="gender"><?php echo $gender; ?></strong>, born on 
                 <strong id="birthDate"><?php echo $birthDate; ?></strong>, at <strong id="birthPlace"><?php echo $birthPlace; ?></strong>, 
-                is a <strong>PERMAENT RESIDENT</strong> of this Barangay 8, Bacolod City.<br><br>
+                is a <strong>PERMANENT RESIDENT</strong> of this Barangay 8, Bacolod City.<br><br>
                 Based on records of this office, this person has been residing at Barangay 8, Bacolod City.
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
