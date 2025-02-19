@@ -186,14 +186,22 @@
             const month = String(date.getMonth() + 1).padStart(2, '0');
             const day = String(date.getDate()).padStart(2, '0');
             const year = date.getFullYear();
-
-        // Create the popup container
-        const popup = document.createElement('div');
-        popup.classList.add('absolute', 'inset-0', 'bg-gray-800', 'bg-opacity-50', 'flex', 'items-center', 'justify-center', 'z-50');
+            const fileName = `Residents_${year}-${month}-${day}.xlsx`;
 
             const worksheet = XLSX.utils.json_to_sheet(residentsData);
             const workbook = XLSX.utils.book_new();
             XLSX.utils.book_append_sheet(workbook, worksheet, "Residents");
+
+            // Make header titles bold
+            const range = XLSX.utils.decode_range(worksheet['!ref']);
+            for (let C = range.s.c; C <= range.e.c; ++C) {
+            const cell = worksheet[XLSX.utils.encode_cell({ r: 0, c: C })];
+            if (cell && cell.s) {
+                cell.s.font = { bold: true };
+            } else if (cell) {
+                cell.s = { font: { bold: true } };
+            }
+            }
 
             XLSX.writeFile(workbook, fileName);
         }
