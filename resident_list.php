@@ -211,8 +211,9 @@
 
             // Create the popup container
             const popup = document.createElement('div');
+            popup.style.marginTop = '100px';
             popup.classList.add('fixed', 'inset-0', 'bg-gray-800', 'bg-opacity-50', 'flex', 'items-center',
-                'justify-center', 'z-50', 'scroll');
+                'justify-center', 'z-50', 'scroll', 'overflow-y-auto');
                
                 // Popup content
             const content = document.createElement('div');
