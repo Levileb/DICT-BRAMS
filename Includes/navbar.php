@@ -4,7 +4,7 @@
     padding: 0.5rem 0;
     width: 100%;
     margin-bottom: 2%;
-    position: fixed;
+    position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
