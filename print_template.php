@@ -84,7 +84,9 @@
                         <input type="hidden" name="type" value="CERTIFICATE OF RESIDENCY">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
-                        
+                        <select name="incharge" id="inchargeDropdown" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <option value="">Select In-Charge</option>
+                        </select>
                         <div class="flex items-center space-x-4">
                             <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
@@ -210,7 +212,6 @@
             showModal("Please enter an OR number.");
             return;
         }
-
         const printLogsRef = firebase.database().ref('PrintLogs');
 
         try {
@@ -218,27 +219,49 @@
             const snapshot = await printLogsRef.orderByChild("orNumber").equalTo(orNumber).once("value");
 
             if (snapshot.exists()) {
-                let shouldBlockSubmission = false;
+            let shouldBlockSubmission = false;
 
-                snapshot.forEach(childSnapshot => {
-                    const data = childSnapshot.val();
-                    if (data.printStatus === "successful") {
-                        shouldBlockSubmission = true;
-                    }
-                });
-
-                if (shouldBlockSubmission) {
-                    showModal("This OR number has already been used. Please enter a different one.");                  
-                    return;
+            snapshot.forEach(childSnapshot => {
+                const data = childSnapshot.val();
+                if (data.printStatus === "successful" && orNumber !== "NA") {
+                shouldBlockSubmission = true;
                 }
+            });
+
+            if (shouldBlockSubmission) {
+                showModal("This OR number has already been used. Please enter a different one.");                  
+                return;
+            }
             }
 
             form.submit(); // Submit the form if conditions are met
         } catch (error) {
             console.error("Error checking OR number:", error);
         }
-    });
-});
+        });
+
+
+
+function fetchOfficials() {
+            const dropdown = document.getElementById('inchargeDropdown');
+            const officialsRef = database.ref('BrgyOfficials');
+
+            officialsRef.once('value')
+                .then(snapshot => {
+                    snapshot.forEach(childSnapshot => {
+                        const official = childSnapshot.val();
+                        const fullName = `${official.first_name} ${official.middle_initial}. ${official.last_name}`;
+
+                        const option = document.createElement('option');
+                        option.value = fullName;
+                        option.textContent = fullName;
+                        dropdown.appendChild(option);
+                    });
+                })
+                .catch(error => console.error('Error fetching data:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchOfficials);
 
         function showModal(message) {
             document.getElementById("modalMessage").innerText = message;
