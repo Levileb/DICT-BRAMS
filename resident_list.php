@@ -90,6 +90,7 @@
                                         <div class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 hidden">
                                             <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                                                 <a href="print_template.php?id=${key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100" role="menuitem">Print</a>
+                                                <a href="ID_Print.php?id=${key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100" role="menuitem">ID</a>
                                                 <a href="edit_form.php?id=${key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-100" role="menuitem">Edit</a>
                                                 <button onclick="archiveResident('${key}')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-100" role="menuitem">Archive</button>
                                                 <button onclick="showInfoPopup('${key}')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-yellow-100" role="menuitem">Info</button>
