@@ -212,6 +212,7 @@
             showModal("Please enter an OR number.");
             return;
         }
+
         const printLogsRef = firebase.database().ref('PrintLogs');
 
         try {
@@ -219,26 +220,27 @@
             const snapshot = await printLogsRef.orderByChild("orNumber").equalTo(orNumber).once("value");
 
             if (snapshot.exists()) {
-            let shouldBlockSubmission = false;
+                let shouldBlockSubmission = false;
 
-            snapshot.forEach(childSnapshot => {
-                const data = childSnapshot.val();
-                if (data.printStatus === "successful" && orNumber !== "NA") {
-                shouldBlockSubmission = true;
+                snapshot.forEach(childSnapshot => {
+                    const data = childSnapshot.val();
+                    if (data.printStatus === "successful") {
+                        shouldBlockSubmission = true;
+                    }
+                });
+
+                if (shouldBlockSubmission) {
+                    showModal("This OR number has already been used. Please enter a different one.");                  
+                    return;
                 }
-            });
-
-            if (shouldBlockSubmission) {
-                showModal("This OR number has already been used. Please enter a different one.");                  
-                return;
-            }
             }
 
             form.submit(); // Submit the form if conditions are met
         } catch (error) {
             console.error("Error checking OR number:", error);
         }
-        });
+    });
+});
 
 
 
@@ -249,13 +251,16 @@ function fetchOfficials() {
             officialsRef.once('value')
                 .then(snapshot => {
                     snapshot.forEach(childSnapshot => {
+                        
                         const official = childSnapshot.val();
-                        const fullName = `${official.first_name} ${official.middle_initial}. ${official.last_name}`;
-
-                        const option = document.createElement('option');
-                        option.value = fullName;
-                        option.textContent = fullName;
-                        dropdown.appendChild(option);
+                        if (official.position !== "Punong Barangay"){
+                            const fullName = `${official.first_name} ${official.middle_initial}. ${official.last_name}`;
+                            const option = document.createElement('option');
+                            option.value = fullName;
+                            option.textContent = fullName;
+                            dropdown.appendChild(option);
+                        }
+                       
                     });
                 })
                 .catch(error => console.error('Error fetching data:', error));
