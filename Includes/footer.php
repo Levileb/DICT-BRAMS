@@ -33,10 +33,6 @@ html {
     bottom: -9rem;
     margin-top: 5rem;
     
-
-
-
-    margin-top: auto;
     /* Green color */
     background-color: #117A3C;
     display: flex;
