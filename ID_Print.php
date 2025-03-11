@@ -16,63 +16,50 @@
             height: 100vh;
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
+            gap: 3rem;
         }
         .id-container {
             display: flex;
-            gap: 2rem;
+            
         }
         .id-card {
             width: 300px;
             height: 500px;
             background: white;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgb(36, 81, 23);
             text-align: center;
             padding: 20px;
-            border: 2px solid #333;
+            border: 1px solid  rgb(36, 81, 23);
             position: relative;
         }
         .header {
             font-size: 14px;
             font-weight: bold;
+            margin-top: 1rem;
+            font-family: Arial, Helvetica, sans-serif;
+            gap: 2rem;
+        }
+        .picture-box {
+            float: right;
+            width: 10rem;
+            border: 1px solid gray;
+            height: 10rem; 
+            margin-top: 3rem;
+            margin-bottom: 3rem; 
+            margin-right: 1rem;
+
         }
         .photo {
-            width: 100px;
-            height: 100px;
-           
-            margin: 10px auto;
-            display: block;
-           float: right;
-            
-        }
-        .photo2 {
-            width: 100px;
-            height: 100px;
-          
-            margin: 10px auto;
+            width: 5rem;
+            height: 5rem;
+            margin-top: 5rem;
+            margin-left: 1rem;
             display: block;
            float: left;
             
         }
-        .details {
-            text-align: left;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        .details div {
-            margin-bottom: 5px;
-            background: #f4f4f4;
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-
-        }
-        .barcode {
-            width: 100%;
-            height: 40px;
-            background: black;
-            margin-top: 10px;
-        }
+       
         .signature-box {
             border-top: 1px solid black;
             width: 80%;
@@ -89,40 +76,45 @@
             margin-top: 30px;
             text-align: center;
         }
-        .id-card input [type="text"],
-        .id-card input [type="date"],
-        .id-card input [type="file"] {
-        
+        .custom-form {
+            display: flex;
+            flex-direction: column;
+            gap: 2px; /* Adds spacing between inputs */
+            width: 250px; /* Adjust width */
+            height: 20px;
+            margin: 20px auto;
+        }
+        input {
             width: 100%;
-            padding: 10px;
-            margin-left:-1rem;
-            margin-right: -1rem;
-            margin-bottom: 15px;
-            margin-top: 5px;
+            padding: 6px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            outline: none; 
-            
+            font-size: 16px;
+            outline: none;
+            margin: auto 0;
+            align-items: center;
+            font-family: Arial, Helvetica, sans-serif;
           
-        }	
+}
+        
     </style>
 </head>
 <body>
     <div class="id-container">
         <!-- Front Side -->
         <div class="id-card">
-            <div class="header">REPUBLIC OF THE PHILIPPINES<br>BARANGAY MARIKINA HEIGHTS</div>
-            <img src="ts.jpg" alt="Profile Picture" class="photo">
-            <img src="Includes/background/dict.png" alt="logo" class="photo2">
-        <form>
-        <input type="text" placeholder="Full Name" required>
-            <input type="text" placeholder="Address" required>
-            <input type="date" placeholder="Birthdate" required>
-                </form>
+            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Province of Negros<br>BARANGGAY 8<br>BARANGGAY IDENTIFICATION CARD</div>
+            <div class="picture-box"></div>
+            <img src="Includes/background/dict.png" alt="logo" class="photo">
+       
+        <form class="custom-form">
+            <input type="text" placeholder="Full Name" required><br>
+            <input type="text" placeholder="Address" required><br>
+            <input type="date" placeholder="Birthdate" required><br>
+        </form>
             </div>
            
         </div>
-        
         <!-- Back Side -->
         <div class="id-card back">
             <p>Holder is a bonafide constituent of this barangay and is entitled to all privileges and services holder may require.</p>
