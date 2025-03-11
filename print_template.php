@@ -44,7 +44,9 @@
                         <input type="hidden" name="type" value="CERTIFICATE OF RESIDENCY">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
-                        
+                        <select name="incharge" id="incharge5" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <option value="">Select In-Charge</option>
+                        </select>
                         <div class="flex items-center space-x-4">
                             <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
@@ -59,7 +61,9 @@
                         <input type="hidden" name="type" value="BARAGAY CLEARANCE">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
-                        
+                        <select name="incharge" id="incharge4" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <option value="">Select In-Charge</option>
+                        </select>
                         <div class="flex items-center space-x-4">
                             <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
@@ -74,7 +78,9 @@
                         <input type="hidden" name="type" value="CERTIFICATION">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
-                        
+                        <select name="incharge" id="incharge3" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <option value="">Select In-Charge</option>
+                        </select>
                         <div class="flex items-center space-x-4">
                             <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
@@ -89,7 +95,9 @@
                         <input type="hidden" name="type" value="CERTIFICATE OF INDIGENCY">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
-                        
+                        <select name="incharge" id="incharge2" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <option value="">Select In-Charge</option>
+                        </select>
                         <div class="flex items-center space-x-4">
                             <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
@@ -104,7 +112,9 @@
                         <input type="hidden" name="type" value="CERTIFICATE OF BUSINESS CLOSURE">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
-                        
+                        <select name="incharge" id="incharge1" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <option value="">Select In-Charge</option>
+                        </select>
                         <div class="flex items-center space-x-4">
                             <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
@@ -136,6 +146,107 @@
     </div>
 
     <script>
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
+        authDomain: "brams-3dfd3.firebaseapp.com",
+        databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
+        projectId: "brams-3dfd3",
+        storageBucket: "brams-3dfd3.firebasestorage.app",
+        messagingSenderId: "301528550722",
+        appId: "1:301528550722:web:9724e3029567a64c904cdb",
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+
+    document.querySelectorAll("button[type='submit']").forEach(button => {
+    button.addEventListener('click', async function(event) {
+        event.preventDefault(); // Stop form from submitting
+
+        const form = this.closest("form"); // Get the form of the clicked button
+        const orNumber = form.querySelector("input[name='or_number']").value.trim();
+
+        if (orNumber === "") {
+            showModal("Please enter an OR number.");
+            return;
+        }
+
+        const printLogsRef = firebase.database().ref('PrintLogs');
+
+        try {
+            // Wait for Firebase response
+            const snapshot = await printLogsRef.orderByChild("orNumber").equalTo(orNumber).once("value");
+
+            if (snapshot.exists()) {
+                let shouldBlockSubmission = false;
+
+                snapshot.forEach(childSnapshot => {
+                    const data = childSnapshot.val();
+                    if (data.printStatus === "successful" && data.orNumber !== "NA") {
+                        shouldBlockSubmission = true;
+                    }
+                });
+
+                if (shouldBlockSubmission) {
+                    showModal("This OR number has already been used. Please enter a different one.");                  
+                    return;
+                }
+            }
+
+            form.submit(); // Submit the form if conditions are met
+        } catch (error) {
+            console.error("Error checking OR number:", error);
+        }
+    });
+});
+
+function fetchOfficials(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) return; // Prevent errors if the element doesn't exist
+
+    dropdown.innerHTML = '<option value="">Select an official</option>'; // Clear existing options
+
+    const officialsRef = database.ref('BrgyOfficials');
+
+    officialsRef.once('value')
+        .then(snapshot => {
+            snapshot.forEach(childSnapshot => {
+                const official = childSnapshot.val();
+                if (official.position !== "Punong Barangay") {
+                    const fullName = `${official.first_name} ${official.middle_initial}. ${official.last_name}`;
+                    const option = document.createElement('option');
+                    option.value = fullName;
+                    option.textContent = fullName;
+                    dropdown.appendChild(option);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+}
+
+// Call the function for different dropdowns
+document.addEventListener('DOMContentLoaded', () => {
+    fetchOfficials('incharge1');  // For the first dropdown
+    fetchOfficials('incharge2');  // For the second dropdown
+    fetchOfficials('incharge3');  // For the third dropdown (if needed)
+    fetchOfficials('incharge4');
+    fetchOfficials('incharge5');
+});
+
+
+        function showModal(message) {
+            document.getElementById("modalMessage").innerText = message;
+            document.getElementById("popupModal").style.display = "block";
+            document.getElementById("modalOverlay").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("popupModal").style.display = "none";
+            document.getElementById("modalOverlay").style.display = "none";
+        }
+
         // Function to show popup
         function showPopup() {
             document.getElementById('popup').classList.add('popup-style');

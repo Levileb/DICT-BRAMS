@@ -44,6 +44,7 @@
     // Retrieve GET parameters
     $or_number = $_GET['or_number'] ?? '________________________';
     $purpose = $_GET['purpose'] ?? '________________________';
+    $incharge = $_GET['incharge'] ?? '________________________';
     $resident_id = $_GET['resident_id'] ?? '1';
     $document_type = $_GET['type'] ?? 'clearance'; // Default document type
 
@@ -200,6 +201,13 @@ function getCookie(name) {
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+
+                <?php if (!empty($incharge) && $incharge !== '________________________') { ?>
+                    <strong id='incharge'><?php echo $incharge; ?></strong><br>
+                    Officer In Charge
+                    <br> <br> <br>
+                <?php } ?>
+
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
                 </p>
@@ -220,6 +228,14 @@ function getCookie(name) {
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+              
+                
+                <?php if (!empty($incharge) && $incharge !== '________________________') { ?>
+                    <strong id='incharge'><?php echo $incharge; ?></strong><br>
+                    Officer In Charge
+                    <br> <br> <br>
+                <?php } ?>
+
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
                 </p>
@@ -239,6 +255,14 @@ function getCookie(name) {
                 is a resident of Barangay 8, Bacolod City is known as to be of a good moral and law-abiding citizen of this barangay.<br><br>
                 To certify further, he/she has no derogatory and/or criminal records field in this barangay.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+                
+                
+                <?php if (!empty($incharge) && $incharge !== '________________________') { ?>
+                    <strong id='incharge'><?php echo $incharge; ?></strong><br>
+                    Officer In Charge
+                    <br> <br> <br>
+                <?php } ?>
+
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
                 </p>
@@ -261,6 +285,14 @@ function getCookie(name) {
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+
+                
+                <?php if (!empty($incharge) && $incharge !== '________________________') { ?>
+                    <strong id='incharge'><?php echo $incharge; ?></strong><br>
+                    Officer In Charge
+                    <br> <br> <br>
+                <?php } ?>
+
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
                 </p>
@@ -289,6 +321,14 @@ function getCookie(name) {
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+               
+                
+                <?php if (!empty($incharge) && $incharge !== '________________________') { ?>
+                    <strong id='incharge'><?php echo $incharge; ?></strong><br>
+                    Officer In Charge
+                    <br> <br> <br>
+                <?php } ?>
+
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
                 </p>
@@ -310,6 +350,14 @@ function getCookie(name) {
                 This certification is issued upon the request of the above-named person for 
                 <strong id="purposeField"><?php echo $purpose; ?></strong> and for whatever lawful purpose/s it may serve best.<br><br>
                 Issued this <strong id="dateOfIssuance"><?php echo $dateOfIssuance; ?></strong> at Barangay 8, Bacolod City, Philippines.<br><br><br><br>
+               
+                
+                <?php if (!empty($incharge) && $incharge !== '________________________') { ?>
+                    <strong id='incharge'><?php echo $incharge; ?></strong><br>
+                    Officer In Charge
+                    <br> <br> <br>
+                <?php } ?>
+
                 <strong id='punongBarangayName'></strong><br>
                 Punong Barangay
                 </p>
