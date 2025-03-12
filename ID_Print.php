@@ -13,20 +13,22 @@
 </head>
 <body>
     <div class="id-container">
+        <div class="contents">
         <!-- Front Side -->
-        <div class="id-card">
+            <div class="id-card">
             <div class="header">REPUBLIC OF THE PHILIPPINES<br>Province of Negros<br>BARANGGAY 8<br>BARANGGAY IDENTIFICATION CARD</div>
             <div class="picture-box"></div>
             <img src="Includes/background/dict.png" alt="logo" class="photo">
-       
+
             <div class="custom-form">
-                <p>Name: <strong> Levi John Leedesma </strong> <br>
-                Adress:  <strong> Branggay 8 Bacolod </strong>   <br>
-                Date of Birth: <strong> November 27, 2002</strong></p>
+            <H2 class="text-box1"><B>LEVI JOHN LEDESMA</B></H2></p>
+            <hr class="divider">
+            <p class="address"><strong>Baranggay 8 Bacolod</strong></p>
+            <p class="text-box"><strong>Birth Date: November 27, 2002</strong></p>
             </div>
-            </div>
-           
         </div>
+    </div>
+           
         <!-- Back Side -->
         <div class="id-card back">
             <p>Holder is a bonafide constituent of this barangay and is entitled to all privileges and services holder may require.</p>

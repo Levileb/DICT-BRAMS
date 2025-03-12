@@ -5,10 +5,11 @@ body {
     height: 100vh;
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    gap: 3rem;
+    gap: 10rem;
 }
 .id-container {
     display: flex;
+    gap: 3rem;
     
 }
 .id-card {
@@ -31,21 +32,21 @@ body {
 }
 .picture-box {
     float: right;
-    width: 10rem;
+    width: 8rem;
     border: 1px solid gray;
-    height: 10rem; 
+    height: 8rem; 
     margin-top: 3rem;
     margin-bottom: 3rem; 
-    margin-right: 1rem;
+    margin-right: 2rem;
 
 }
 .photo {
     width: 5rem;
     height: 5rem;
     margin-top: 5rem;
-    margin-left: 1rem;
+    margin-left: 2rem;
     display: block;
-   float: left;
+    float: left;
     
 }
 
@@ -62,26 +63,33 @@ body {
     padding: 20px;
 }
 .back .signature {
-    margin-top: 30px;
+    margin-top: 40px;
     text-align: center;
 }
 .custom-form {
-    display: flex;
-    flex-direction: column;
-    gap: 2px; /* Adds spacing between inputs */
-    width: 250px; /* Adjust width */
-    height: 20px;
-    margin: 20px auto;
+     margin-top: 5rem;
 }
-input {
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    margin: auto 0;
+.text-box1 {
+    padding: 5px; /* Space inside each box */
+    display: inline-block; /* Makes sure each text wraps inside a box */
+    margin-left: 5px; /* Adds spacing between label and box */
+    font-weight: bold; /* Keeps the text bold */
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+}
+.divider {
+    border: 1px solid black;
+    margin-bottom: 1rem;
+    margin-top: -2rem;
+}
+.address {
+    font-size: 14px;
+    margin-bottom: 5px;
+    margin-top: -0.5rem;
+    background-color: #085b14;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
+    
   
+
 }
