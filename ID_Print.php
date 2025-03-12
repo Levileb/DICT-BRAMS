@@ -6,6 +6,7 @@
     <title>Baranggay ID Form</title>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="ID_print.js" ></script>
     <link rel="stylesheet" href="ID_Print.css">
 </head>
 
@@ -19,9 +20,9 @@
             <img src="Includes/background/dict.png" alt="logo" class="photo">
        
             <div class="custom-form">
-                <p>Name:</p>
-                <p>Adress:</p>
-                <p>Date of Birth:</p>
+                <p>Name: <strong> Levi John Leedesma </strong> <br>
+                Adress:  <strong> Branggay 8 Bacolod </strong>   <br>
+                Date of Birth: <strong> November 27, 2002</strong></p>
             </div>
             </div>
            
