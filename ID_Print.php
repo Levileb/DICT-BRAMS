@@ -6,12 +6,23 @@
     <title>Baranggay ID Form</title>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <script src="ID_print.js" ></script>
+    <script src="ID_Print.js" ></script>
     <link rel="stylesheet" href="ID_Print.css">
 </head>
-
-</head>
 <body>
+<?php
+$resident_id = $_GET['id'] ?? '1';
+
+
+ $name = "________________________";
+ $birthDate = "________________";
+?>
+
+<script>
+     var fullname = <?php echo json_encode($name); ?>;
+</script>
+
+<input type="hidden" id="residentId" value="<?php echo $resident_id; ?>">
     <div class="id-container">
         <div class="contents">
         <!-- Front Side -->
@@ -21,13 +32,12 @@
             <img src="Includes/background/dict.png" alt="logo" class="photo">
 
             <div class="custom-form">
-            <H2 class="text-box1"><B>LEVI JOHN LEDESMA</B></H2></p>
-            <hr class="divider">
-            <p class="address"><strong>Baranggay 8 Bacolod</strong></p>
-            <p class="text-box"><strong>Birth Date: November 27, 2002</strong></p>
+                <p> 
+                Name: <strong id="residentName"><?php echo $name?></strong> <br>
+                Date of Birth: <strong id="birthDate"><?php echo $birthDate?></strong><br>
+                Adress:  <strong> Branggay 8 Bacolod </strong> 
             </div>
-        </div>
-    </div>
+            </div>
            
         <!-- Back Side -->
         <div class="id-card back">
