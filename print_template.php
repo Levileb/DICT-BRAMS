@@ -147,6 +147,16 @@
         </div>
     </div>
 
+
+    <div id="modalOverlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+</div>
+
+<div id="popupModal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:#fff; padding:20px; border-radius:5px; text-align:center;">
+    <p id="modalMessage"></p>
+    <button onclick="closeModal()" style="background-color: green; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-top: 10px;">Close</button>
+</div>
+</div>
+
     <script>
 
     const firebaseConfig = {
@@ -192,7 +202,8 @@
                 });
 
                 if (shouldBlockSubmission) {
-                    showModal("This OR number has already been used. Please enter a different one.");                  
+                    showModal("This OR number has already been used. Please enter a different one."); 
+                    form.querySelector("input[name='or_number']").value = ""; // Clears the input field                 
                     return;
                 }
             }
