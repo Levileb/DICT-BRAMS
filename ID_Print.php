@@ -27,15 +27,17 @@ $resident_id = $_GET['id'] ?? '1';
         <div class="contents">
         <!-- Front Side -->
             <div class="id-card">
-            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Province of Negros<br>BARANGGAY 8<br>BARANGGAY IDENTIFICATION CARD</div>
+            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Province of Negros<br>BARANGGAY 8</div>
+            <H4>BARANGGAY IDENTICATION CARD</H4>
             <div class="picture-box"></div>
             <img src="Includes/background/dict.png" alt="logo" class="photo">
 
             <div class="custom-form">
-                <p> 
-                Name: <strong id="residentName"><?php echo $name?></strong> <br>
-                Date of Birth: <strong id="birthDate"><?php echo $birthDate?></strong><br>
-                Adress:  <strong> Branggay 8 Bacolod </strong> 
+                <H3><strong id="residentName"><?php echo $name?></strong></p></H3>
+                <hr class="divider">
+                <p><strong id="birthDate"><?php echo $birthDate?></strong><br></p>
+                <p><strong id="address">BARANGGAY 8 BACOLOD</strong></p>
+            </div>
             </div>
             </div>
            

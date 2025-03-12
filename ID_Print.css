@@ -6,6 +6,7 @@ body {
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
     gap: 10rem;
+    overflow: hidden;
 }
 .id-container {
     display: flex;
@@ -28,14 +29,14 @@ body {
     font-weight: bold;
     margin-top: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    gap: 2rem;
+    gap: 10px;
 }
 .picture-box {
     float: right;
     width: 8rem;
     border: 1px solid gray;
     height: 8rem; 
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 3rem; 
     margin-right: 2rem;
 
@@ -43,7 +44,7 @@ body {
 .photo {
     width: 5rem;
     height: 5rem;
-    margin-top: 5rem;
+    margin-top: 2rem;
     margin-left: 2rem;
     display: block;
     float: left;
@@ -67,29 +68,40 @@ body {
     text-align: center;
 }
 .custom-form {
-     margin-top: 5rem;
+     margin-top: 14rem;
 }
-.text-box1 {
-    padding: 5px; /* Space inside each box */
-    display: inline-block; /* Makes sure each text wraps inside a box */
-    margin-left: 5px; /* Adds spacing between label and box */
-    font-weight: bold; /* Keeps the text bold */
+#residentName {
+    padding: 5px; 
+    display: inline-block; 
+    margin-left: 5px; 
+    font-weight: bold; 
     align-items: center;
+    
+
 }
 .divider {
     border: 1px solid black;
-    margin-bottom: 1rem;
-    margin-top: -2rem;
+    margin-bottom: 0.5rem;
+    margin-top: -1rem;
+    
 }
-.address {
+#birthDate {
     font-size: 14px;
     margin-bottom: 5px;
-    margin-top: -0.5rem;
-    background-color: #085b14;
-    color: white;
+    margin-top: 1rem;  
+    color: rgb(3, 2, 2);
     font-weight: bold;
     padding: 8px;
-    
+    width: 100%;
   
+
+}
+#address {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: -0.5rem;
+    color: rgb(18, 15, 15);
+    font-weight: bold;
+    padding: 8px;
 
 }
