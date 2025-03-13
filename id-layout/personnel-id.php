@@ -51,11 +51,11 @@
              </div>
              <div class="name">
                 <p class="fullname">
-                    LEVI JOHN D. LEDESMA
+                   JUAN DE LA CRUZ
                 </p>
                 <div class="line">
                 <p>
-                    BARANGGAY CLERK
+                    BARANGAY HEALTH WORKER
                 </p>
                 </div>
                
@@ -63,11 +63,11 @@
              <div class="signature">
                    
              <div class="line">
-
-            </div>
-            <p>
+             <p>
                 CARD HOLDER SIGNATURE
             </p>
+            </div>
+            
              </div>
              <div class="id-num">
                 <p>
@@ -75,11 +75,10 @@
                 </p>
              </div>
         </div>
-    </div>
-
-    <div class="backgorund">
         
     </div>
+
+  
 </div> 
 
 <div class="id-card-back">
