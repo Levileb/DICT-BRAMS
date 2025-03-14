@@ -113,7 +113,7 @@ body{
     gap: 0; /* No space between elements */
 }
 
-.txt h1 {
+.txt .bhw {
     font-family: 'Arial Black', Gadget, sans-serif;
     font-weight: bolder;
     color: yellow;
@@ -122,6 +122,32 @@ body{
     margin: 0;
     padding: 0;
     line-height: 1;
+    letter-spacing: 2px; /* Adjusts the space between letters */
+    transform: scaleX(1.2); /* Stretches the text horizontally */
+}
+.txt .tnd {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-weight: bolder;
+    color: yellow;
+    text-shadow: 5px 5px 3px rgba(187, 187, 73, 0.76);
+    font-size: 65px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    letter-spacing: 2px; /* Adjusts the space between letters */
+    transform: scaleX(1.8); /* Stretches the text horizontally */
+}
+.txt .util {
+    font-family: 'Arial Black', Gadget, sans-serif;
+    font-weight: bolder;
+    color: yellow;
+    text-shadow: 5px 5px 3px rgba(187, 187, 73, 0.76);
+    font-size: 48px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    letter-spacing: 2px; /* Adjusts the space between letters */
+    transform: scaleX(2.3); /* Stretches the text horizontally */
 }
 
 .txt p {
