@@ -83,16 +83,71 @@
 
 <div class="id-card-back">
     <div class="blue-border">
-        <div class="info">
-
-        </div>
-        <div class="em-contact">
-
-        </div>
-        <div class="punong-baranggay">
-            
-        </div>
-
+        <div class="contents">
+            <div class="info">
+                <div class="info-1">
+                        <div class="address">
+                                ADDRESS: 
+                        </div>
+                        <div class="box-1">
+                                Lambaunao, Iloilo
+                        </div>
+                </div>
+                <div class="info-2">
+                        <div class="contactno">
+                                CONTACT#: 
+                        </div>
+                        <div class="box-1">
+                                Lambaunao, Iloilo
+                        </div>
+                </div>
+                <div class="info-3">
+                        <div class="gender">
+                            GENDER:
+                        </div>
+                        <div class="box-2">
+                            MALE
+                        </div>
+                        <div class="bt">
+                            BLOOD <br> TYPE:
+                        </div>
+                        <div class="box-2">
+                            MALE
+                        </div>
+                </div>
+                <div class="info-4">
+                        <div class="dob">
+                                DATE OF BIRTH:
+                        </div>
+                        <div class="box-1">
+                                Lambaunao, Iloilo
+                        </div>
+                </div>
+                <div class="info-5">
+                        <div class="dob">
+                                PLACE OF BIRTH:
+                        </div>
+                        <div class="box-1">
+                                Lambaunao, Iloilo
+                        </div>
+                </div>
+                <div class="info-6">
+                        <div class="em">
+                              INCASE OF EMERGENCY, PLEASE NOTIFY:
+                        </div>
+                        <div class="box-3">
+                                MOTHER EARTH
+                        </div>
+                </div>
+                <div class="info-7">
+                        <div class="bname">
+                              BARANGAY CAPTAIN NAME
+                        </div>
+                        <div class="box-4">
+                                PUNONG BARANGAY
+                        </div>
+                </div>
+            </div>
     </div>
 
 </div>

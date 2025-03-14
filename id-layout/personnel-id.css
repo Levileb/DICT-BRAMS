@@ -244,3 +244,102 @@ body{
     -webkit-text-stroke: 1px black; /* Add black border to text */
     color: yellow; /* Set font color to yellow */
 }
+
+
+/* back-content */
+.contents {
+    box-sizing: border-box;
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+    height: 100%;
+    background-image: url('logos/bg-back.png');
+    background-size: cover;
+    background-position: center;
+    color: blue;
+    
+}
+.info-1, .info-2, .info-4, .info-5 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    margin-top: 5%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.address, .contactno{
+    padding:  2%;
+    font-size: 18px;
+}
+.box-1{
+    box-sizing: border-box;
+    border: 1px solid rgba(97, 97, 255, 0.719);
+    margin-left: 1%;
+    width: 70%;
+    height: 100%;
+    padding: 2%;
+    font-size: 18px;
+}
+.info-3{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 40%;
+    margin-top: 5%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.gender{
+    padding:  2%;
+    font-size: 18px;
+}
+.bt , .dob, .em{
+    font-size: 17px;
+    margin-right: 2%;
+}
+.box-2{
+    box-sizing: border-box;
+    border: 1px solid  rgba(97, 97, 255, 0.719);
+    margin-left: 1%;
+    width: 20%;
+    height: 100%;
+    padding: 2%;
+    font-size: 18px;
+    margin-right: 10%;
+}
+.info-6{
+   display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 60%;
+    margin-top: 5%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.box-3{
+    box-sizing: border-box;
+    border: 1px solid  rgba(97, 97, 255, 0.719);
+    width: 100%;
+    padding: 5%;
+    font-size: 18px; 
+}
+.box-4{
+    box-sizing: border-box;
+    border-top: 1px solid rgba(97, 97, 255, 0.719);
+    width: 100%;
+    font-size: 18px; 
+    padding-left: 26%;
+}
+.info-7{
+    display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     height: 60%;
+     margin-top: 10%;
+     font-family: 'Times New Roman', Times, serif;
+ }
+ .bname{
+    font-size: larger;
+ }
