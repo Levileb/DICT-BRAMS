@@ -16,14 +16,37 @@
 <?php include 'Includes/header.php'; ?>
 <?php include 'Includes/navbar.php'; ?>
 
+
 <div class="wrapper">
         <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg" style="margin-top: 50px;">
             <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
                 <h2 class="large-text text-gray-700">List Of Personnels</h2>
                 <div class="flex space-x-4 mt-4 sm:mt-0">
                     
-                    <button id="add-resident"
-                        class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Add Resident</button>
+                    <button id="add-resident" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Add Personnel</button>
+                    <div id="add-resident-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" style="align-items: flex-end; padding-bottom: 2rem;">
+                        <div class="bg-white rounded-lg shadow-lg w-[40rem] p-6">
+                            <h3 class="text-lg font-semibold text-gray-700 mb-4">Resident List</h3>
+                            <div class="overflow-y-auto max-h-96">
+                                <table class="w-full border-collapse border border-gray-300">
+                                    <thead>
+                                        <tr class="bg-gray-200">
+                                            <th class="border border-gray-300 px-4 py-2 text-center">Select</th>
+                                            <th class="border border-gray-300 px-4 py-2 text-left">Full Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="resident-list-table">
+                                        <!-- Residents will be dynamically populated here -->
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="flex justify-end space-x-4 mt-4">
+                                <button type="button" id="cancel-modal" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Cancel</button>
+                                <button type="button" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
@@ -46,5 +69,7 @@
     <?php include 'Includes/footer.php'; ?>
                 
 </body>
-
+    <script src="personnel.js"></script>
+</body>
 </html>
+
