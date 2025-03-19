@@ -42,7 +42,7 @@
                             </div>
                             <div class="flex justify-end space-x-4 mt-4">
                                 <button type="button" id="cancel-modal" class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded-lg">Cancel</button>
-                                <button type="button" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Save</button>
+                                <button type="button" id="save-residents" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg">Save</button>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,6 @@
                 <thead class="bg-green-100">
                     <tr>
                         <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">First Name</th>
-                        <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Middle Name</th>
                         <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Last Name</th>
                         <th class="py-3 px-4 text-left text-sm font-medium text-gray-500">Actions</th>
                     </tr>
