@@ -23,12 +23,12 @@
                 <img class="b8" src="logos/Barangay-8.jpg" alt="dilg">
             </div>
             <div class="txt">
-                <h1 class="bhw">B</h1>
                 <p>Barangay</p>
-                <h1 class="bhw">H</h1>
-                <p>Health</p>
-                <h1 class="bhw">W</h1>
-                <p>Worker</p>
+                <h1 class="tnd">C</h1>
+                <h1 class="tnd">L</h1>
+                <h1 class="tnd">E</h1>
+                <h1 class="tnd">R</h1>
+                <h1 class="tnd">K</h1>
             </div>
         </div>
         <div class="right-panel">
@@ -55,7 +55,7 @@
                 </p>
                 <div class="line">
                 <p>
-                    BARANGAY HEALTH WORKER
+                BARANGAY TANOD MEMBER
                 </p>
                 </div>
                
