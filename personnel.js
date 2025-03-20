@@ -21,7 +21,7 @@ const database = firebase.database();
     // Reference to the BrgyHealth node in the database
     const dbRef = firebase.database().ref('BrgyHealth');
 
-                // Fetch data and populate the table
+    // Fetch data and populate the table
         dbRef.on('value', (snapshot) => {
         const residentsList = document.getElementById('residents-list');
         residentsList.innerHTML = ''; // Clear the table body
@@ -43,13 +43,23 @@ const database = firebase.database();
                                 </button>
                                 <div class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 hidden">
                                     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                        <a href="ID_Print.php?id=${childSnapshot.key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100" role="menuitem">Print ID</a>
+                                        <a href="id-layout/personnel-id.php?id=${childSnapshot.key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100" role="menuitem">Print ID</a>
                                         <button onclick="deleteResident('${childSnapshot.key}')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-100" role="menuitem">Delete</button>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     `;
+
+                    // Close dropdowns when clicking outside
+                    document.addEventListener('click', (event) => {
+                        const dropdowns = document.querySelectorAll('.dropdown-menu');
+                        dropdowns.forEach((dropdown) => {
+                            if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
+                    });
                     residentsList.appendChild(row);
                     });
                 });
@@ -57,20 +67,34 @@ const database = firebase.database();
 // Fetch data from the Realtime Database
 const residentListTable = document.getElementById('resident-list-table');
 function fetchResidents() {
-    database.ref('Residents').once('value', (snapshot) => {
-        residentListTable.innerHTML = ''; // Clear the table
-        snapshot.forEach((childSnapshot) => {
-            const resident = childSnapshot.val();
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td class="border border-gray-300 px-4 py-2 text-center">
-                    <input type="checkbox" value="${childSnapshot.key}">
-                </td>
-                <td class="border border-gray-300 px-4 py-2 text-left">
-                    ${resident.first_name} ${resident.last_name}
-                </td>
-            `;
-            residentListTable.appendChild(row);
+    // Fetch data from BrgyHealth to compare
+    database.ref('BrgyHealth').once('value', (brgyHealthSnapshot) => {
+        const brgyHealthIds = new Set();
+        brgyHealthSnapshot.forEach((childSnapshot) => {
+            brgyHealthIds.add(childSnapshot.key);
+        });
+
+        // Fetch data from Residents
+        database.ref('Residents').once('value', (snapshot) => {
+            residentListTable.innerHTML = ''; // Clear the table
+            snapshot.forEach((childSnapshot) => {
+                const residentId = childSnapshot.key;
+
+                // Only display residents not already in BrgyHealth
+                if (!brgyHealthIds.has(residentId.trim())) {
+                    const resident = childSnapshot.val();
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td class="border border-gray-300 px-4 py-2 text-center">
+                            <input type="checkbox" value="${residentId.trim()}">
+                        </td>
+                        <td class="border border-gray-300 px-4 py-2 text-left">
+                            ${resident.first_name || ''} ${resident.last_name || ''}
+                        </td>
+                    `;
+                    residentListTable.appendChild(row);
+                }
+            });
         });
     });
 }
@@ -83,7 +107,7 @@ function saveSelectedResidents() {
         database.ref(`Residents/${residentId}`).once('value', (snapshot) => {
             const residentData = snapshot.val();
             if (residentData) {
-                database.ref('BrgyHealth').push(residentData);
+                database.ref(`BrgyHealth/${residentId}`).set(residentData);
             }
         });
     });

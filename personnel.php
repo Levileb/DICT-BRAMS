@@ -24,7 +24,7 @@
                 <div class="flex space-x-4 mt-4 sm:mt-0">
                     
                     <button id="add-resident" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-lg">Add Personnel</button>
-                    <div id="add-resident-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" style="align-items: flex-end; padding-bottom: 2rem;">
+                    <div id="add-resident-modal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden" style="align-items: flex-end; padding-bottom: 2rem; z-index: 1000;">
                         <div class="bg-white rounded-lg shadow-lg w-[40rem] p-6">
                             <h3 class="text-lg font-semibold text-gray-700 mb-4">Resident List</h3>
                             <div class="overflow-y-auto max-h-96">
