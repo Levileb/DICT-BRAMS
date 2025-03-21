@@ -170,18 +170,29 @@ function getCookie(name) {
     <button id="confirmPrint" class="btn btn-success" style="margin-right: 10px;">Yes</button>
     <button id="cancelPrint" class="btn btn-danger">No</button>
 </div>
-    <div class="logo">
+
+<div class="header">
+<div class="logo">
         <img class="left-logo" src="barangay8logo.png" alt="Barangay Logo">
         <div class="logo-text">
             <h5>Republic of the Philippines</h5>
             <h4><strong>OFFICE OF THE SANGGUNIANG BARANGAY</strong></h4>
-            <h5>Barangay 8, Bacolod City</h5>
+            <p>Ayala Malls Capitol Central, South Capitol Road <br> Barangay 8, Bacolod</p>
         </div>
+      
     </div>
+      <div class="contact-info d-flex justify-content-between">
+        <p style="font-size: 15px;">Contact Number: 0919 560 5949/ 0995 073 6860</p>
+        <p style="font-size: 15px;">Gmail: asensobrangayotso@gmail.com</p>
+        <p style="font-size: 15px;">Facebook: Barangay Otso(Asesnso Barangay Otso)</p>
+    </div>
+</div>
+   
+   
  
     <div class="clearfix centered-logo-wrapper">
         <!-- Officers Content -->
-        <div id="officers" style="margin-left: 30px;"></div>
+        <div id="officers" style="margin-left: 30px; border-right: 1px solid black; padding-right: 10px; color: #192055;"></div>
         
         <!-- Document Section -->
         <?php
@@ -367,7 +378,7 @@ function getCookie(name) {
         ?>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="padding-right:20px">
         <span>Official Receipt No.: <strong id="orField"><?php echo $or_number; ?></strong></span>
     </footer>
 

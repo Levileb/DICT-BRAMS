@@ -5,21 +5,13 @@ body {
    height: 90vh;
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    gap: 5rem;
-}
-.blue-box {
-    position: absolute;
-    width: 35%;
-    height: 62%;
-    background: #0047ab;
-    top: 0;
-    left: 0;
-    margin-top: 9.3rem;
-    
+    gap: 10rem;
+    overflow: hidden;
 }
 .id-container {
     display: flex;
-    gap: 5rem;  
+    gap: 3rem;
+    
 }
 .id-card {
     width: 500px;
@@ -48,32 +40,29 @@ body {
     font-weight: bold;
     margin-top: 1rem;
     font-family: Arial, Helvetica, sans-serif;
-    gap: 2rem;
-    margin-left: 9rem;
-    color: #0047ab;
+    gap: 10px;
 }
-.id_header{
-    font-size: 23px;
-    font-weight: bold;
+.picture-box {
+    float: right;
+    width: 8rem;
+    border: 1px solid gray;
+    height: 8rem; 
     margin-top: 1rem;
-    font-family: Arial, Helvetica, sans-serif;
-    gap: 1.5rem;
-    margin-left: 5px;
-    color: #0047ab;
+    margin-bottom: 3rem; 
+    margin-right: 2rem;
+
+}
+.photo {
+    width: 5rem;
+    height: 5rem;
+    margin-top: 2rem;
+    margin-left: 2rem;
+    display: block;
+    float: left;
+    
 }
 
-.photo {
-    position: absolute;
-    top: 10px;  /* Moves the image closer to the top */
-    left: 10px; /* Moves the image to the left */
-    
-    width: 160px;
-    height: 130px;
-   
- 
-    
-}
-.signature {
+.signature-box {
     border-top: 1px solid black;
     width: 40%;
     margin: 250px auto 0;
@@ -101,7 +90,7 @@ body {
     
 }
 .back .signature {
-    margin-top: 100px;
+    margin-top: 40px;
     text-align: center;
 }
 
@@ -114,176 +103,40 @@ body {
 }
 
 .custom-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Aligns text to the left */
-    margin-left: 3rem; /* Adjust this if necessary */
-    word-spacing: 8%;
-    margin-top: 0.5rem;
-    padding-bottom: 2px;
+     margin-top: 14rem;
 }
-.custom-form label{
-    margin-bottom: 0.4rem;
-}
-.md{
-    margin-right: 10rem;
-    margin-top: 0.5px;
-    
-}
-.custom-form p {
-    display: flex;
-    justify-content: space-between;
-    
-    
- 
-}
-.row {
-    display: flex;
-    justify-content: space-between;
-   
-    margin-top: 1rem;
-    margin-left: 12rem;
-    font-weight: 700;
-    color: #0047ab;
-}
-
-.exp {
-    margin-right: 1rem; /* Adjust this if necessary */
-    font-weight: bold;
-    
-    
-}
- 
-input {
-    width: 100%;
-    padding: 6px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
+#residentName {
+    padding: 5px; 
+    display: inline-block; 
+    margin-left: 5px; 
+    font-weight: bold; 
     align-items: center;
-    font-family: Arial;
-    outline: none;
-    background-color: rgba(169, 169, 24, 0);
-  
-}
- .print-button{
-    position: absolute;
-    top: 3rem;
-    left: 3rem;
-    padding: 10px 20px;
-    background-color:hsla(138, 28.80%, 53.70%, 0.60);
-    color: rgb(0, 0, 0);
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;  
-  
-}
-.print-button:hover {
-    background-color: hsla(138, 37.70%, 45.30%, 0.60);
-}
-.print-button button {
-    background: transparent;
-    border: none;
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0;
-    font-weight: 600; 
-    font-size: large;
-}
-.id-card-back {
-    position: relative;
-    width: 500px;
-    height: 350px;
-    background: white;
-    box-shadow: 0 4px 8px rgb(36, 81, 23);
-    text-align: center;
-    padding: 20px;
-    border: 1px solid rgb(36, 81, 23);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
+    
 
-/* Background Logo */
-.background-logo {
-    position: absolute;
-    width: 100%;
-    height: 90%;
-    background: url('elements/Barangay_8_Logo.png') no-repeat center;
-    background-size: contain;
-    opacity: 0.2; /* Faded effect */
 }
-
-/* Form Fields */
-.form-group {
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+.divider {
+    border: 1px solid black;
+    margin-bottom: 0.5rem;
+    margin-top: -1rem;
+    
+}
+#birthDate {
+    font-size: 14px;
     margin-bottom: 5px;
-}
-
-.form-row {
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-}
-
-/* Labels */
-.form-group label {
-    font-size: 18px;
+    margin-top: 1rem;  
+    color: rgb(3, 2, 2);
     font-weight: bold;
-    color: #0047ab;
-}
-
-/* Rounded Input Fields */
-.rounded-input {
+    padding: 8px;
     width: 100%;
-    padding: 10px;
-    border: 2px solid #0047ab;
-    border-radius: 30px;
-    outline: none;
-}
+  
 
-/* Small Rounded Inputs */
-.small-rounded {
-    width: 80px;
-    padding: 5px;
-    border: 2px solid #0047ab;
-    border-radius: 20px;
-    text-align: center;
 }
-
-/* Barangay Captain Name */
-.captain-name {
-    text-align: center;
-    font-size: 18px;
+#address {
+    font-size: 16px;
+    margin-bottom: 5px;
+    margin-top: -0.5rem;
+    color: rgb(18, 15, 15);
     font-weight: bold;
-    color: #0047ab;
-}
+    padding: 8px;
 
-.position {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    .print-button {
-        top: 5px;
-        left: 5px;
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 480px) {
-    .print-button {
-        top: 3px;
-        left: 3px;
-        padding: 6px 12px;
-        font-size: 12px;
-    }
 }

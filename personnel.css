@@ -1,0 +1,34 @@
+.container-width {
+    width: 90%;
+    max-width: 1200px;
+}
+
+
+.container-padding {
+    padding: 2rem;
+}
+
+.large-text {
+    font-size: 2.25rem;
+    font-weight: 700;
+}
+
+.search-bar-width {
+    width: 20rem;
+}
+
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.wrapper {
+min-height: 100vh;
+width: 100%; 
+display: flex;
+flex-direction: column;
+margin-bottom: 50px;
+}
+input {
+    margin: 1rem;
+}

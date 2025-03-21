@@ -77,6 +77,52 @@
     color: #065F46;
 }
 
+
+.dropdown {
+        position: relative;
+        display: inline-block;
+        font-size: 1.25rem;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-trigger {
+        cursor: pointer;
+        color: rgb(236, 250, 252);
+        padding: 0.5rem 1rem;
+        border-radius: 0.25rem;
+
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dropdown-trigger:hover {
+        background-color: rgb(128, 242, 189);
+        color: #065F46;
+    }
+
 @media (max-width: 768px) {
     .hamburger {
         display: flex;
@@ -129,6 +175,15 @@
             <a href="household_form.php" class="-link">HOUSEHOLD FORM</a>
             <a href="resident_list.php" class="-link">LIST OF RESIDENTS</a>
             <a href="household_profile.php" class="-link">HOUSEHOLD PROFILE</a>
+            <div class="dropdown">
+                <span class="dropdown-trigger">PERSONNEL</span>
+                <div class="dropdown-content">
+                    <a href="tanod.php" class="nav-link">TANOD</a>
+                    <a href="clerk.php" class="nav-link">CLERK</a>
+                    <a href="personnel.php" class="nav-link">HEALTH</a>
+                    <a href="utility.php" class="nav-link">UTILITY</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

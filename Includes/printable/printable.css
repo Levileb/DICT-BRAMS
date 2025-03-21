@@ -18,10 +18,16 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    border-bottom: solid;
+
     border-color: #143A1F;
 }
-
+.header{
+    border-bottom: solid;
+}
+.contact-info{
+    padding-right:1rem;
+    padding-left:1rem;
+}
 /* Apply Times New Roman only to BARANGAY CLEARANCE title */
 .barangay-title {
     font-family: 'Times New Roman', Times, serif;
@@ -59,11 +65,12 @@ body {
 
 .left-logo {
     width: 195px;
-    margin-left: 130px;
+    margin-left: 70px;
+    padding-bottom: 25px;
 }
 
 .logo img {
-    max-width: 200px;
+    max-width: 300px;
     height: auto;
 }
 
@@ -72,7 +79,7 @@ body {
     text-align: center;
     margin-top: 30px;
     margin-right: 120px;
-    color: #1E90FF; /* Vibrant blue */
+    color: #192055 /* Vibrant blue */
 }
 
 .logo-text h4 {
@@ -133,9 +140,9 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 900px;
-    height: 900px;
-    background-image: url('barangay8logo.png'); /* Background logo */
+    width: 1550px; /* Increased width */
+    height: 1550px; /* Increased height */
+    background-image: url('barangay8logo.png'); 
     background-size: contain; /* Keeps aspect ratio */
     background-repeat: no-repeat;
     opacity: 0.1; /* Adjust opacity here */
@@ -170,11 +177,11 @@ body {
     .clearfix.centered-logo-wrapper:before {
         content: "";
         position: absolute;
-        top: 10%; /* Adjust the top position to move the logo vertically */
+        top: 1%; /* Adjust the top position to move the logo vertically */
         left: 50%;
         transform: translateX(-50%);
-        width: 900px;
-        height: 900px;
+        width: 1400px;
+        height: 1400px;
         background-image: url('barangay8logo.png'); /* Background logo */
         background-size: contain; /* Keeps aspect ratio */
         background-repeat: no-repeat;
