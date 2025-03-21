@@ -2,86 +2,288 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+   height: 90vh;
     background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    gap: 3rem;
+    gap: 5rem;
+}
+.blue-box {
+    position: absolute;
+    width: 35%;
+    height: 62%;
+    background: #0047ab;
+    top: 0;
+    left: 0;
+    margin-top: 9.3rem;
+    
 }
 .id-container {
     display: flex;
-    
+    gap: 5rem;  
 }
 .id-card {
-    width: 300px;
-    height: 500px;
+    width: 500px;
+    height: 350px  ;
     background: white;
-    border-radius: 10px;
     box-shadow: 0 4px 8px rgb(36, 81, 23);
     text-align: center;
     padding: 20px;
     border: 1px solid  rgb(36, 81, 23);
     position: relative;
+    
+
+ 
+}
+.exp{
+    
+   
+    color: #0057b7;
+    padding-right: 5rem;
+    margin-top: 1rem;
+    
+   
 }
 .header {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     margin-top: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     gap: 2rem;
+    margin-left: 9rem;
+    color: #0047ab;
 }
-.picture-box {
-    float: right;
-    width: 10rem;
-    border: 1px solid gray;
-    height: 10rem; 
-    margin-top: 3rem;
-    margin-bottom: 3rem; 
-    margin-right: 1rem;
+.id_header{
+    font-size: 23px;
+    font-weight: bold;
+    margin-top: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 1.5rem;
+    margin-left: 5px;
+    color: #0047ab;
+}
 
-}
 .photo {
-    width: 5rem;
-    height: 5rem;
-    margin-top: 5rem;
-    margin-left: 1rem;
-    display: block;
-   float: left;
+    position: absolute;
+    top: 10px;  /* Moves the image closer to the top */
+    left: 10px; /* Moves the image to the left */
+    
+    width: 160px;
+    height: 130px;
+   
+ 
     
 }
-
-.signature-box {
+.signature {
     border-top: 1px solid black;
-    width: 80%;
-    margin: 20px auto 0;
+    width: 40%;
+    margin: 250px auto 0;
     font-size: 14px;
     text-align: center;
+    margin-top: 1rem;
+    margin-right: 5rem;
+    color: #0047ab;
 }
+ .signature ::before{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background-color: #0057b7;
+    margin: 0 auto 10px auto;
+    color: #0047ab;
+ }
+ 
 .back {
     font-size: 12px;
     text-align: center;
     padding: 20px;
+    height: 300px;
+    
 }
 .back .signature {
-    margin-top: 30px;
+    margin-top: 100px;
     text-align: center;
 }
+
+
+.contact-number {
+    font-size: 12px;
+    text-align: left;
+    padding: 20px;
+    margin-top: -90px;
+}
+
 .custom-form {
     display: flex;
     flex-direction: column;
-    gap: 2px; /* Adds spacing between inputs */
-    width: 250px; /* Adjust width */
-    height: 20px;
-    margin: 20px auto;
+    align-items: flex-start; /* Aligns text to the left */
+    margin-left: 3rem; /* Adjust this if necessary */
+    word-spacing: 8%;
+    margin-top: 0.5rem;
+    padding-bottom: 2px;
 }
+.custom-form label{
+    margin-bottom: 0.4rem;
+}
+.md{
+    margin-right: 10rem;
+    margin-top: 0.5px;
+    
+}
+.custom-form p {
+    display: flex;
+    justify-content: space-between;
+    
+    
+ 
+}
+.row {
+    display: flex;
+    justify-content: space-between;
+   
+    margin-top: 1rem;
+    margin-left: 12rem;
+    font-weight: 700;
+    color: #0047ab;
+}
+
+.exp {
+    margin-right: 1rem; /* Adjust this if necessary */
+    font-weight: bold;
+    
+    
+}
+ 
 input {
     width: 100%;
     padding: 6px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    outline: none;
-    margin: auto 0;
     align-items: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial;
+    outline: none;
+    background-color: rgba(169, 169, 24, 0);
   
+}
+ .print-button{
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    padding: 10px 20px;
+    background-color:hsla(138, 28.80%, 53.70%, 0.60);
+    color: rgb(0, 0, 0);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;  
+  
+}
+.print-button:hover {
+    background-color: hsla(138, 37.70%, 45.30%, 0.60);
+}
+.print-button button {
+    background: transparent;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    font-weight: 600; 
+    font-size: large;
+}
+.id-card-back {
+    position: relative;
+    width: 500px;
+    height: 350px;
+    background: white;
+    box-shadow: 0 4px 8px rgb(36, 81, 23);
+    text-align: center;
+    padding: 20px;
+    border: 1px solid rgb(36, 81, 23);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Background Logo */
+.background-logo {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    background: url('elements/Barangay_8_Logo.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.2; /* Faded effect */
+}
+
+/* Form Fields */
+.form-group {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+/* Labels */
+.form-group label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0047ab;
+}
+
+/* Rounded Input Fields */
+.rounded-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #0047ab;
+    border-radius: 30px;
+    outline: none;
+}
+
+/* Small Rounded Inputs */
+.small-rounded {
+    width: 80px;
+    padding: 5px;
+    border: 2px solid #0047ab;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* Barangay Captain Name */
+.captain-name {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0047ab;
+}
+
+.position {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .print-button {
+        top: 5px;
+        left: 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .print-button {
+        top: 3px;
+        left: 3px;
+        padding: 6px 12px;
+        font-size: 12px;
+    }
 }

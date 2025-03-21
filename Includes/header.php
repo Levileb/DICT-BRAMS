@@ -46,10 +46,10 @@
 
 
 .logout-button:hover {
-    background-color: gray;
+    background-color: hsl(138, 72.10%, 44.90%);
 }
 .logout-button:hover {
-    background-color: darkgray;
+    background-color: hsla(138, 37.70%, 45.30%, 0.60);
 }
 .logout-button:hover::after {
     opacity: 1; 

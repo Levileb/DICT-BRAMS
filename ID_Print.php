@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,30 +12,76 @@
 </head>
 
 </head>
-<body>
+<div>
+
     <div class="id-container">
         <!-- Front Side -->
         <div class="id-card">
-            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Province of Negros<br>BARANGGAY 8<br>BARANGGAY IDENTIFICATION CARD</div>
+            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Office of Sangguniang Barangay
+            <br>BARANGAY 8
+            <br> Bacolod City
+            
+            <div class="id_header" > IDENTIFICATION CARD</div>
             <div class="picture-box"></div>
-            <img src="Includes/background/dict.png" alt="logo" class="photo">
-       
             <div class="custom-form">
-                <p>Name: <strong> Levi John Leedesma </strong> <br>
-                Adress:  <strong> Branggay 8 Bacolod </strong>   <br>
-                Date of Birth: <strong> November 27, 2002</strong></p>
+                <label> ID Num.:</label>
+                <label> Last Name: </label>
+             <label> First Name:</label>   
+            </div>
+            <div class="md">Middle Name:</div>
+            <div class="blue-box"></div>
+    </div>
+    <div class="row">
+        <p>Issued:</p>
+        <p class="exp">Expires:</p>  
+    </div>
+    <div class="signature">Signature</div>
+    
+  
+                <img src="elements/Barangay_8_Logo.png" alt="logo" class="photo">
+
             </div>
             </div>
            
         </div>
         <!-- Back Side -->
-        <div class="id-card back">
-            <p>Holder is a bonafide constituent of this barangay and is entitled to all privileges and services holder may require.</p>
-            <p>If found, please return to the Barangay Secretary, Marikina Heights Barangay Hall, Marikina City.</p>
-            <div class="signature">Your Signature</div>
-            <div class="signature-box">Conforme</div>
-            <p><strong>HON. JUAN BARTOLATA</strong><br>Barangay Chairman</p>
+      <!-- Back Side of the ID -->
+<div class="id-card id-card-back">
+    <div class="background-logo"></div>
+
+    <div class="form-group">
+        <label>Address :</label>
+        <input type="text" class="rounded-input">
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Gender:</label>
+            <input type="text" class="small-rounded">
         </div>
+        <div class="form-group">
+            <label>Blood Type:</label>
+            <input type="text" class="small-rounded">
+        </div>
+        <div class="form-group">
+            <label>Birthday:</label>
+            <input type="text" class="small-rounded">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>In case of emergency pls notify :</label>
+        <input type="text" class="rounded-input">
+    </div>
+
+    <div class="captain-name">
+        <p>Evelyn F. Donesa</p>
+        <p class="position">BARANGAY CAPTAIN</p>
+    </div>
+</div>
+</div>
+    <div class="print-button">
+        <button onclick="printID()">PRINT</button>	
     </div>
 </body>
 </html>
