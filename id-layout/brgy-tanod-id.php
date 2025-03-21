@@ -42,7 +42,7 @@
                 </p>
 
                 <p class="personnel">
-                    BARANGAY PERSONNEL
+                    BARANGAY TANOD
                 </p>
              </div>   
              <div class="image">

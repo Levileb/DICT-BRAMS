@@ -34,7 +34,7 @@ async function fetchUserData(userId) {
             document.getElementById("address").innerText = userData.address || "N/A";
             document.getElementById("contact").innerText = userData.contact_number || "N/A";
             document.getElementById("gender").innerText = userData.gender || "N/A";
-            document.getElementById("blood-type").innerText = userData.bloodType || "N/A";
+            document.getElementById("blood-type").innerText = userData.blood_type || "N/A";
             if (userData.date_of_birth) {
                 const date = new Date(userData.date_of_birth);
                 const options = { year: 'numeric', month: 'long', day: 'numeric' };

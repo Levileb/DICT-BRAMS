@@ -25,6 +25,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     const placeOfBirth = document.getElementById('place_of_birth').value;
     const dateOfBirth = document.getElementById('date_of_birth').value;
     const gender = document.querySelector('input[name="gender"]:checked').value;
+    const bloodType = document.getElementById('blood_type').value;
     const nationality = document.getElementById('nationality').value;
     const civilStatus = document.getElementById('civil_status').value;
     const philhealthId = document.getElementById('philhealth_id').value;
@@ -87,6 +88,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         place_of_birth: placeOfBirth,
         date_of_birth: dateOfBirth,
         gender: gender,
+        blood_type: bloodType,
         nationality: nationality,
         civil_status: civilStatus,
         philhealth_id: philhealthId,
