@@ -34,6 +34,10 @@ document.getElementById('registrationForm').addEventListener('submit', function(
     const educationalAttainment = document.getElementById('educational_attainment').value;
     const employmentStatus = document.getElementById('employment_status').value;
     const remarkNS = document.getElementById('remark_NS').value;
+    const lotNo = document.getElementById('lot_number').value;
+    const street = document.getElementById('street').value;
+    const barangay = document.getElementById('barangay').value;
+    const city = document.getElementById('city').value;
 
     // Retrieve Contact Information
     const residentSince = document.getElementById('resident_since').value;
@@ -97,6 +101,13 @@ document.getElementById('registrationForm').addEventListener('submit', function(
         educational_attainment: educationalAttainment,
         employment_status: employmentStatus,
         remark_NS: remarkNS,
+
+        // Address Information
+        lot_number: lotNo,
+        street: street,
+        barangay: barangay,
+        city: city,
+
         // Contact Information
         resident_since: residentSince,
         contact_number: contactNumber,

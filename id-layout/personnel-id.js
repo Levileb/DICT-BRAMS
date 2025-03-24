@@ -18,20 +18,56 @@ function getUserIdFromURL() {
     return params.get("id");
 }
 
+async function fetchPunongBarangay() {
+    const officialsRef = firebase.database().ref('BrgyOfficials');
+    console.log("Fetching Punong Barangay data...");
+
+    try {
+    const snapshot = await officialsRef.orderByChild('position').equalTo('Punong Barangay').once('value');
+    console.log("Snapshot fetched:", snapshot.val());
+
+    if (snapshot.exists()) {
+        const punongBarangay = snapshot.val();
+        console.log("Punong Barangay data:", punongBarangay);
+
+        const punongBarangayNameElement = document.getElementById('b-name');
+
+        for (const key in punongBarangay) {
+        if (punongBarangay.hasOwnProperty(key)) {
+            const official = punongBarangay[key];
+            console.log("Processing official:", official);
+
+            const fullName = `${official.first_name?.toUpperCase() || "N/A"} ${official.middle_initial?.toUpperCase() || ""}. ${official.last_name?.toUpperCase() || "N/A"}`;
+            console.log("Constructed full name:", fullName);
+
+            punongBarangayNameElement.innerText = fullName;
+        }
+        }
+    } else {
+        console.error("Punong Barangay not found! Check if 'position' field exists and matches 'Punong Barangay'.");
+    }
+    } catch (error) {
+    console.error("Error fetching Punong Barangay data:", error);
+    }
+}
+
+// Call the function to fetch data
+fetchPunongBarangay();
+
 // Fetch and Display User Data
 async function fetchUserData(userId) {
     if (!userId) {
         document.getElementById("fullname").innerText = "No ID Provided";
         return;
     }
-
+  
     const userRef = database.ref("BrgyHealth/" + userId);
     try {
         const snapshot = await userRef.once("value");
         if (snapshot.exists()) {
             const userData = snapshot.val();
             document.getElementById("fullname").innerText = `${userData.first_name || "N/A"} ${userData.last_name || "N/A"}`;
-            document.getElementById("address").innerText = userData.address || "N/A";
+            document.getElementById("address").innerText = `${userData.lot_number || "N/A"}  ${userData.street  || "N/A"} ${userData.barangay  || "N/A"} ${userData.city  || "N/A"}`;
             document.getElementById("contact").innerText = userData.contact_number || "N/A";
             document.getElementById("gender").innerText = userData.gender || "N/A";
             document.getElementById("blood-type").innerText = userData.blood_type || "N/A";
@@ -44,13 +80,7 @@ async function fetchUserData(userId) {
             }
             document.getElementById("pob").innerText = userData.place_of_birth || "N/A";
             document.getElementById("emergency-contact").innerText = `${userData.emergency_name || "N/A"} \n ${userData.emergency_phone  || "N/A"}`;
-            document.getElementById("bname").innerText = userData.barangayCaptain || "N/A";
             document.getElementById("id-number").innerText = userData.idNumber || "BC-XXX";
-
-            // Load Profile Image
-            if (userData.profileImage) {
-                document.getElementById("profile-img").src = userData.profileImage;
-            }
         } else {
             document.getElementById("fullname").innerText = "User Not Found";
         }

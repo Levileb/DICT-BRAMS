@@ -296,8 +296,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h3 class="text-lg font-bold mb-2">Address Information</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
-                            <label for="house_number" class="block text-sm font-medium text-gray-700">House Number *</label>
-                            <input type="text" id="house_number" name="house_number"
+                            <label for="house_number" class="block text-sm font-medium text-gray-700">Lot Number *</label>
+                            <input type="text" id="lot_number" name="house_number"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 required>
                         </div>
