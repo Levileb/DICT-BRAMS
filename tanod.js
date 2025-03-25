@@ -64,6 +64,20 @@ const database = firebase.database();
                     });
                 });
 
+              // Function to delete a resident from the database
+              function deleteResident(residentId) {
+                if (confirm('Are you sure you want to delete this resident?')) {
+                    firebase.database().ref(`Tanod/${residentId}`).remove()
+                        .then(() => {
+                            alert('Resident deleted successfully.');
+                        })
+                        .catch((error) => {
+                            console.error('Error deleting resident:', error);
+                            alert('Failed to delete resident. Please try again.');
+                        });
+                }
+            }
+
 // Fetch data from the Realtime Database
 const residentListTable = document.getElementById('resident-list-table');
 function fetchResidents() {

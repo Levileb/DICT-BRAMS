@@ -12,6 +12,10 @@
 </head>
 
 <body>
+<div class="navigation-buttons">
+            <button onclick="window.history.back()" class="btn btn-secondary" style="position: absolute; top: 10px; left: 10px;">Back</button>
+            <button onclick="window.print()" class="btn btn-primary" style="position: absolute; top: 10px; right: 10px;">Print</button>
+        </div>
     <div class="id-card">
         <div class="id-front">
             <div class="blue-border">

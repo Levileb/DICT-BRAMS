@@ -63,6 +63,20 @@ const database = firebase.database();
                     residentsList.appendChild(row);
                     });
                 });
+         
+                // Function to delete a resident from the database
+              function deleteResident(residentId) {
+                if (confirm('Are you sure you want to delete this resident?')) {
+                    firebase.database().ref(`BrgyHealth/${residentId}`).remove()
+                        .then(() => {
+                            alert('Resident deleted successfully.');
+                        })
+                        .catch((error) => {
+                            console.error('Error deleting resident:', error);
+                            alert('Failed to delete resident. Please try again.');
+                        });
+                }
+            }
 
 // Fetch data from the Realtime Database
 const residentListTable = document.getElementById('resident-list-table');
