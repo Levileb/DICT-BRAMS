@@ -1,50 +1,43 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Baranggay ID Form</title>
+    <title>Barangay ID Form</title>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <script src="ID_Print.js" ></script>
+    <script src="ID_print.js"></script>
     <link rel="stylesheet" href="ID_Print.css">
 </head>
 <body>
-<?php
-$resident_id = $_GET['id'] ?? '1';
-
-
- $name = "________________________";
- $birthDate = "________________";
-?>
-
-<script>
-     var fullname = <?php echo json_encode($name); ?>;
-</script>
-
-<input type="hidden" id="residentId" value="<?php echo $resident_id; ?>">
     <div class="id-container">
-        <div class="contents">
         <!-- Front Side -->
-            <div class="id-card">
-            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Province of Negros<br>BARANGGAY 8</div>
-            <H4>BARANGGAY IDENTICATION CARD</H4>
-            <div class="picture-box"></div>
-            <img src="Includes/background/dict.png" alt="logo" class="photo">
+        <div class="id-card">
+            <div class="header">REPUBLIC OF THE PHILIPPINES<br>Office of Sangguniang Barangay
+                <br>BARANGAY 8
+                <br>Bacolod City
+                <div class="id_header">IDENTIFICATION CARD</div>
+                <div class="picture-box"></div>
+                <div class="custom-form">
+                    ID Number:<br> 
+                    Last Name:<br> 
+                    First Name:<br> 
+                    <div class="blue-box"></div>
+                </div>
+                <div class="md">Middle Name:</div>
+            </div>
+    
+            <div class="row">
+                <p>Issued:</p>
+                <p class="exp">Expires:</p>  
+            </div>
+            <div class="signature">SIGNATURE</div>
+    
+            <img src="elements/Barangay_8_Logo.png" alt="logo" class="photo">
+        </div>
 
-            <div class="custom-form">
-                <H3><strong id="residentName"><?php echo $name?></strong></p></H3>
-                <hr class="divider">
-                <p><strong id="birthDate"><?php echo $birthDate?></strong><br></p>
-                <p><strong id="address">BARANGGAY 8 BACOLOD</strong></p>
-            </div>
-            </div>
-            </div>
-           
         <!-- Back Side -->
-      <!-- Back Side of the ID -->
-<div class="id-card id-card-back">
+        <div class="id-card id-card-back">
     <div class="background-logo"></div>
 
     <div class="form-group">
@@ -77,9 +70,3 @@ $resident_id = $_GET['id'] ?? '1';
         <p class="position">BARANGAY CAPTAIN</p>
     </div>
 </div>
-</div>
-    <div class="print-button">
-        <button onclick="printID()">PRINT</button>	
-    </div>
-</body>
-</html>
