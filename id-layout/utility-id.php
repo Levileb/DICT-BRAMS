@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="personnel-id.css"> <!-- External CSS -->
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script defer src="personnel-id.js"></script>
     <title>Barangay Document</title>
 </head>
 
@@ -51,12 +52,12 @@
 
              </div>
              <div class="name">
-                <p class="fullname">
+                <p id="fullname" class="fullname">
                    JUAN DE LA CRUZ
                 </p>
                 <div class="line">
                 <p>
-                BARANGAY TANOD MEMBER
+                BARANGAY UTILITY MEMBER
                 </p>
                 </div>
                
@@ -90,7 +91,7 @@
                         <div class="address">
                                 ADDRESS: 
                         </div>
-                        <div class="box-1">
+                        <div id="address" class="box-1">
                                 Lambaunao, Iloilo
                         </div>
                 </div>
@@ -98,7 +99,7 @@
                         <div class="contactno">
                                 CONTACT#: 
                         </div>
-                        <div class="box-1">
+                        <div id="contact"  class="box-1">
                                 Lambaunao, Iloilo
                         </div>
                 </div>
@@ -106,13 +107,13 @@
                         <div class="gender">
                             GENDER:
                         </div>
-                        <div class="box-2">
+                        <div id="gender"  class="box-2">
                             MALE
                         </div>
                         <div class="bt">
                             BLOOD <br> TYPE:
                         </div>
-                        <div class="box-2">
+                        <div id="blood-type"  class="box-2">
                             MALE
                         </div>
                 </div>
@@ -120,7 +121,7 @@
                         <div class="dob">
                                 DATE OF BIRTH:
                         </div>
-                        <div class="box-1">
+                        <div id="dob"  class="box-1">
                                 Lambaunao, Iloilo
                         </div>
                 </div>
@@ -128,7 +129,7 @@
                         <div class="dob">
                                 PLACE OF BIRTH:
                         </div>
-                        <div class="box-1">
+                        <div id="pob" class="box-1">
                                 Lambaunao, Iloilo
                         </div>
                 </div>
@@ -136,12 +137,12 @@
                         <div class="em">
                               INCASE OF EMERGENCY, PLEASE NOTIFY:
                         </div>
-                        <div class="box-3">
+                        <div id="emergency-contact"  class="box-3">
                                 MOTHER EARTH
                         </div>
                 </div>
                 <div class="info-7">
-                        <div class="bname">
+                        <div class="bname" id="b-name" >
                               BARANGAY CAPTAIN NAME
                         </div>
                         <div class="box-4">

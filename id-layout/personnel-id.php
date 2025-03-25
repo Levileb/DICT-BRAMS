@@ -88,7 +88,7 @@
                             <div class="box-3" id="emergency-contact">Loading...</div>
                         </div>
                         <div class="info-7">
-                            <div class="bname">Loading....</div>
+                            <div class="bname" id="b-name">Loading...</div>
                             <div class="box-4" id="brgy-captain">PUNONG BARANGAY</div>
                         </div>
                     </div>
@@ -96,5 +96,9 @@
             </div>
         </div>  
     </div>
+
+    <script>
+   
+    </script>
 </body>
 </html>

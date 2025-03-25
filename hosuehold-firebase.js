@@ -26,6 +26,7 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
     const renter = document.getElementById('renter').value;
     const renterMonths = document.getElementById('renter_months').value;
 
+
     // Social Economic Status
     const nhtsStatus = document.querySelector('input[name="nhts_status"]:checked')?.value || '';
     const tribe = document.getElementById('tribe').value;
@@ -69,10 +70,12 @@ document.getElementById('householdForm').addEventListener('submit', function(eve
 
     // Insert data into Firebase
     householdRef.set({
+   
         first_name: firstName,
         middle_name: middleName,
         last_name: lastName,
         suffix: suffix,
+
         household_number: householdNumber,
         renter: renter,
         renter_months: renter === 'Renter_Yes' ? renterMonths : null,

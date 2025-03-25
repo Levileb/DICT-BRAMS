@@ -218,6 +218,21 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div>
+                            <label for="blood_type" class="block text-sm font-medium text-gray-700">Blood Type *</label>
+                            <select id="blood_type" name="blood_type"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                                <option>Select Blood Type</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="nationality" class="block text-sm font-medium text-gray-700">Nationality *</label>
                             <select id="nationality" name="nationality"
                                 class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
@@ -275,6 +290,35 @@ document.addEventListener('DOMContentLoaded', () => {
                             </select>
                         </div>
                     </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-lg font-bold mb-2">Address Information</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="house_number" class="block text-sm font-medium text-gray-700">Lot Number *</label>
+                            <input type="text" id="lot_number" name="house_number"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="street" class="block text-sm font-medium text-gray-700">Street *</label>
+                            <input type="text" id="street" name="street"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="barangay" class="block text-sm font-medium text-gray-700">Barangay *</label>
+                            <input type="text" id="barangay" name="barangay"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700">City *</label>
+                            <input type="text" id="city" name="city"
+                                class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                                required>
+                        </div>
                 </div>
 
                 <div class="mb-6">
