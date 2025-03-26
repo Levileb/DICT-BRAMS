@@ -29,7 +29,8 @@
     
             <div class="row">
                 <p>Issued:</p>
-                <p class="exp">Expires:</p>  
+                <p id="issued"></p>
+                <p class="exp">Expires:</p>   <p id="expire"></p>
             </div>
             <div class="signature">SIGNATURE</div>
     
@@ -42,27 +43,27 @@
 
     <div class="form-group">
         <label>Address :</label>
-        <input type="text" class="rounded-input">
+        <div class="rounded-input"></div>
     </div>
 
     <div class="form-row">
         <div class="form-group">
             <label>Gender:</label>
-            <input type="text" class="small-rounded">
+            <div class="small-rounded"></div>
         </div>
         <div class="form-group">
             <label>Blood Type:</label>
-            <input type="text" class="small-rounded">
+            <div class="small-rounded"></div>
         </div>
         <div class="form-group">
             <label>Birthday:</label>
-            <input type="text" class="small-rounded">
+            <div class="small-rounded"></div>
         </div>
     </div>
 
     <div class="form-group">
         <label>In case of emergency pls notify :</label>
-        <input type="text" class="rounded-input">
+        <div class="rounded-input"></div>
     </div>
 
     <div class="captain-name">

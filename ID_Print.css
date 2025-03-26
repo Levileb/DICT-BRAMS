@@ -9,7 +9,9 @@ body {
 }
 .id-container {
     display: flex;
-    gap: 5rem;  
+    flex-direction: column;
+    margin-top: 4rem;
+    gap : 1rem;
 }
 .id-card {
     width: 500px;
@@ -132,7 +134,7 @@ body {
 }
 
 .exp {
-    margin-left: 8.5rem; /* Adjust this if necessary */
+    margin-left: 5.5rem; /* Adjust this if necessary */
     font-weight: bold;
     color: #0047ab;
     
@@ -148,7 +150,7 @@ body {
    
 } 
 
-input {
+.rounded-input, .small-rounded {
     width: 100%;
     padding: 6px;
     border: 1px solid #ccc;
@@ -254,8 +256,9 @@ input {
 
 /* Rounded Input Fields */
 .rounded-input {
-    width: 100%;
-    padding: 10px;
+
+    width: 90%;
+    padding: 20px;
     border: 2px solid #0047ab;
     border-radius: 30px;
     outline: none;
@@ -264,7 +267,7 @@ input {
 /* Small Rounded Inputs */
 .small-rounded {
     width: 80px;
-    padding: 5px;
+    padding: 20px;
     border: 2px solid #0047ab;
     border-radius: 20px;
     text-align: center;
