@@ -64,6 +64,20 @@ const database = firebase.database();
                     });
                 });
 
+              // Function to delete a resident from the database
+              function deleteResident(residentId) {
+                if (confirm('Are you sure you want to delete this resident?')) {
+                    firebase.database().ref(`Tanod/${residentId}`).remove()
+                        .then(() => {
+                            alert('Resident deleted successfully.');
+                        })
+                        .catch((error) => {
+                            console.error('Error deleting resident:', error);
+                            alert('Failed to delete resident. Please try again.');
+                        });
+                }
+            }
+
 // Fetch data from the Realtime Database
 const residentListTable = document.getElementById('resident-list-table');
 function fetchResidents() {
@@ -156,3 +170,17 @@ document.getElementById('save-residents').addEventListener('click', () => {
        const dropdownMenu = button.nextElementSibling;
        dropdownMenu.classList.toggle('hidden');
    }
+    //Search Resident functionality
+document.getElementById('search-resident').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#resident-list-table tr');
+
+    rows.forEach(row => {
+        const fullName = row.querySelector('td:nth-child(2)')?.textContent.toLowerCase() || '';
+        if (fullName.includes(searchValue)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});

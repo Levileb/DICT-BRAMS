@@ -19,7 +19,7 @@ const database = firebase.database();
 
 
     // Reference to the BrgyHealth node in the database
-    const dbRef = firebase.database().ref('BrgyHealth');
+    const dbRef = firebase.database().ref('Clerk');
 
     // Fetch data and populate the table
         dbRef.on('value', (snapshot) => {
@@ -43,13 +43,14 @@ const database = firebase.database();
                                 </button>
                                 <div class="dropdown-menu origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10 hidden">
                                     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                        <a href="id-layout/personnel-id.php?id=${childSnapshot.key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100" role="menuitem">Print ID</a>
+                                        <a href="id-layout/clerk-id.php?id=${childSnapshot.key}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-100" role="menuitem">Print ID</a>
                                         <button onclick="deleteResident('${childSnapshot.key}')" class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-red-100" role="menuitem">Delete</button>
                                     </div>
                                 </div>
                             </div>
                         </td>
                     `;
+
 
                     // Close dropdowns when clicking outside
                     document.addEventListener('click', (event) => {
@@ -63,26 +64,27 @@ const database = firebase.database();
                     residentsList.appendChild(row);
                     });
                 });
-         
-                // Function to delete a resident from the database
-              function deleteResident(residentId) {
-                if (confirm('Are you sure you want to delete this resident?')) {
-                    firebase.database().ref(`BrgyHealth/${residentId}`).remove()
-                        .then(() => {
-                            alert('Resident deleted successfully.');
-                        })
-                        .catch((error) => {
-                            console.error('Error deleting resident:', error);
-                            alert('Failed to delete resident. Please try again.');
-                        });
-                }
-            }
+
+
+                    // Function to delete a resident from the database
+                    function deleteResident(residentId) {
+                        if (confirm('Are you sure you want to delete this resident?')) {
+                            firebase.database().ref(`Clerk/${residentId}`).remove()
+                                .then(() => {
+                                    alert('Resident deleted successfully.');
+                                })
+                                .catch((error) => {
+                                    console.error('Error deleting resident:', error);
+                                    alert('Failed to delete resident. Please try again.');
+                                });
+                        }
+                    }
 
 // Fetch data from the Realtime Database
 const residentListTable = document.getElementById('resident-list-table');
 function fetchResidents() {
     // Fetch data from BrgyHealth to compare
-    database.ref('BrgyHealth').once('value', (brgyHealthSnapshot) => {
+    database.ref('Clerk').once('value', (brgyHealthSnapshot) => {
         const brgyHealthIds = new Set();
         brgyHealthSnapshot.forEach((childSnapshot) => {
             brgyHealthIds.add(childSnapshot.key);
@@ -121,7 +123,7 @@ function saveSelectedResidents() {
         database.ref(`Residents/${residentId}`).once('value', (snapshot) => {
             const residentData = snapshot.val();
             if (residentData) {
-                database.ref(`BrgyHealth/${residentId}`).set(residentData);
+                database.ref(`Clerk/${residentId}`).set(residentData);
             }
         });
     });

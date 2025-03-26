@@ -9,7 +9,9 @@ body {
 }
 .id-container {
     display: flex;
-    gap: 5rem;  
+    flex-direction: row;
+    margin-top: 4rem;
+    gap : 1rem;
 }
 
 @media (max-width: 1024px) {
@@ -142,7 +144,7 @@ body {
 }
 
 .exp {
-    margin-left: 8.5rem; /* Adjust this if necessary */
+    margin-left: 5.5rem; /* Adjust this if necessary */
     font-weight: bold;
     color: #0047ab;
     
@@ -164,7 +166,8 @@ body {
     object-fit: cover;
 }
 
-input {
+/* input {
+.rounded-input, .small-rounded {
     width: 100%;
     padding: 6px;
     border: 1px solid #ccc;
@@ -174,9 +177,9 @@ input {
     font-family: Arial;
     outline: none;
     background-color: rgb(255, 255, 255);
-  
 }
- .print-button{
+} */
+.print-button{
     position: absolute;
     top: 3rem;
     left: 3rem;
@@ -287,8 +290,9 @@ input {
 
 /* Rounded Input Fields */
 .rounded-input {
-    width: 100%;
-    padding: 10px;
+
+    width: 90%;
+    padding: 20px;
     border: 2px solid #0047ab;
     border-radius: 30px;
     outline: none;
@@ -297,7 +301,7 @@ input {
 /* Small Rounded Inputs */
 .small-rounded {
     width: 80px;
-    padding: 5px;
+    padding: 20px;
     border: 2px solid #0047ab;
     border-radius: 20px;
     text-align: center;
