@@ -13,18 +13,21 @@
     <div class="id-container">
         <!-- Front Side -->
         <div class="id-card">
+
             <div class="header">REPUBLIC OF THE PHILIPPINES<br>Office of Sangguniang Barangay
                 <br>BARANGAY 8
                 <br>Bacolod City
                 <div class="id_header">IDENTIFICATION CARD</div>
                 <div class="picture-box"></div>
                 <div class="custom-form">
-                    ID Number:<br> 
-                    Last Name:<br> 
-                    First Name:<br> 
-                    <div class="blue-box"></div>
+                    <p>ID Number: 12321312312312312 </p>
+                    <p>Last Name: sdasdasdasdasd</p>
+                    <p>First Name: sdasdasdasd</p> 
+                    <p>Middle Name: sdasdasdasd</p> 
+                    <div class="blue-box">
+                        <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="">
+                    </div>
                 </div>
-                <div class="md">Middle Name:</div>
             </div>
     
             <div class="row">
@@ -70,3 +73,6 @@
         <p class="position">BARANGAY CAPTAIN</p>
     </div>
 </div>
+
+</div>
+</body>
