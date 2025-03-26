@@ -170,3 +170,18 @@ document.getElementById('save-residents').addEventListener('click', () => {
        const dropdownMenu = button.nextElementSibling;
        dropdownMenu.classList.toggle('hidden');
    }
+
+    //Search Resident functionality
+document.getElementById('search-resident').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+    const rows = document.querySelectorAll('#resident-list-table tr');
+
+    rows.forEach(row => {
+        const fullName = row.querySelector('td:nth-child(2)')?.textContent.toLowerCase() || '';
+        if (fullName.includes(searchValue)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});
