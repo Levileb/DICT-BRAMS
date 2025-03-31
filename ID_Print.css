@@ -42,6 +42,7 @@ body {
     flex-direction: column;
     gap: 10px !important;
     padding-bottom: 10px;
+    
 }
 
 
@@ -55,7 +56,7 @@ body {
     margin-top: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     gap: 2rem;
-    margin-left: 9rem;
+    margin-left: 10rem;
     color: #0047ab;
 }
 .id_header{
@@ -64,14 +65,14 @@ body {
     margin-top: 1rem;
     font-family: Arial, Helvetica, sans-serif;
     gap: 1.5rem;
-    margin-left: 5px;
+    margin-left: 4px;
     color: #0047ab;
 }
 
 .photo {
     position: absolute;
-    top: 10px;  /* Moves the image closer to the top */
-    left: 10px; /* Moves the image to the left */
+    top: 24px;  /* Moves the image closer to the top */
+    left: 19px; /* Moves the image to the left */
     
     width: 160px;
     height: 130px;
@@ -115,10 +116,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Aligns text to the left */
-    margin-left: 3rem; /* Adjust this if necessary */
+    margin-left: 4rem; /* Adjust this if necessary */
     word-spacing: 8%;
     gap: 50px;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+   
    
 }
 .md{
@@ -144,7 +146,7 @@ body {
 }
 
 .exp {
-    margin-left: 2rem; /* Adjust this if necessary */
+    margin-left: 1rem; /* Adjust this if necessary */
     font-weight: bold;
     color: #0047ab;
     
@@ -318,4 +320,19 @@ body {
 .position {
     font-size: 20px;
     font-weight: bold;
+}
+.blue-box {
+    position: absolute;
+    width: 34%;
+    height: 59%;
+    background: #0047ab;
+    margin-bottom: 1rem;
+    left: 0;
+    margin-top: 10rem;
+}
+@media print {
+    .blue-box {
+        -webkit-print-color-adjust: exact;
+        background-size: contain !important;
+    }
 }

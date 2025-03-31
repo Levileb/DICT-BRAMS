@@ -111,6 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>ID Number: <span id="id-number">Loading...</span></p>
                 <p>Last Name: <span id="last-name">Loading...</span></p>
                 <p>First Name: <span id="first-name">Loading...</span></p>
+                <div class="blue-box"></div>
                 <p>Middle Name: <span id="middle-name">Loading...</span></p>
             </div>
         </div>
