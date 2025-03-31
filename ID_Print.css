@@ -144,7 +144,7 @@ body {
 }
 
 .exp {
-    margin-left: 5.5rem; /* Adjust this if necessary */
+    margin-left: 2rem; /* Adjust this if necessary */
     font-weight: bold;
     color: #0047ab;
     
@@ -291,8 +291,8 @@ body {
 /* Rounded Input Fields */
 .rounded-input {
 
-    width: 90%;
-    padding: 20px;
+    width: 96%;
+    padding:5px;
     border: 2px solid #0047ab;
     border-radius: 30px;
     outline: none;
@@ -300,8 +300,8 @@ body {
 
 /* Small Rounded Inputs */
 .small-rounded {
-    width: 80px;
-    padding: 20px;
+    width: 130px;
+    padding: 5px;
     border: 2px solid #0047ab;
     border-radius: 20px;
     text-align: center;

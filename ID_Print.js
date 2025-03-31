@@ -1,69 +1,108 @@
+// Firebase Configuration
 const firebaseConfig = {
     apiKey: "AIzaSyBiT-xjXZpVOUjxCtbMG-LpfdHaUdHDOSg",
     authDomain: "brams-3dfd3.firebaseapp.com",
     databaseURL: "https://brams-3dfd3-default-rtdb.firebaseio.com/",
     projectId: "brams-3dfd3",
-    storageBucket: "brams-3dfd3.appspot.com",
+    storageBucket: "brams-3dfd3.firebasestorage.app",
     messagingSenderId: "301528550722",
     appId: "1:301528550722:web:9724e3029567a64c904cdb",
 };
-
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
-document.addEventListener("DOMContentLoaded", function () {
-    const residentIdInput = document.getElementById("residentId");
-    
-    if (residentIdInput) {
-        const residentId = residentIdInput.value;
-        if (residentId) {
-            fetchResidentDetails(residentId);
-        } else {
-            console.error("Resident ID is empty!");
+// Function to Get User ID from URL
+function getUserIdFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("id");
+}
+
+async function fetchPunongBarangay() {
+    const officialsRef = firebase.database().ref('BrgyOfficials');
+    console.log("Fetching Punong Barangay data...");
+
+    try {
+    const snapshot = await officialsRef.orderByChild('position').equalTo('Punong Barangay').once('value');
+    console.log("Snapshot fetched:", snapshot.val());
+
+    if (snapshot.exists()) {
+        const punongBarangay = snapshot.val();
+        console.log("Punong Barangay data:", punongBarangay);
+
+        const punongBarangayNameElement = document.getElementById('b-name');
+
+        for (const key in punongBarangay) {
+        if (punongBarangay.hasOwnProperty(key)) {
+            const official = punongBarangay[key];
+            console.log("Processing official:", official);
+
+            const fullName = `${official.first_name?.toUpperCase() || "N/A"} ${official.middle_initial?.toUpperCase() || ""}. ${official.last_name?.toUpperCase() || "N/A"}`;
+            console.log("Constructed full name:", fullName);
+
+            punongBarangayNameElement.innerText = fullName;
+        }
         }
     } else {
-        console.error("Resident ID input element not found!");
+        console.error("Punong Barangay not found! Check if 'position' field exists and matches 'Punong Barangay'.");
     }
-});
+    } catch (error) {
+    console.error("Error fetching Punong Barangay data:", error);
+    }
+}
 
-function fetchResidentDetails(residentId) {
-    const residentRef = database.ref('Residents/' + residentId);
-    
-    residentRef.once('value', function (snapshot) {
+// Call the function to fetch data
+fetchPunongBarangay();
+
+// Fetch and Display User Data
+async function fetchUserData(userId) {
+    if (!userId) {
+        document.getElementById("first-name").innerText = "No ID Provided";
+        return;
+    }
+  
+    const userRef = database.ref("Residents").child(userId);
+    try {
+        const snapshot = await userRef.once("value");
         if (snapshot.exists()) {
-            const residentData = snapshot.val();
-            populateResidentDetails(residentData);
+            const userData = snapshot.val();
+            document.getElementById("first-name").innerText = userData.first_name || "N/A";
+            document.getElementById("last-name").innerText = userData.last_name || "N/A";
+            document.getElementById("middle-name").innerText = userData.middle_name || "N/A";
+            document.getElementById("address").innerText = `${userData.lot_number || "N/A"}  ${userData.street  || "N/A"} ${userData.barangay  || "N/A"} ${userData.city  || "N/A"}`;
+            document.getElementById("contact").innerText = userData.contact_number || "N/A";
+            document.getElementById("gender").innerText = userData.gender || "N/A";
+            document.getElementById("blood-type").innerText = userData.blood_type || "N/A";
+            if (userData.date_of_birth) {
+                const date = new Date(userData.date_of_birth);
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                document.getElementById("dob").innerText = date.toLocaleDateString("en-US", options);
+            } else {
+                document.getElementById("dob").innerText = "N/A";
+            }
+            document.getElementById("pob").innerText = userData.place_of_birth || "N/A";
+            document.getElementById("emergency-contact").innerText = `${userData.emergency_name || "N/A"} \n ${userData.emergency_phone  || "N/A"}`;
+            document.getElementById("id-number").innerText = userData.idNumber || "BC-XXX";
         } else {
-            console.error("Resident not found!");
+            document.getElementById("first-name").innerText = "User Not Found";
+            document.getElementById("last-name").innerText = "";
+            document.getElementById("middle-name").innerText = "";
+            document.getElementById("address").innerText = "";
+            document.getElementById("contact").innerText = "";
+            document.getElementById("gender").innerText = "";
+            document.getElementById("blood-type").innerText = "";
+            document.getElementById("dob").innerText = "";
+            document.getElementById("pob").innerText = "";
+            document.getElementById("emergency-contact").innerText = "";
+            document.getElementById("id-number").innerText = "";
         }
-    });
-}
-
-function safeValue(value, placeholder) {
-    return value && value.trim() ? value : placeholder;
-}
-
-function populateResidentDetails(residentData) {
-    const fullName = `${safeValue(residentData.first_name, '')} ${safeValue(residentData.middle_name, '')} ${safeValue(residentData.last_name, '')} ${residentData.suffix && residentData.suffix !== 'Select Suffix' && residentData.suffix !== 'none' ? safeValue(residentData.suffix, '') : ''}`
-        .trim()
-        .replace(/\s+/g, ' ');
-
-    const birthDate = safeValue(residentData.date_of_birth, '________________');
-
-    // Ensure the elements exist before updating
-    const nameElement = document.getElementById("residentName");
-    const birthDateElement = document.getElementById("birthDate");
-
-    if (nameElement) {
-        nameElement.innerText = fullName;
-    } else {
-        console.error("Element #residentName not found!");
-    }
-
-    if (birthDateElement) {
-        birthDateElement.innerText = birthDate;
-    } else {
-        console.error("Element #birthDate not found!");
+    } catch (error) {
+        console.error("Error fetching user data:", error);
     }
 }
+
+// Run Script on Page Load
+document.addEventListener("DOMContentLoaded", () => {
+    const userId = getUserIdFromURL();
+    fetchUserData(userId);
+});
