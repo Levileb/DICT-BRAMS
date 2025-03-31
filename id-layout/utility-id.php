@@ -57,7 +57,7 @@
              </div>
              <div class="name">
                 <p id="fullname" class="fullname">
-                   JUAN DE LA CRUZ
+                LOADING....
                 </p>
                 <div class="line">
                 <p>
@@ -76,9 +76,7 @@
             
              </div>
              <div class="id-num">
-                <p>
-                    BC-123
-                </p>
+             <p id="id-number">LOADING....</p>
              </div>
         </div>
         
@@ -96,7 +94,7 @@
                                 ADDRESS: 
                         </div>
                         <div id="address" class="box-1">
-                                Lambaunao, Iloilo
+                        LOADING....
                         </div>
                 </div>
                 <div class="info-2">
@@ -104,7 +102,7 @@
                                 CONTACT#: 
                         </div>
                         <div id="contact"  class="box-1">
-                                Lambaunao, Iloilo
+                        LOADING....
                         </div>
                 </div>
                 <div class="info-3">
@@ -112,13 +110,13 @@
                             GENDER:
                         </div>
                         <div id="gender"  class="box-2">
-                            MALE
+                        LOADING....
                         </div>
                         <div class="bt">
                             BLOOD <br> TYPE:
                         </div>
                         <div id="blood-type"  class="box-2">
-                            MALE
+                        LOADING....
                         </div>
                 </div>
                 <div class="info-4">
@@ -126,7 +124,7 @@
                                 DATE OF BIRTH:
                         </div>
                         <div id="dob"  class="box-1">
-                                Lambaunao, Iloilo
+                        LOADING....
                         </div>
                 </div>
                 <div class="info-5">
@@ -134,7 +132,7 @@
                                 PLACE OF BIRTH:
                         </div>
                         <div id="pob" class="box-1">
-                                Lambaunao, Iloilo
+                        LOADING....
                         </div>
                 </div>
                 <div class="info-6">
@@ -142,12 +140,12 @@
                               INCASE OF EMERGENCY, PLEASE NOTIFY:
                         </div>
                         <div id="emergency-contact"  class="box-3">
-                                MOTHER EARTH
+                        LOADING....
                         </div>
                 </div>
                 <div class="info-7">
                         <div class="bname" id="b-name" >
-                              BARANGAY CAPTAIN NAME
+                        LOADING....
                         </div>
                         <div class="box-4">
                                 PUNONG BARANGAY

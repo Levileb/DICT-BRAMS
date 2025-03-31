@@ -44,7 +44,7 @@
                         <img id="profile-img" src="default-profile.png" alt="Profile Image">
                     </div>
                     <div class="name">
-                        <p class="fullname" id="fullname">Loading...</p>
+                        <p class="fullname" id="fullname">LOADING....</p>
                         <div class="line">
                             <p id="position">BARANGAY HEALTH WORKER</p>
                         </div>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="id-num">
-                        <p id="id-number">BC-XXX</p>
+                        <p id="id-number">LOADING....</p>
                     </div>
                 </div>
             </div>
@@ -67,32 +67,32 @@
                     <div class="info">
                         <div class="info-1">
                             <div class="address">ADDRESS:</div>
-                            <div class="box-1" id="address">Loading...</div>
+                            <div class="box-1" id="address">LOADING....</div>
                         </div>
                         <div class="info-2">
                             <div class="contactno">CONTACT#:</div>
-                            <div class="box-1" id="contact">Loading...</div>
+                            <div class="box-1" id="contact">LOADING....</div>
                         </div>
                         <div class="info-3">
                             <div class="gender">GENDER:</div>
-                            <div class="box-2" id="gender">Loading...</div>
+                            <div class="box-2" id="gender">LOADING....</div>
                             <div class="bt">BLOOD <br> TYPE:</div>
-                            <div class="box-2" id="blood-type">Loading...</div>
+                            <div class="box-2" id="blood-type">LOADING....</div>
                         </div>
                         <div class="info-4">
                             <div class="dob">DATE OF BIRTH:</div>
-                            <div class="box-1" id="dob">Loading...</div>
+                            <div class="box-1" id="dob">LOADING....</div>
                         </div>
                         <div class="info-5">
                             <div class="dob">PLACE OF BIRTH:</div>
-                            <div class="box-1" id="pob">Loading...</div>
+                            <div class="box-1" id="pob">LOADING....</div>
                         </div>
                         <div class="info-6">
                             <div class="em">IN CASE OF EMERGENCY, PLEASE NOTIFY:</div>
-                            <div class="box-3" id="emergency-contact">Loading...</div>
+                            <div class="box-3" id="emergency-contact">LOADING....</div>
                         </div>
                         <div class="info-7">
-                            <div class="bname" id="b-name">Loading...</div>
+                            <div class="bname" id="b-name">LOADING....</div>
                             <div class="box-4" id="brgy-captain">PUNONG BARANGAY</div>
                         </div>
                     </div>

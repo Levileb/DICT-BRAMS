@@ -66,23 +66,42 @@ async function fetchUserData(userId) {
         const snapshot = await userRef.once("value");
         if (snapshot.exists()) {
             const userData = snapshot.val();
-            document.getElementById("fullname").innerText = `${userData.first_name || "N/A"} ${userData.last_name || "N/A"}`;
-            document.getElementById("address").innerText = `${userData.lot_number || "N/A"}  ${userData.street  || "N/A"} ${userData.barangay  || "N/A"} ${userData.city  || "N/A"}`;
-            document.getElementById("contact").innerText = userData.contact_number || "N/A";
-            document.getElementById("gender").innerText = userData.gender || "N/A";
-            document.getElementById("blood-type").innerText = userData.blood_type || "N/A";
+            document.getElementById("fullname").innerText = `${userData.first_name?.toUpperCase() || "N/A"} ${userData.last_name?.toUpperCase() || "N/A"}`;
+            document.getElementById("address").innerText = `${userData.lot_number?.toUpperCase() || "N/A"} ${userData.street?.toUpperCase() || "N/A"} ${userData.barangay?.toUpperCase() || "N/A"} ${userData.city || "N/A"}`;
+            document.getElementById("contact").innerText = userData.contact_number?.toUpperCase() || "N/A";
+            document.getElementById("gender").innerText = userData.gender?.toUpperCase() || "N/A";
+            document.getElementById("blood-type").innerText = userData.blood_type?.toUpperCase() || "N/A";
             if (userData.date_of_birth) {
-                const date = new Date(userData.date_of_birth);
-                const options = { year: 'numeric', month: 'long', day: 'numeric' };
-                document.getElementById("dob").innerText = date.toLocaleDateString("en-US", options);
+            const date = new Date(userData.date_of_birth);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById("dob").innerText = date.toLocaleDateString("en-US", options).toUpperCase();
             } else {
-                document.getElementById("dob").innerText = "N/A";
+            document.getElementById("dob").innerText = "N/A";
             }
-            document.getElementById("pob").innerText = userData.place_of_birth || "N/A";
-            document.getElementById("emergency-contact").innerText = `${userData.emergency_name || "N/A"} \n ${userData.emergency_phone  || "N/A"}`;
-            document.getElementById("id-number").innerText = userData.idNumber || "BC-XXX";
+            document.getElementById("pob").innerText = userData.place_of_birth?.toUpperCase() || "N/A";
+            document.getElementById("emergency-contact").innerText = `${userData.emergency_name?.toUpperCase() || "N/A"} \n ${userData.emergency_phone || "N/A"}`;
+            document.getElementById("id-number").innerText = userData.idNumber ? userData.idNumber.toUpperCase() : "BC-XXX";
         } else {
-            document.getElementById("fullname").innerText = "User Not Found";
+            // Add user if not existing
+            const newUserRef = database.ref("BrgyHealth/" + userId);
+            const newUserData = {
+            first_name: "N/A",
+            last_name: "N/A",
+            lot_number: "N/A",
+            street: "N/A",
+            barangay: "N/A",
+            city: "N/A",
+            contact_number: "N/A",
+            gender: "N/A",
+            blood_type: "N/A",
+            date_of_birth: null,
+            place_of_birth: "N/A",
+            emergency_name: "N/A",
+            emergency_phone: "N/A",
+            idNumber: "BC-XXX"
+            };
+            await newUserRef.set(newUserData);
+            document.getElementById("fullname").innerText = "User Not Found. Default User Created.";
         }
     } catch (error) {
         console.error("Error fetching user data:", error);

@@ -74,15 +74,15 @@ async function fetchUserData(userId) {
             const userData = snapshot.val();
             console.log("User Data:", userData);
 
-            document.getElementById("first-name").innerText = userData.first_name || "N/A";
-            document.getElementById("last-name").innerText = userData.last_name || "N/A";
-            document.getElementById("middle-name").innerText = userData.middle_name || "N/A";
-            document.getElementById("address").innerText = `${userData.lot_number || "N/A"} ${userData.street || "N/A"} ${userData.barangay || "N/A"} ${userData.city || "N/A"}`;
-            document.getElementById("gender").innerText = userData.gender || "N/A";
-            document.getElementById("blood-type").innerText = userData.blood_type || "N/A";
-            document.getElementById("dob").innerText = userData.date_of_birth ? new Date(userData.date_of_birth).toLocaleDateString("en-US", { month: "2-digit", day: "2-digit", year: "numeric" }) : "N/A";
-            document.getElementById("emergency-contact").innerText = `${userData.emergency_name ? userData.emergency_name : "N/A"} \n ${userData.emergency_phone ? userData.emergency_phone : "N/A"}`;
-            document.getElementById("id-number").innerText = userData.idNumber || "BC-XXX";
+            document.getElementById("first-name").innerText = (userData.first_name || "N/A").toUpperCase();
+            document.getElementById("last-name").innerText = (userData.last_name || "N/A").toUpperCase();
+            document.getElementById("middle-name").innerText = (userData.middle_name || "N/A").toUpperCase();
+            document.getElementById("address").innerText = `${(userData.lot_number || "N/A").toUpperCase()} ${(userData.street || "N/A").toUpperCase()} ${(userData.barangay || "N/A").toUpperCase()} ${(userData.city || "N/A").toUpperCase()}`;
+            document.getElementById("gender").innerText = (userData.gender || "N/A").toUpperCase();
+            document.getElementById("blood-type").innerText = (userData.blood_type || "N/A").toUpperCase();
+            document.getElementById("dob").innerText = userData.date_of_birth ? new Date(userData.date_of_birth).toLocaleDateString("en-US", { month: "2-digit", day: "2-digit", year: "numeric" }).toUpperCase() : "N/A";
+            document.getElementById("emergency-contact").innerText = `${(userData.emergency_name ? userData.emergency_name : "N/A").toUpperCase()} \n ${(userData.emergency_phone ? userData.emergency_phone : "N/A").toUpperCase()}`;
+            document.getElementById("id-number").innerText = (userData.idNumber || "BC-XXX").toUpperCase();
         } else {
             console.warn("User not found:", userId);
         }
