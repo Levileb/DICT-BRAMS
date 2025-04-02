@@ -100,6 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- ID Card Layout -->
+<div class="navigation-buttons">
+            <button onclick="window.history.back()" class="print-button">Back</button>
+            <button onclick="window.print()" class="back-button">Print</button>
+        </div>
 <div class="id-container">
     <!-- Front Side -->
     <div class="id-card">
