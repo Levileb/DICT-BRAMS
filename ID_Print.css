@@ -85,7 +85,7 @@ body {
     font-size: 14px;
     text-align: center;
     margin-top: 2rem;
-    margin-right: 5rem;
+    margin-right: 4rem;
     color: #0047ab;
     font-weight: 600;
 }
@@ -184,9 +184,9 @@ body {
 .print-button{
     position: absolute;
     top: 3rem;
-    left: 3rem;
+    right: 3rem;
     padding: 10px 20px;
-    background-color:hsla(138, 28.80%, 53.70%, 0.60);
+    background-color:hsla(223, 94%, 45%, 0.847);
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
@@ -195,7 +195,7 @@ body {
   
 }
 .print-button:hover {
-    background-color: hsla(138, 37.70%, 45.30%, 0.60);
+    background-color: hsla(223, 67%, 44%, 0.297);
 }
 .print-button button {
     background: transparent;
@@ -210,9 +210,9 @@ body {
 .back-button{
     position: absolute;
     top: 3rem;
-    right: 3rem;
+    left: 3rem;
     padding: 10px 20px;
-    background-color:hsla(138, 28.80%, 53.70%, 0.60);
+    background-color:hsla(144, 3%, 28%, 0.6);
     color: rgb(0, 0, 0);
     border: none;
     cursor: pointer;
@@ -221,7 +221,7 @@ body {
   
 }
 .back-button:hover {
-    background-color: hsla(138, 37.70%, 45.30%, 0.60);
+    background-color: hsla(144, 3%, 28%, 0.674);
 }
 .back-button button {
     background: transparent;

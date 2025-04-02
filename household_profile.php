@@ -18,7 +18,7 @@
     <script src="household-profile.js"  defer></script>
 
     <div class="wrapper">
-        <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg" style="margin-top: 100px;">
+        <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg" style="margin-top: 20px;">
             <div class="flex flex-col sm:flex-row justify-between items-center mb-4">
                 <h2 class="large-text text-gray-700">List of Household</h2>
                 <div class="flex space-x-4 mt-4 sm:mt-0">

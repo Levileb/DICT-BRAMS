@@ -101,8 +101,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <!-- ID Card Layout -->
 <div class="navigation-buttons">
-            <button onclick="window.history.back()" class="print-button">Back</button>
-            <button onclick="window.print()" class="back-button">Print</button>
+            <button onclick="window.history.back()" class="back-button">Back</button>
+            <button onclick="window.print()" class="print-button">Print</button>
         </div>
 <div class="id-container">
     <!-- Front Side -->

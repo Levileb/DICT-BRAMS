@@ -110,7 +110,7 @@ body {
 
 @media (max-width: 768px) {
     .container {
-        padding: 1rem; /* Reduce padding */
+        padding: 0.5rem; /* Reduce padding */
         margin-top: 2rem; /* Add spacing on smaller screens */
     }
 

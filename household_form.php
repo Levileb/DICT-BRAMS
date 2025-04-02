@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     <div class="wrapper">
 
-        <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 100px;">
+        <div class="max-w-4xl mx-auto bg-white p-8 shadow-md" style="margin-top: 20px;">
             <div class="text-center mb-6">
                 <h2 class="text-2xl font-bold">HARMONIZED FAMILY/HOUSEHOLD PROFILE</h2>
                 <p class="text-green-600">Please provide the information needed</p>
