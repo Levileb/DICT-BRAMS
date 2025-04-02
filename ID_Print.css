@@ -5,13 +5,13 @@ body {
    height: 90vh;
     background-color: #ffffff;
     font-family: Arial, sans-serif;
-    gap: 5rem;
+    
 }
 .id-container {
     display: flex;
     flex-direction: row;
     margin-top: 4rem;
-    gap : 1rem;
+    gap : 3rem;
 }
 
 @media (max-width: 1024px) {
