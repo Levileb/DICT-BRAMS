@@ -16,8 +16,7 @@
 </head>
 
 <body class="bg-gray-100">
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
 
     <main class="custom-container mx-auto flex items-center justify-center h-screen px-4 sm:px-6 lg:px-8">
@@ -35,12 +34,13 @@
         </div>
     </main>
 
-    <style>
+<style>
+
 .custom-container {
     max-height: 46.4vh; /* Keeps height proportional to viewport */
-    width: 90vw; /* Ensures width adapts to screen size */
+    width: 100vw; /* Ensures width adapts to screen size */
     max-width: 90%; /* Prevents overflow on larger screens */
-    padding-left: 1rem;
+    padding-left: 0rem;
 }
 
     body::-webkit-scrollbar {

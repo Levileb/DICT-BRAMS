@@ -1,9 +1,10 @@
 <style>
 /* navbar-styles.css */
 .custom-navbar {
+
     background-color: #117A3C;
     padding: 0.7rem 0;
-    width: 100%;
+    width: 100vw;
     margin-bottom: 2%;
     position: relative;
     z-index: 1000;

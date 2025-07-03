@@ -48,8 +48,7 @@ body::-webkit-scrollbar {
 </style>
 
 <body class="bg-gray-100">
-    <?php include 'Includes/header.php'; ?>
-    <?php include_once 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
     <div class="wrapper">
         <div id="activity-logs" class="tab-content" style="margin-top: 10px;">
