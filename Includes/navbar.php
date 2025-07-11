@@ -2,7 +2,7 @@
 .custom-bar {
     background-color: #117A3C;
     padding: 0.5rem 0;
-    width: 100%;
+    width: 100vw;
     margin-bottom: 2%;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

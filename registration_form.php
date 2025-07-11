@@ -148,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/navbar.php'; ?>
 
     <div class="wrapper">
         <div class="table-container">

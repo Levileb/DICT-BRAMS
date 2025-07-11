@@ -280,7 +280,6 @@
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/navbar.php'; ?>
 
     <div class="wrapper">
         <div class="container-width container-padding mx-auto mt-8 min-h-screen bg-white shadow-md rounded-lg" style="margin-top: 20px;">

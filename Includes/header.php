@@ -69,7 +69,7 @@
 .date-time {
     font-size: 0.9rem;
     color: #666;
-    margin-top: -10px;
+    margin-top: -5px;
 }
 
 #logoutButton + span{
@@ -121,6 +121,9 @@
             </div>
         </div>
         <button id="logoutButton" class="logout-button">LOG OUT</button>
+    </div>
+    <div class="custom-container">
+        <?php include './Includes/navbar.php'; ?>
     </div>
 </div>
 
