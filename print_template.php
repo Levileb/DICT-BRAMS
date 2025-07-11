@@ -27,7 +27,6 @@
 </style>
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/navbar.php'; ?>
 
     <div class="container mx-auto mt-8 min-h-screen flex flex-col items-center" style="margin-top: 90px;">
         <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-6xl">
@@ -60,7 +59,7 @@
                 <div class="p-6 bg-gray-50 rounded-lg shadow-md hover:shadow-lg transition duration-200">
                     <img src="elements/brgyclearance.png" alt="Barangay Clearance Icon" class="mb-4 w-25 h-25">
                     <form action="Includes/printable/Printable.php" method="get">
-                        <input type="hidden" name="type" value="BARAGAY CLEARANCE">
+                        <input type="hidden" name="type" value="BARANGAY CLEARANCE">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
                         <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                         <select name="incharge" id="incharge4" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">

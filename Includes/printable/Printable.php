@@ -252,7 +252,7 @@ function getCookie(name) {
                 </p>
             </div>
             <?php
-            } else if($document_type == 'BARAGAY CLEARANCE'){
+            } else if($document_type == 'BARANGAY CLEARANCE'){
             ?>
             <div class="summary content">
             <h2 id="documentTitle" class="barangay-title"><?php echo $document_type; ?></h2>

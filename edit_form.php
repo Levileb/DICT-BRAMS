@@ -129,7 +129,6 @@
 
 <body class="bg-gray-100">
     <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/navbar.php'; ?>
     
     <div class="max-w-4xl mx-auto bg-white p-8 shadow-md mt-10">
         <div class="text-center mb-6">
