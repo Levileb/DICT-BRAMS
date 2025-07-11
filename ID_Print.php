@@ -7,6 +7,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
     <link rel="stylesheet" href="ID_Print.css">
+    <style>
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
 </head>
 <body>
 <script>
@@ -100,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- ID Card Layout -->
-<div class="navigation-buttons">
+<div class="navigation-buttons no-print">
             <button onclick="window.history.back()" class="back-button">Back</button>
             <button onclick="window.print()" class="print-button">Print</button>
         </div>

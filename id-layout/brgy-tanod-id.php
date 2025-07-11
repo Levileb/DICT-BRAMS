@@ -8,11 +8,18 @@
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
         <script defer src="personnel-id.js"></script>
+        <style>
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
         <title>Barangay Document</title>
 </head>
 
 <body>
-<div class="navigation-buttons">
+<div class="navigation-buttons no-print">
             <button onclick="window.history.back()" class="btn btn-secondary" style="position: absolute; top: 10px; left: 10px;">Back</button>
             <button onclick="window.print()" class="btn btn-primary" style="position: absolute; top: 10px; right: 10px;">Print</button>
         </div>
