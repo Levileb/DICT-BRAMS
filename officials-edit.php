@@ -96,8 +96,7 @@
 <body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
     <!-- Header and Navbar -->
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
     <!-- Main Container -->
     <div class="main-container" style="margin-top: 2rem;">
@@ -258,6 +257,7 @@
 
             alert("All Barangay Official data updated successfully!");
             document.getElementById("editForm").reset(); // Optionally reset the form after submission
+            location.reload();
         } catch (error) {
             console.error("Error during the update process:", error);
             alert("There was an error updating the data. Please try again.");

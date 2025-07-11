@@ -42,8 +42,7 @@ body::-webkit-scrollbar {
 </style>
 
 <body class="bg-gray-100">
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
         <div class="container p-6 w-full" style="margin-top: 70px;">
             <div class="sub-container p-6 w-full bg-white rounded-lg shadow-md overflow-x-auto">

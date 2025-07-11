@@ -37,8 +37,7 @@ body::-webkit-scrollbar {
 
 <body class="bg-gray-100">
 
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
     <div class="wrapper">
         <div id="archive-log" class="tab-content">

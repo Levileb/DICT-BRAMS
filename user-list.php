@@ -45,8 +45,7 @@ body::-webkit-scrollbar {
 
 
 
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
     <div class="wrapper">
         <div class="container-list" style="margin-top: 20px;">

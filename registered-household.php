@@ -39,8 +39,7 @@ body::-webkit-scrollbar {
 </style>
 
 <body class="bg-gray-100">
-    <?php include 'Includes/header.php'; ?>
-    <?php include 'Includes/admin-navbar.php'; ?>
+    <?php include 'Includes/admin-header.php'; ?>
 
     <div class="wrapper">
         <div id="household-log" class="tab-content" style="padding-top: -5px;">
