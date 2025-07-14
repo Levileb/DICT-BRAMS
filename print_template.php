@@ -49,7 +49,7 @@
                             <option value="">Select In-Charge</option>
                         </select>
                         <div class="flex items-center space-x-4">
-                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400" readonly>
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
                         </div>
                     </form>
@@ -61,12 +61,12 @@
                     <form action="Includes/printable/Printable.php" method="get">
                         <input type="hidden" name="type" value="BARANGAY CLEARANCE">
                         <input type="hidden" name="resident_id" value="<?php echo $_GET['id']; ?>">
-                        <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
+                        <input type="text" name="purpose" placeholder="Enter purpose" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400" >
                         <select name="incharge" id="incharge4" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full mb-4 focus:outline-none focus:ring-2 focus:ring-green-400">
                             <option value="">Select In-Charge</option>
                         </select>
                         <div class="flex items-center space-x-4">
-                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400" readonly>
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
                         </div>
                     </form>
@@ -83,7 +83,7 @@
                             <option value="">Select In-Charge</option>
                         </select>
                         <div class="flex items-center space-x-4">
-                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400" readonly>
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
                         </div>
                     </form>
@@ -100,7 +100,7 @@
                             <option value="">Select In-Charge</option>
                         </select>
                         <div class="flex items-center space-x-4">
-                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400" readonly>
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
                         </div>
                     </form>
@@ -117,7 +117,7 @@
                             <option value="">Select In-Charge</option>
                         </select>
                         <div class="flex items-center space-x-4">
-                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400">
+                            <input type="text" name="or_number" placeholder="Enter OR number" class="form-input bg-gray-100 border border-gray-300 text-gray-700 py-2 px-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-400" readonly>
                             <button type="submit" class="bg-green-500 text-white font-semibold py-2 px-4 rounded hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-200">Print</button>
                         </div>
                     </form>
@@ -177,11 +177,13 @@
         event.preventDefault(); // Stop form from submitting
 
         const form = this.closest("form"); // Get the form of the clicked button
-        const orNumber = form.querySelector("input[name='or_number']").value.trim();
+        const orInput = form.querySelector("input[name='or_number']");
+        let orNumber = orInput.value.trim();
 
         if (orNumber === "") {
-            showModal("Please enter an OR number.");
-            return;
+            // Auto-generate random OR number
+            orNumber = "OR-" + Date.now(); // Example format
+            orInput.value = orNumber;
         }
 
         const printLogsRef = firebase.database().ref('PrintLogs');
