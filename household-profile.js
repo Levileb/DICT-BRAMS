@@ -127,7 +127,23 @@
             // Append the row to the table body
             residentsList.appendChild(row);
         });
+        applySearchFilter();
     });
+
+    function applySearchFilter() {
+    const searchInput = document.getElementById("search");
+    const filter = searchInput.value.toLowerCase();
+    const rows = document.querySelectorAll("#residents-list tr");
+
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(filter)) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
 
     // Close modal
     document.getElementById('close-modal').addEventListener('click', () => {
@@ -238,3 +254,5 @@
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
+
+document.getElementById("search").addEventListener("input", applySearchFilter);
