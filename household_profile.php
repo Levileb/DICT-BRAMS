@@ -69,7 +69,7 @@
             </table>
         </div>
         <div id="modal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center hidden">
-            <div class="bg-white p-6 rounded-lg shadow-lg w-2/3 h-2/3">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-2/3 h-2/3" style="margin-top: 100px">
                 <div class="flex justify-between items-center mb-4">
                     <h2 class="text-xl font-semibold">Select a Member</h2>
                     <button id="closed-modal" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg">
@@ -112,7 +112,7 @@ body {
 }
 
 body::-webkit-scrollbar {
-  display: none; /* Hides scrollbar in WebKit browsers */
+  display: auto; /* Hides scrollbar in WebKit browsers */
 }
 .container-width {
     width: 90%;

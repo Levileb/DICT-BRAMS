@@ -14,7 +14,7 @@
                 display: none !important;
             }
         }
-    </style>
+        </style>
         <title>Barangay Document</title>
 </head>
 

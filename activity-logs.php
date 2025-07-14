@@ -33,11 +33,11 @@
 }
 
 body::-webkit-scrollbar {
-    display: none;
+    display: auto;
 }
 
 .inner-container::-webkit-scrollbar {
-    display: none;
+    display: auto;
 }
 
 .wrapper {

@@ -11,7 +11,7 @@
 
 <style>
 body::-webkit-scrollbar {
-    display: none;
+    display: auto;
 }
 
 .wrapper {

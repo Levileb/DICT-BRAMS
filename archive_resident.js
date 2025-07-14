@@ -100,7 +100,8 @@ function deleteResident(residentId) {
     const residentRef = firebase.database().ref('Archived_Resident/' + residentId);
 
     residentRef.remove().then(() => {
-        alert('Resident deleted successfully!');s
+        alert('Resident deleted successfully!');
+        location.reload();
     }).catch((error) => {
         console.error('Error deleting resident:', error);
         alert('Failed to delete resident.');

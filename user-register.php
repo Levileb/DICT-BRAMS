@@ -116,6 +116,7 @@ body::-webkit-scrollbar {
                 });
 
                 alert("User registered successfully!");
+                location.reload();
             })
             .catch((error) => {
                 var errorCode = error.code;
